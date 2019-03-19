@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/thefuck.gif">
+    <img src="https://ws1.sinaimg.cn/large/a83bb572gy1g18125erxug20go0971df.gif">
     <router-view/>
   </div>
 </template>
