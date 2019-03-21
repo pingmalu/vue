@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import NotFoundComponent from '@/components/404'
+import NotFoundComponent from '@/components/NotFoundComponent'
+import Mshow from '@/components/m-show'
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -12,6 +14,11 @@ export default new VueRouter({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path: '/show',
+      name: 'Mshow',
+      component: Mshow
     },
     { path: '*', component: NotFoundComponent }
   ]
