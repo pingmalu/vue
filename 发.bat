@@ -1,6 +1,6 @@
 @echo off
 @echo ========================================================
-@echo build Push to github
+@echo build
 @echo ========================================================
 
 yarn run build

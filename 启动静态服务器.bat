@@ -1,6 +1,6 @@
 @echo off
 @echo ========================================================
-@echo build Push to github
+@echo http-server ./dist
 @echo ========================================================
 
 http-server ./dist
