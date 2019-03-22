@@ -35,6 +35,7 @@ html {
     Microsoft YaHei, SimSun, sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  background-color: #262629;
 }
 
 a {
@@ -43,7 +44,7 @@ a {
 
 .grid-content {
   background-color: #000000;
-  border-bottom: solid 1px #e6e6e6;
+  /* border-bottom: solid 1px #e6e6e6; */
   height: 60px;
 }
 
@@ -52,6 +53,6 @@ a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #cbcbcb;
 }
 </style>

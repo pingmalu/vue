@@ -43,3 +43,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.el-menu.el-menu--horizontal {
+  border-bottom: none;
+}
+</style>
