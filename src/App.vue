@@ -1,7 +1,16 @@
 <template>
   <div id="app">
-    <Mmenu></Mmenu>
-
+    <el-row>
+      <el-col :xs="0" :sm="1" :md="2" :lg="3" :xl="5">
+        <div class="grid-content"></div>
+      </el-col>
+      <el-col :xs="24" :sm="22" :md="20" :lg="18" :xl="14">
+        <Mmenu></Mmenu>
+      </el-col>
+      <el-col :xs="0" :sm="1" :md="2" :lg="3" :xl="5">
+        <div class="grid-content"></div>
+      </el-col>
+    </el-row>
     <router-view></router-view>
   </div>
 </template>
@@ -30,6 +39,12 @@ html {
 
 a {
   text-decoration: none;
+}
+
+.grid-content {
+  background-color: #000000;
+  border-bottom: solid 1px #e6e6e6;
+  height: 60px;
 }
 
 #app {
