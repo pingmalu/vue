@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import 'element-ui/lib/theme-chalk/display.css';
+
 import {
   Button,
   Menu,
@@ -6,7 +8,12 @@ import {
   MenuItem,
   MenuItemGroup,
   Row,
-  Col
+  Col,
+  Container,
+  Header,
+  Aside,
+  Main,
+  Footer
 } from 'element-ui'
 
 Vue.use(Button);
@@ -16,3 +23,8 @@ Vue.use(MenuItem);
 Vue.use(MenuItemGroup);
 Vue.use(Row);
 Vue.use(Col);
+Vue.use(Container);
+Vue.use(Header);
+Vue.use(Aside);
+Vue.use(Main);
+Vue.use(Footer);
