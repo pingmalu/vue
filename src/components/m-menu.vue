@@ -46,6 +46,6 @@ export default {
 
 <style>
 .el-menu.el-menu--horizontal {
-  border-bottom: none;
+  border-bottom: none !important;
 }
 </style>
