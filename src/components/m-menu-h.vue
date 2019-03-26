@@ -39,6 +39,7 @@ export default {
   props: { moo: String },
   methods: {
     handleSelect(key, keyPath) {
+      this.$emit("show_off");
       console.log(key, keyPath);
     }
   }
