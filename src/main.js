@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import { sync } from 'vuex-router-sync'
+import 'es6-promise/auto'
 import Vuex from 'vuex'
 // import {store} from './vuex/store' // vuex store instance
 import router from './router'
