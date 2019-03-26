@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    :default-active="activeIndex"
+    :default-active="this.$store.state.route.path"
     class="el-menu-malu"
     :router="true"
     :mode="moo"
@@ -23,22 +23,23 @@
         <el-menu-item index="2-4-3">选项3</el-menu-item>
       </el-submenu>
     </el-submenu>
-    <el-menu-item index="3">消息中心</el-menu-item>
+    <el-menu-item index="/3">消息中心</el-menu-item>
   </el-menu>
 </template>
 
 <script>
 export default {
   data() {
-    // console.log(this.$route.path);
+    console.log(this.$store.state.route.path);
     return {
       // activeIndex: "/"
-      activeIndex: this.$route.path
+      // activeIndex: this.$route.path
     };
   },
   props: { moo: String },
   methods: {
     handleSelect(key, keyPath) {
+      // this.activeIndex = this.$store.state.route.path;
       this.$emit("show_off");
       console.log(key, keyPath);
     }
