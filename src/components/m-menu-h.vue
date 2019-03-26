@@ -50,6 +50,6 @@ export default {
   border-bottom: none !important;
 }
 .el-menu {
-  border-right: none;
+  border-right: none !important;
 }
 </style>

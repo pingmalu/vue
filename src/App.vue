@@ -104,11 +104,11 @@ a {
 }
 
 .row-width-1140 {
-  width: 1140px;
+  width: 1140px !important;
 }
 
 .el-header {
-  padding: 0;
+  padding: 0 !important;
   background-color: #000;
 }
 
@@ -157,18 +157,6 @@ a {
   .display-xs-only {
     display: block !important;
   }
-}
-
-.transition-box {
-  margin-bottom: 10px;
-  width: 200px;
-  border-radius: 4px;
-  background-color: #409eff;
-  text-align: center;
-  color: #fff;
-  padding: 40px 20px;
-  box-sizing: border-box;
-  margin-right: 20px;
 }
 
 #app {
