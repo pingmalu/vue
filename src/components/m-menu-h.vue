@@ -1,9 +1,9 @@
 <template>
   <el-menu
     :default-active="activeIndex"
-    class="el-menu-demo"
+    class="el-menu-malu"
     :router="true"
-    :mode="moop"
+    :mode="moo"
     @select="handleSelect"
     background-color="#000"
     text-color="#fff"
@@ -32,14 +32,11 @@ export default {
   data() {
     // console.log(this.$route.path);
     return {
-      moop: "horizontal",
       // activeIndex: "/"
       activeIndex: this.$route.path
     };
   },
-  props: {
-    moo: "horizontal"
-  },
+  props: { moo: String },
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
@@ -51,5 +48,8 @@ export default {
 <style>
 .el-menu.el-menu--horizontal {
   border-bottom: none !important;
+}
+.el-menu {
+  border-right: none;
 }
 </style>

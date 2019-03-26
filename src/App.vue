@@ -4,7 +4,7 @@
       <el-header>
         <el-row type="flex" class="row-bg" justify="center">
           <el-col class="row-width-1140 hidden-xs-only">
-            <Mmenuh></Mmenuh>
+            <Mmenuh moo="horizontal"></Mmenuh>
           </el-col>
           <el-col class="display-xs-only" v-clickoutside="handleClose">
             <div
@@ -19,11 +19,9 @@
                 <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
               </svg>
             </div>
-            <div style="margin-top: 20px; height: 200px;">
               <div v-show="show">
                 <Mmenuh></Mmenuh>
               </div>
-            </div>
           </el-col>
         </el-row>
       </el-header>
