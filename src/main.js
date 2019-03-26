@@ -4,8 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './plugins/element.js'
+import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 
 Vue.config.productionTip = false
+Vue.component(CollapseTransition.name, CollapseTransition)
 
 /* eslint-disable no-new */
 new Vue({

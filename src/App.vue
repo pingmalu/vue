@@ -19,9 +19,11 @@
                 <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
               </svg>
             </div>
-            <div v-show="show">
-              <Mmenuh v-on:show_off="handleClose"></Mmenuh>
-            </div>
+            <el-collapse-transition>
+              <div v-show="show">
+                <Mmenuh v-on:show_off="handleClose"></Mmenuh>
+              </div>
+            </el-collapse-transition>
           </el-col>
         </el-row>
       </el-header>
