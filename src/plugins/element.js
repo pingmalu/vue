@@ -13,7 +13,8 @@ import {
   Header,
   Aside,
   Main,
-  Footer
+  Footer,
+  Tooltip
 } from 'element-ui'
 
 Vue.use(Button);
@@ -28,3 +29,4 @@ Vue.use(Header);
 Vue.use(Aside);
 Vue.use(Main);
 Vue.use(Footer);
+Vue.use(Tooltip);

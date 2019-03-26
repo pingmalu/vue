@@ -7,18 +7,24 @@
             <Mmenuh moo="horizontal"></Mmenuh>
           </el-col>
           <el-col class="display-xs-only" v-clickoutside="handleClose">
-            <div
-              class="row-24"
-              aria-expanded="false"
-              title="主菜单"
-              role="button"
-              tabindex="0"
-              @click="show = !show"
+            <el-tooltip
+              class="item"
+              effect="dark"
+              content="菜单"
+              placement="right"
             >
-              <svg focusable="false" viewBox="0 0 24 24">
-                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-              </svg>
-            </div>
+              <div
+                class="row-24"
+                aria-expanded="false"
+                role="button"
+                tabindex="0"
+                @click="show = !show"
+              >
+                <svg focusable="false" viewBox="0 0 24 24">
+                  <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                </svg>
+              </div>
+            </el-tooltip>
             <el-collapse-transition>
               <div v-show="show">
                 <Mmenuh v-on:show_off="handleClose"></Mmenuh>
