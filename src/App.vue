@@ -6,19 +6,16 @@
           <el-col class="row-width-1140 hidden-xs-only">
             <Mmenuh moo="horizontal"></Mmenuh>
           </el-col>
-          <el-col class="display-xs-only" v-clickoutside="handleClose">
-            <el-tooltip
-              class="item"
-              effect="dark"
-              content="菜单"
-              placement="right"
-            >
+        </el-row>
+        <el-row class="tac">
+          <el-col :span="12" class="display-xs-only" v-clickoutside="handleClose">
+            <el-tooltip class="item" effect="dark" content="菜单" placement="right">
               <div
                 class="row-24"
                 aria-expanded="false"
                 role="button"
                 tabindex="0"
-                @click="show = !show"
+                @click.stop="show = !show"
               >
                 <svg focusable="false" viewBox="0 0 24 24">
                   <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
@@ -27,7 +24,9 @@
             </el-tooltip>
             <el-collapse-transition>
               <div v-show="show">
-                <Mmenuh v-on:show_off="handleClose"></Mmenuh>
+                <el-col>
+                  <Mmenuh v-on:show_off="handleClose"></Mmenuh>
+                </el-col>
               </div>
             </el-collapse-transition>
           </el-col>
@@ -153,6 +152,15 @@ a {
   color: #fefefe;
   fill: currentColor;
   width: 24px;
+}
+
+.tac.el-row {
+    text-align: left;
+}
+
+.el-menu-item {
+    -webkit-transition: border-color .1s,background-color .1s,color .1s;
+    transition: border-color .1s,background-color .1s,color .1s;
 }
 
 @media only screen and (min-width: 767px) {
