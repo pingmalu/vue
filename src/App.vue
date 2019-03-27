@@ -155,12 +155,12 @@ a {
 }
 
 .tac.el-row {
-    text-align: left;
+  text-align: left;
 }
 
 .el-menu-item {
-    -webkit-transition: border-color .1s,background-color .1s,color .1s;
-    transition: border-color .1s,background-color .1s,color .1s;
+  -webkit-transition: border-color 0.1s, background-color 0.1s, color 0.1s;
+  transition: border-color 0.1s, background-color 0.1s, color 0.1s;
 }
 
 @media only screen and (min-width: 767px) {
