@@ -12,7 +12,7 @@
       <section v-else>
         <div v-if="loading">Loading...</div>
 
-        <div v-else v-for="currency in info" :key="currency" class="currency">
+        <div v-else v-for="currency in info" :key='currency.value' class="currency">
           {{ currency.description }}:
           <span class="lighten">
             <span v-html="currency.symbol"></span>
