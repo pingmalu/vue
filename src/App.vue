@@ -23,10 +23,8 @@
               </div>
             </el-tooltip>
             <el-collapse-transition>
-              <div v-show="show">
-                <el-col>
-                  <Mmenuh v-on:show_off="handleClose"></Mmenuh>
-                </el-col>
+              <div v-show="show" style="display:block;">
+                <Mmenuh v-on:show_off="handleClose"></Mmenuh>
               </div>
             </el-collapse-transition>
           </el-col>
