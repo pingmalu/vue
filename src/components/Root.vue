@@ -1,9 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-
-    <div>
-      <h1>Bitcoin Price Index</h1>
+    <div id="bitcoin">
+      <h1>实时比特币价格指数</h1>
 
       <section v-if="errored">
         <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
@@ -12,16 +10,13 @@
       <section v-else>
         <div v-if="loading">Loading...</div>
 
-        <div v-else v-for="currency in info" :key='currency.value' class="currency">
-          {{ currency.description }}:
-          <span class="lighten">
-            <span v-html="currency.symbol"></span>
-            {{ currency.rate_float | currencydecimal }}
-          </span>
+        <div v-else v-for="currency in info" :key="currency.value" class="currency">
+          {{ currency.code | tochinese }}:
+          <span class="lighten">{{ currency.rate_float | currencydecimal }}</span>
         </div>
       </section>
     </div>
-    <ul>
+    <!-- <ul>
       <li>
         <a href="http://router.vuejs.org/" target="_blank">vue-router</a>
       </li>
@@ -34,7 +29,7 @@
       <li>
         <a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
@@ -54,6 +49,16 @@ export default {
   filters: {
     currencydecimal(value) {
       return value.toFixed(2);
+    },
+    tochinese(value) {
+      switch (value) {
+        case "USD":
+          return "美元";
+        case "GBP":
+          return "英镑";
+        case "EUR":
+          return "欧元";
+      }
     }
   },
   mounted() {
@@ -87,5 +92,13 @@ li {
 }
 a {
   color: #42b983;
+}
+#bitcoin{
+      margin-top: 20px;
+    /* width: 300px; */
+    padding: 0 40px 40px;
+    /* background: #2F242C; */
+    border-radius: 5px;
+    color: #B3BFB8;
 }
 </style>

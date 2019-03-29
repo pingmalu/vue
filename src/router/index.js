@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import NotFoundComponent from '@/components/NotFoundComponent'
-import Mshow from '@/components/m-show'
+import Root from '@/components/Root'
+import Show from '@/components/Show'
+import Test from '@/components/Test'
 
 Vue.use(VueRouter)
 
@@ -12,18 +13,26 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
+      name: 'Root',
+      component: Root,
       meta: {
         title: '首页'
       }
     },
     {
       path: '/show',
-      name: 'Mshow',
-      component: Mshow,
+      name: 'Show',
+      component: Show,
       meta: {
         title: '项目'
+      }
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: Test,
+      meta: {
+        title: '测试页面'
       }
     },
     {

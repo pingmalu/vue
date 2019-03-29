@@ -4,7 +4,7 @@
       <el-header>
         <el-row type="flex" class="row-bg" justify="center">
           <el-col class="row-width-1140 hidden-xs-only">
-            <Mmenuh moo="horizontal"></Mmenuh>
+            <Mmenu moo="horizontal"></Mmenu>
           </el-col>
         </el-row>
         <el-row class="tac">
@@ -24,7 +24,7 @@
             </el-tooltip>
             <el-collapse-transition>
               <div v-show="show" style="display:block;">
-                <Mmenuh v-on:show_off="handleClose"></Mmenuh>
+                <Mmenu v-on:show_off="handleClose"></Mmenu>
               </div>
             </el-collapse-transition>
           </el-col>
@@ -34,13 +34,16 @@
       <el-main>
         <router-view></router-view>
       </el-main>
-      <el-footer>foot</el-footer>
+      <el-footer>
+        <Mfoot></Mfoot>
+      </el-footer>
     </el-container>
   </div>
 </template>
 
 <script>
-import Mmenuh from "@/components/m-menu-h";
+import Mmenu from "@/components/m-menu";
+import Mfoot from "@/components/m-foot";
 
 const clickoutside = {
   // 初始化指令
@@ -74,7 +77,8 @@ export default {
   }),
 
   components: {
-    Mmenuh
+    Mmenu,
+    Mfoot
   },
   directives: { clickoutside },
   methods: {
@@ -159,6 +163,8 @@ a {
 .el-menu-item {
   -webkit-transition: border-color 0.1s, background-color 0.1s, color 0.1s;
   transition: border-color 0.1s, background-color 0.1s, color 0.1s;
+}
+.collapse-transition {
 }
 
 @media only screen and (min-width: 767px) {
