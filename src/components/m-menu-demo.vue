@@ -17,7 +17,7 @@
       <i class="el-icon-menu" v-if="!moo"></i>
       <span slot="title">项目</span>
     </el-menu-item>
-    <el-submenu index="2" :show-timeout="100">
+    <el-submenu index="2" show-timeout="0">
       <template slot="title">
         <i class="el-icon-tickets" v-if="!moo"></i>
         <span slot="title">动画</span>
@@ -25,6 +25,12 @@
       <el-menu-item index="/2-1">演示1</el-menu-item>
       <el-menu-item index="/2-2">演示2</el-menu-item>
       <el-menu-item index="/2-3">演示3</el-menu-item>
+      <el-submenu index="/2-4" show-timeout="0">
+        <template slot="title">演示4</template>
+        <el-menu-item index="/2-4-1">演示1</el-menu-item>
+        <el-menu-item index="/2-4-2">演示2</el-menu-item>
+        <el-menu-item index="/2-4-3">演示3</el-menu-item>
+      </el-submenu>
     </el-submenu>
     <el-menu-item index="/test">
       <i class="el-icon-message" v-if="!moo"></i>

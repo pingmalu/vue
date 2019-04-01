@@ -4,6 +4,8 @@ import NotFoundComponent from '@/components/NotFoundComponent'
 import Root from '@/components/Root'
 import Show from '@/components/Show'
 import Test from '@/components/Test'
+import d2_1 from '@/components/2-1'
+import d2_2 from '@/components/2-2'
 
 Vue.use(VueRouter)
 
@@ -33,6 +35,22 @@ const router = new VueRouter({
       component: Test,
       meta: {
         title: '测试页面'
+      }
+    },
+    {
+      path: '/2-1',
+      name: '2-1',
+      component: d2_1,
+      meta: {
+        title: 'DEMO'
+      }
+    },
+    {
+      path: '/2-2',
+      name: '2-2',
+      component: d2_2,
+      meta: {
+        title: 'DEMO'
       }
     },
     {
