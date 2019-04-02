@@ -5,7 +5,16 @@
 </template>
  
 <script>
-import * as Three from "three";
+import {
+  Scene,
+  Color,
+  PerspectiveCamera,
+  WebGLRenderer,
+  IcosahedronGeometry,
+  MeshNormalMaterial,
+  Mesh,
+  PointLight
+} from "three";
 
 export default {
   name: "root1",
@@ -18,13 +27,31 @@ export default {
       shape: []
     };
   },
+  mounted() {
+    this.init();
+    this.animate();
+  },
+  // created(){
+  //   this.init()
+  // },
   methods: {
     init: function() {
       let container = document.getElementById("container");
 
       //创建颜色对象
-      let blue = new Three.Color(0x7658ef);
-      let pink = new Three.Color(0xfca4c5);
+      let blue = new Color(0x7658ef);
+      let pink = new Color(0xfca4c5);
+
+      let Three = {
+        Scene,
+        Color,
+        PerspectiveCamera,
+        WebGLRenderer,
+        IcosahedronGeometry,
+        MeshNormalMaterial,
+        Mesh,
+        PointLight
+      };
 
       //创建场景对象
       this.scene = new Three.Scene();
@@ -94,10 +121,6 @@ export default {
       this.shape[2].rotation.x += 0.005;
       this.renderer.render(this.scene, this.camera);
     }
-  },
-  mounted() {
-    this.init();
-    this.animate();
   }
 };
 </script>
