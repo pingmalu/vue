@@ -496,7 +496,7 @@ export default {
         }
       },
       info: {
-        name: "马路个人网站",
+        name: "网站状态",
         value: 100,
         label: { color: "rgb(255, 208, 75)" },
         children: [
