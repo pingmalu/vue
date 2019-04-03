@@ -613,7 +613,7 @@ export default {
       myChart.showLoading();
       start_run(this.info);
       axios
-        .get("http://malu.me/api/websitestatus")
+        .get("//malu.me/api/websitestatus")
         .then(response => {
           this.shape = response.data.data;
           // this.info.children = this.shape
