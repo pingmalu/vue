@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="root2" :style="{width: '100%', height: '300px'}"></div>
+    <div id="root2" :style="{width: '300px', height: '300px'}"></div>
   </div>
 </template>
 

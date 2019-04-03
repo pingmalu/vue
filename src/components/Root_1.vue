@@ -30,6 +30,15 @@ export default {
   mounted() {
     this.init();
     this.animate();
+    window.onresize = () => {
+      // 通过捕获系统的onresize事件触发我们需要执行的事件
+      let container = document.getElementById("container");
+      this.camera.aspect = container.clientWidth / container.clientHeight;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(container.clientWidth, container.clientHeight);
+      // this.init();
+      // this.animate();
+    };
   },
   // created(){
   //   this.init()
@@ -108,7 +117,7 @@ export default {
       this.scene.add(light);
 
       //透视投影相机位置 x y z
-      this.camera.position.set(3, 4, 10);
+      this.camera.position.set(3, 5, 10);
     },
     animate: function() {
       requestAnimationFrame(this.animate);
@@ -126,7 +135,8 @@ export default {
 </script>
 <style scoped>
 #container {
-  height: 400px;
+  height: 300px;
+  width:300px;
 }
 h1,
 h2 {
