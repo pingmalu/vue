@@ -635,6 +635,10 @@ svg:hover #more{
     #menu2 ul li a span {
         width: 180px;
     }
+    #search_close {
+        top: 0px;
+        right: 0px;
+    }
 }
 
 @media only screen and (max-width: 1324px) {
