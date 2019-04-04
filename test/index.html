@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+    
 
     <meta name="description" content="萌马笔记">
     <meta property="og:description" content="萌马笔记" />
@@ -237,11 +237,11 @@
     </div>
     <link href="menu.css" rel="stylesheet">
     <div id="menu2">
-        <div class="more">
+        <div class="more" data-hint="菜单">
             <svg focusable="false" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
         </div>
         <div class="logo"></div>
-        <ul>
+        <ul class="menulist">
             <li><a class="tb" href="//malu.me/" title="首页">网站首页</a></li>
             <li><a class="tb" href="http://git.malu.me/" title="萌马笔记">萌马笔记</a></li>
             <li><a class="tb" href="http://cdn.malu.me/music/" title="聆听在线音乐">音乐时空</a></li>
@@ -269,8 +269,7 @@
         </ul>
         <div id="kong"> <a href="//malu.me/links/" data-hint="在线工具">
                 <div class="mon">
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg width="22px" height="22px" viewBox="0 0 22 22">
                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <g id="malu-1440" transform="translate(-1194.000000, -29.000000)">
                                 <g id="more_icon-copy" transform="translate(1193.000000, 28.000000)">
@@ -322,7 +321,25 @@
     <script src="//malu.me/m/closemalu.js"></script>
     <script src="//malu.me/m/updownmalu.js"></script>
 
-
+<script>
+document.write("<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>");
+$(window).resize(function(){
+    if($(window).width()>1182)
+        $('#menu2>ul').show();
+});
+$(document).click(function(){
+    if($(window).width()<=1182)
+        $('#menu2>ul').hide();
+});
+$('#menu2 .more').click(function(event){
+    event.stopPropagation();
+    $('#menu2>ul').toggle();
+});
+$('#menu2 .lihover>a').live('click', function(event) {
+    event.stopPropagation();
+    event.preventDefault();  
+});
+</script>
 </body>
 
 </html>

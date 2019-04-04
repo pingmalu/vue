@@ -111,7 +111,6 @@ a:link, a:visited, a:active {
     background-image: none;
     margin: 0;
     padding: 0;
-    width: 90px
 }
 
 #menu2 ul li:hover ul {
@@ -183,6 +182,10 @@ a:link, a:visited, a:active {
 }
 
 svg:hover #more{
+    fill: #2CC4FF;
+}
+
+.more svg:hover path{
     fill: #2CC4FF;
 }
 
@@ -588,11 +591,14 @@ svg:hover #more{
     #menu2 .more {
         display: block;
     }
+    #menu2 .more[data-hint]:before {
+        left: 16px;
+    }
+    #menu2 .more[data-hint]:after {
+        left: 20px;
+    }
     #menu2 .logo {
         margin-left: 11%;
-    }
-    #menu2:hover>ul {
-        display: block;
     }
     #menu2 ul {
         display: none;
@@ -600,12 +606,16 @@ svg:hover #more{
         /* position: relative; */
         margin: 32px 0 0 0;
         padding-left: 0;
+        box-shadow: 0 0 5px #000;
     }
     #menu2 ul li {
         float: none;
     }
     #menu2 ul li ul {
-        margin: -32px 0 0 90px;
+        margin: -32px 0 0 180px;
+    }
+    #menu2 ul li a span.out {
+        background: #3C3C3C;
     }
     #menu2 #m_search {
         max-width: 152px;
@@ -613,14 +623,17 @@ svg:hover #more{
     #search_body {
         overflow: hidden;
     }
-    #search_body:hover+.logo {
-        display: none !important;
-    }
     #menu2 #malu_search {
         margin-right: 21px;
     }
     #kong {
         margin-right: 61px;
+    }
+    #menu2 ul li a {
+        width: 180px;
+    }
+    #menu2 ul li a span {
+        width: 180px;
     }
 }
 
