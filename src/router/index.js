@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import NotFoundComponent from '@/components/NotFoundComponent'
-// import Root from '@/components/Root'
-// import Show from '@/components/Show'
-// import Test from '@/components/Test'
-// import d2_1 from '@/components/2-1'
-// import d2_2 from '@/components/2-2'
+import NotFoundComponent from '@/components/NotFoundComponent'
+import Root from '@/components/Root'
+import Show from '@/components/Show'
+import Test from '@/components/Test'
+import d2_1 from '@/components/2-1'
+import d2_2 from '@/components/2-2'
 
 Vue.use(VueRouter)
 
@@ -16,8 +16,8 @@ const router = new VueRouter({
     {
       path: '/',
       name: 'Root',
-      // component: Root,
-      component: () => import('@/components/Root'),
+      component: Root,
+      // component: () => import('@/components/Root'),
       meta: {
         title: '首页'
       }
@@ -25,8 +25,8 @@ const router = new VueRouter({
     {
       path: '/show',
       name: 'Show',
-      // component: Show,
-      component: () => import('@/components/Show'),
+      component: Show,
+      // component: () => import('@/components/Show'),
       meta: {
         title: '项目'
       }
@@ -34,8 +34,8 @@ const router = new VueRouter({
     {
       path: '/test',
       name: 'Test',
-      // component: Test,
-      component: () => import('@/components/Test'),
+      component: Test,
+      // component: () => import('@/components/Test'),
       meta: {
         title: '测试页面'
       }
@@ -43,8 +43,8 @@ const router = new VueRouter({
     {
       path: '/2-1',
       name: '2-1',
-      // component: d2_1,
-      component: () => import('@/components/2-1'),
+      component: d2_1,
+      // component: () => import('@/components/2-1'),
       meta: {
         title: 'DEMO'
       }
@@ -52,15 +52,16 @@ const router = new VueRouter({
     {
       path: '/2-2',
       name: '2-2',
-      // component: d2_2,
-      component: () => import('@/components/2-2'),
+      component: d2_2,
+      // component: () => import('@/components/2-2'),
       meta: {
         title: 'DEMO'
       }
     },
     {
       path: '*',
-      component: () => import('@/components/NotFoundComponent'),
+      component: NotFoundComponent,
+      // component: () => import('@/components/NotFoundComponent'),
       meta: {
         title: '404 找不到页面'
       }
