@@ -243,7 +243,7 @@
         <div class="logo"></div>
         <ul class="menulist">
             <li><a class="tb" href="//malu.me/" title="首页">网站首页</a></li>
-            <li><a class="tb" href="http://git.malu.me/" title="萌马笔记">萌马笔记</a></li>
+            <li><a class="cb" href="http://git.malu.me/" title="萌马笔记">萌马笔记</a></li>
             <li><a class="tb" href="http://cdn.malu.me/music/" title="聆听在线音乐">音乐时空</a></li>
             <li><a class="tb" href="http://photo.malu.me/" title="一个图片分享小站">图片相册</a></li>
             <li><a class="tb" href="http://cdn.malu.me/weibo/" title="最新微博">最新微博</a></li>
@@ -321,25 +321,7 @@
     <script src="//malu.me/m/closemalu.js"></script>
     <script src="//malu.me/m/updownmalu.js"></script>
 
-<script>
-document.write("<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>");
-$(window).resize(function(){
-    if($(window).width()>1182)
-        $('#menu2>ul').show();
-});
-$(document).click(function(){
-    if($(window).width()<=1182)
-        $('#menu2>ul').hide();
-});
-$('#menu2 .more').click(function(event){
-    event.stopPropagation();
-    $('#menu2>ul').toggle();
-});
-$('#menu2 .lihover>a').live('click', function(event) {
-    event.stopPropagation();
-    event.preventDefault();  
-});
-</script>
+
 </body>
 
 </html>

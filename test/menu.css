@@ -216,7 +216,7 @@ svg:hover #more{
     border: 8px solid transparent;
     border-top-color: #5C5C5C;
     top: 32px;
-    margin-left: 10px;
+    margin-left: 8px;
     display: block
 }
 
@@ -624,10 +624,10 @@ svg:hover #more{
         overflow: hidden;
     }
     #menu2 #malu_search {
-        margin-right: 21px;
+        margin-right: 8px;
     }
     #kong {
-        margin-right: 61px;
+        margin-right: 15px;
     }
     #menu2 ul li a {
         width: 180px;
@@ -639,6 +639,12 @@ svg:hover #more{
         top: 0px;
         right: 0px;
     }
+    #menu2 ul li a.cb {
+        line-height: unset;
+        border-top: none;
+        background-color: #4e4e4e !important;
+        background: -webkit-linear-gradient(#666666, #656565) !important;
+    }
 }
 
 @media only screen and (max-width: 1324px) {
@@ -646,6 +652,6 @@ svg:hover #more{
         max-width: 152px;
     }
     #menu2 #malu_search {
-        margin-right: 21px;
+        margin-right: 8px;
     }
 }
