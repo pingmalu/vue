@@ -20,11 +20,12 @@
     <el-submenu index="2" :show-timeout="100">
       <template slot="title">
         <i class="el-icon-tickets" v-if="!moo"></i>
-        <span slot="title">动画</span>
+        <span slot="title">演示</span>
       </template>
-      <el-menu-item index="/2-1">演示1</el-menu-item>
-      <el-menu-item index="/2-2">演示2</el-menu-item>
-      <el-menu-item index="/2-3">演示3</el-menu-item>
+      <el-menu-item index="/d1">演示1</el-menu-item>
+      <el-menu-item index="/d2">演示2</el-menu-item>
+      <el-menu-item index="/d3">演示3</el-menu-item>
+      <el-menu-item index="/d4">演示4</el-menu-item>
     </el-submenu>
     <el-menu-item index="/test">
       <i class="el-icon-message" v-if="!moo"></i>
@@ -36,7 +37,7 @@
 <script>
 export default {
   data() {
-    console.log(this.$store.state.route.path);
+    // console.log(this.$store.state.route.path);
     return {
       // activeIndex: "/"
       // activeIndex: this.$route.path
@@ -59,6 +60,7 @@ export default {
 }
 .el-menu {
   border-right: none !important;
+  z-index: 1;
 }
 .el-submenu .el-menu-item {
   min-width: 100px !important;

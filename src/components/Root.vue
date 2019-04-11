@@ -1,25 +1,31 @@
 <template>
   <div class="root">
-    <root1 class="root1"></root1>
-    <root2 class="root2"></root2>
+    <d1 class="d1"></d1>
+    <d2 class="d2"></d2>
+    <d3 class="d3"></d3>
+    <d4 class="d4"></d4>
   </div>
 </template>
  
 <script>
-import root1 from "@/components/Root_1";
-import root2 from "@/components/Root_2";
+import d1 from "@/components/d1";
+import d2 from "@/components/d2";
+import d3 from "@/components/d3";
+import d4 from "@/components/d4";
 
 export default {
   components: {
-    root1,
-    root2
+    d1,
+    d2,
+    d3,
+    d4
   }
 };
 </script>
 <style scoped>
 .root {
   width: 100%;
-  max-width: 1140px;
+  /* max-width: 1140px; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

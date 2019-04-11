@@ -17,7 +17,7 @@ import {
 } from "three";
 
 export default {
-  name: "root1",
+  name: "d1",
   data() {
     return {
       camera: null,
@@ -136,7 +136,8 @@ export default {
 <style scoped>
 #container {
   height: 300px;
-  width:300px;
+  width: 300px;
+  margin: 0 auto;
 }
 h1,
 h2 {

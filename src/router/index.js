@@ -4,8 +4,10 @@ import NotFoundComponent from '@/components/NotFoundComponent'
 import Root from '@/components/Root'
 import Show from '@/components/Show'
 import Test from '@/components/Test'
-import d2_1 from '@/components/2-1'
-import d2_2 from '@/components/2-2'
+import d1 from '@/components/d1'
+import d2 from '@/components/d2'
+import d3 from '@/components/d3'
+import d4 from '@/components/d4'
 
 Vue.use(VueRouter)
 
@@ -41,19 +43,37 @@ const router = new VueRouter({
       }
     },
     {
-      path: '/2-1',
-      name: '2-1',
-      component: d2_1,
+      path: '/d1',
+      name: 'd1',
+      component: d1,
       // component: () => import('@/components/2-1'),
       meta: {
         title: 'DEMO'
       }
     },
     {
-      path: '/2-2',
-      name: '2-2',
-      component: d2_2,
-      // component: () => import('@/components/2-2'),
+      path: '/d2',
+      name: 'd2',
+      component: d2,
+      // component: () => import('@/components/2-1'),
+      meta: {
+        title: 'DEMO'
+      }
+    },
+    {
+      path: '/d3',
+      name: 'd3',
+      component: d3,
+      // component: () => import('@/components/2-1'),
+      meta: {
+        title: 'DEMO'
+      }
+    },
+    {
+      path: '/d4',
+      name: 'd4',
+      component: d4,
+      // component: () => import('@/components/2-1'),
       meta: {
         title: 'DEMO'
       }
