@@ -9,6 +9,8 @@ import d2 from '@/components/d2'
 import d3 from '@/components/d3'
 import d4 from '@/components/d4'
 
+import d1d1 from '@/components/d1.1'
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -36,7 +38,7 @@ const router = new VueRouter({
     {
       path: '/test',
       name: 'Test',
-      component: Test,
+      component: d1d1,
       // component: () => import('@/components/Test'),
       meta: {
         title: '测试页面'
