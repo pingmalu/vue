@@ -4,7 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -40,6 +40,14 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: require.resolve("three/examples/js/controls/OrbitControls"),
+        use: "imports-loader?THREE=three"
+      },
+      {
+        test: require.resolve("three/examples/js/controls/OrbitControls"),
+        use: "exports-loader?THREE.OrbitControls"
+      },
       // ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
