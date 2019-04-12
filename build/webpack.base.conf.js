@@ -48,6 +48,14 @@ module.exports = {
         test: require.resolve("three/examples/js/controls/OrbitControls"),
         use: "exports-loader?THREE.OrbitControls"
       },
+      {
+        test: require.resolve("../plugins/bas.js"),
+        use: "imports-loader?THREE=three"
+      },
+      {
+        test: require.resolve("../plugins/bas.js"),
+        use: "exports-loader?THREE.BAS"
+      },
       // ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,

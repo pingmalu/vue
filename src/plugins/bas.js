@@ -1,6 +1,3 @@
-import THREE from '../plugins/three.min.js'
-
-
 THREE.BAS = {};
 
 THREE.BAS.ShaderChunk = {};
@@ -992,7 +989,7 @@ THREE.BAS.BasicAnimationMaterial.prototype._concatVertexShader = function() {
     THREE.ShaderChunk[ "color_vertex" ],
     THREE.ShaderChunk[ "skinbase_vertex" ],
 
-    "	#ifdef USE_ENVMAP",
+    "   #ifdef USE_ENVMAP",
 
     THREE.ShaderChunk[ "beginnormal_vertex" ],
 
@@ -1002,7 +999,7 @@ THREE.BAS.BasicAnimationMaterial.prototype._concatVertexShader = function() {
     THREE.ShaderChunk[ "skinnormal_vertex" ],
     THREE.ShaderChunk[ "defaultnormal_vertex" ],
 
-    "	#endif",
+    "   #endif",
 
     THREE.ShaderChunk[ "begin_vertex" ],
 
@@ -1049,7 +1046,7 @@ THREE.BAS.PhongAnimationMaterial.prototype._concatVertexShader = function() {
 
         "#ifndef FLAT_SHADED",
 
-        "	varying vec3 vNormal;",
+        "   varying vec3 vNormal;",
 
         "#endif",
 
@@ -1087,7 +1084,7 @@ THREE.BAS.PhongAnimationMaterial.prototype._concatVertexShader = function() {
 
         "#ifndef FLAT_SHADED", // Normal computed with derivatives when FLAT_SHADED
 
-        "	vNormal = normalize( transformedNormal );",
+        "   vNormal = normalize( transformedNormal );",
 
         "#endif",
 
@@ -1101,7 +1098,7 @@ THREE.BAS.PhongAnimationMaterial.prototype._concatVertexShader = function() {
         THREE.ShaderChunk[ "project_vertex" ],
         THREE.ShaderChunk[ "logdepthbuf_vertex" ],
 
-        "	vViewPosition = - mvPosition.xyz;",
+        "   vViewPosition = - mvPosition.xyz;",
 
         THREE.ShaderChunk[ "worldpos_vertex" ],
         THREE.ShaderChunk[ "envmap_vertex" ],
