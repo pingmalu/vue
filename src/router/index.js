@@ -11,11 +11,16 @@ import d4 from '@/components/d4'
 
 import d1d1 from '@/components/d1.1'
 
+
+const config = require('../../config');
+// console.log(config);
+// console.log(process.env.NODE_ENV === 'development');
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
-  base: '/vue/',
+  base: (process.env.NODE_ENV === 'development') ? config.dev.assetsPublicPath : config.build.assetsPublicPath,
   routes: [
     {
       path: '/',

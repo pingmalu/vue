@@ -49,11 +49,11 @@ module.exports = {
         use: "exports-loader?THREE.OrbitControls"
       },
       {
-        test: require.resolve("../plugins/bas.js"),
+        test: require.resolve("../static/js/bas.js"),
         use: "imports-loader?THREE=three"
       },
       {
-        test: require.resolve("../plugins/bas.js"),
+        test: require.resolve("../static/js/bas.js"),
         use: "exports-loader?THREE.BAS"
       },
       // ...(config.dev.useEslint ? [createLintingRule()] : []),
