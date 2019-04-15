@@ -177,6 +177,10 @@ a {
   .display-xs-only {
     display: block !important;
   }
+  .el-main {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 #app {
@@ -185,9 +189,5 @@ a {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #cbcbcb;
-}
-.el-main {
-    padding-left: 0px;
-    padding-right: 0px;
 }
 </style>
