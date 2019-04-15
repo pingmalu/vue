@@ -186,4 +186,8 @@ a {
   text-align: center;
   color: #cbcbcb;
 }
+.el-main {
+    padding-left: 0px;
+    padding-right: 0px;
+}
 </style>

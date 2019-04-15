@@ -58,13 +58,13 @@ import OrbitControls from "three/examples/js/controls/OrbitControls";
             tl.add(slide.transition(), 0);
             tl.add(slide2.transition(), 0);
 
-            createTweenScrubber(tl);
+            // createTweenScrubber(tl);
 
-            window.addEventListener('keyup', function (e) {
+/*             window.addEventListener('keyup', function (e) {
                 if (e.keyCode === 80) {
                     tl.paused(!tl.paused());
                 }
-            });
+            }); */
         }
 
         ////////////////////
@@ -494,8 +494,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #d1d2 {
-  width: 800px;
-  height: 400px;
+  width: 375px;
+  /* height: 400px; */
   margin: 0 auto;
 }
 </style>
