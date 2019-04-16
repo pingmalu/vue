@@ -27,7 +27,7 @@ export default {
       info: {
         name: "网站状态",
         value: 100,
-        label: { color: "rgb(255, 208, 75)" },
+        label: { color: "rgb(238, 197, 102)" },
         children: [
           {
             name: "malu.me",
@@ -118,9 +118,9 @@ export default {
         this.info.children[i] = { name: e[0] };
         this.info.children[i].value = e[2];
         if (e[1] != 2) {
-          this.info.children[i].label = { color: "#f28601" };
+          this.info.children[i].label = { color: "rgb(238, 197, 102)" };
         } else {
-          this.info.children[i].label = { color: "#a1f201" };
+          this.info.children[i].label = { color: "#92be82" };
         }
         // this.info.children[i]=["value":e[2]];
         i++;
@@ -185,7 +185,7 @@ export default {
               bottom: "1%",
               right: "100px",
 
-              symbolSize: 7,
+              symbolSize: 1,
               initialTreeDepth: -1,
 
               label: {
@@ -207,10 +207,10 @@ export default {
               itemStyle: {
                 color: "#ddd",
                 borderColor: "#ddd",
-                borderWidth: 5
+                borderWidth: 0
               },
               lineStyle: {
-                color: "#ddd"
+                color: "rgba(238, 197, 102, 0.3)"
               },
 
               leaves: {

@@ -67,7 +67,7 @@ export default {
         tooltip: {},
 
         title: {
-          text: "AQI - 苏州",
+          text: "苏州",
           left: "center",
           textStyle: {
             color: "#eee"
