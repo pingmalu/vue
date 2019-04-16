@@ -10,11 +10,13 @@ import router from './router'
 import './plugins/element.js'
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 
+import importJs from './common/importJs';
+
 // 使用vuex插件
 Vue.use(Vuex)
 
 Vue.config.productionTip = false
-Vue.component(CollapseTransition.name, CollapseTransition)
+Vue.component(CollapseTransition.name, CollapseTransition);
 
 const store = new Vuex.Store()
 
