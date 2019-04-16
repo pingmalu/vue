@@ -34,13 +34,13 @@ import OrbitControls from "three/examples/js/controls/OrbitControls";
             root.renderer.setPixelRatio(window.devicePixelRatio || 1);
             root.camera.position.set(0, 0, 60);
 
-            var width = 100;
-            var height = 60;
+            var width = 150; // 100
+            var height = 50; // 60
 
             var slide = new Slide(width, height, 'out');
             var l1 = new THREE.ImageLoader();
             l1.setCrossOrigin('Anonymous');
-            l1.load('static/image/a.gif', function (img) {
+            l1.load('static/image/a.png', function (img) {
                 slide.setImage(img);
             });
             root.scene.add(slide);
@@ -48,16 +48,27 @@ import OrbitControls from "three/examples/js/controls/OrbitControls";
             var slide2 = new Slide(width, height, 'in');
             var l2 = new THREE.ImageLoader();
             l2.setCrossOrigin('Anonymous');
-            l2.load('static/image/b.gif', function (img) {
+            l2.load('static/image/b.png', function (img) {
                 slide2.setImage(img);
             });
 
             root.scene.add(slide2);
 
+
+/*             var slide3 = new Slide(width, height, 'in');
+            var l3 = new THREE.ImageLoader();
+            l3.setCrossOrigin('Anonymous');
+            l3.load('static/image/c.png', function (img) {
+                slide3.setImage(img);
+            });
+
+            root.scene.add(slide3); */
+
             var tl = new TimelineMax({ repeat: -1, repeatDelay: 1.0, yoyo: true });
 
             tl.add(slide.transition(), 0);
             tl.add(slide2.transition(), 0);
+            // tl.add(slide3.transition(), 0);
 
             // createTweenScrubber(tl);
 
@@ -494,8 +505,20 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #d1d2 {
-  width: 375px;
-  /* height: 400px; */
+  /* width: 1920px; */
+  height: 400px;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+    #d1d2 {
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #d1d2 {
+        height: 200px;
+    }
 }
 </style>
