@@ -26,6 +26,7 @@
       <el-menu-item index="/d2">演示2</el-menu-item>
       <el-menu-item index="/d3">演示3</el-menu-item>
       <el-menu-item index="/d4">演示4</el-menu-item>
+      <el-menu-item index="/d5">演示5</el-menu-item>
     </el-submenu>
     <el-menu-item index="/test">
       <i class="el-icon-message" v-if="!moo"></i>

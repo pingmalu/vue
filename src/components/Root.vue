@@ -1,5 +1,7 @@
 <template>
   <div class="root">
+    <d6 class="d6" :style="{width: '820px'}"></d6>
+    <d5 class="d5"></d5>
     <d1 class="d1"></d1>
     <d2 class="d2"></d2>
     <d3 class="d3"></d3>
@@ -12,13 +14,17 @@ import d1 from "@/components/d1";
 import d2 from "@/components/d2";
 import d3 from "@/components/d3";
 import d4 from "@/components/d4";
+import d5 from "@/components/d5";
+import d6 from "@/components/d6";
 
 export default {
   components: {
     d1,
     d2,
     d3,
-    d4
+    d4,
+    d5,
+    d6
   }
 };
 </script>

@@ -2,12 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import NotFoundComponent from '@/components/NotFoundComponent'
 import Root from '@/components/Root'
-import Show from '@/components/Show'
+// import Show from '@/components/Show'
 import Test from '@/components/Test'
 import d1 from '@/components/d1'
 import d2 from '@/components/d2'
 import d3 from '@/components/d3'
 import d4 from '@/components/d4'
+import d5 from '@/components/d5'
+import d6 from '@/components/d6'
 
 import d1d1 from '@/components/d1.1'
 
@@ -34,7 +36,7 @@ const router = new VueRouter({
     {
       path: '/show',
       name: 'Show',
-      component: Show,
+      component: d6,
       // component: () => import('@/components/Show'),
       meta: {
         title: '项目'
@@ -80,6 +82,15 @@ const router = new VueRouter({
       path: '/d4',
       name: 'd4',
       component: d4,
+      // component: () => import('@/components/2-1'),
+      meta: {
+        title: 'DEMO'
+      }
+    },
+    {
+      path: '/d5',
+      name: 'd5',
+      component: d5,
       // component: () => import('@/components/2-1'),
       meta: {
         title: 'DEMO'

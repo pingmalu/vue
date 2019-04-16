@@ -1,6 +1,6 @@
 <template>
   <div class="show">
-    <h1>{{ msg }}</h1>
+    <!-- <h1>{{ msg }}</h1> -->
 
     <div id="d1d2"></div>
 
@@ -489,7 +489,7 @@ import OrbitControls from "three/examples/js/controls/OrbitControls";
 
 
 export default {
-  name: "show",
+  name: "d6",
   data() {
     return {
       msg: null,
