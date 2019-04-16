@@ -15,11 +15,14 @@ import BAS from "../../static/js/bas.js";
 import 'gsap';
 import OrbitControls from "three/examples/js/controls/OrbitControls";
 
+                  var container;
 
         // window.onload = init;
         console.ward = function () { }; // what warnings?
 
         function init() {
+                  container = document.getElementById("d1d2");
+
             var root = new THREERoot({
                 createCameraControls: !true,
                 antialias: window.devicePixelRatio === 1,
@@ -287,7 +290,6 @@ import OrbitControls from "three/examples/js/controls/OrbitControls";
             });
 
             this.renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
-let container = document.getElementById("d1d2");
 
             container.appendChild(this.renderer.domElement);
 
@@ -325,7 +327,6 @@ let container = document.getElementById("d1d2");
                 this.renderer.render(this.scene, this.camera);
             },
             resize: function () {
-              let container = document.getElementById("d1d2");
 
                 this.camera.aspect = container.clientWidth / container.clientHeight;
                 this.camera.updateProjectionMatrix();
@@ -484,6 +485,7 @@ export default {
     };
   },
   mounted() {
+
     init();
   }
 };

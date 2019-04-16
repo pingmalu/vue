@@ -33,11 +33,14 @@ export default {
     window.onresize = () => {
       // 通过捕获系统的onresize事件触发我们需要执行的事件
       let container = document.getElementById("container");
-      this.camera.aspect = container.clientWidth / container.clientHeight;
-      this.camera.updateProjectionMatrix();
-      this.renderer.setSize(container.clientWidth, container.clientHeight);
-      // this.init();
-      // this.animate();
+      if (container) {
+        // console.log(container);
+        this.camera.aspect = container.clientWidth / container.clientHeight;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(container.clientWidth, container.clientHeight);
+        // this.init();
+        // this.animate();
+      }
     };
   },
   // created(){
