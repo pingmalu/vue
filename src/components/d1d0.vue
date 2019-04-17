@@ -2,11 +2,11 @@
   <div>
     <div id="d5">
       <div class="wrapper">
-        <svg width="100%" height="100">
-          <text text-anchor="middle" x="50%" y="50%" class="text text-1">malu.me</text>
-          <text text-anchor="middle" x="50%" y="50%" class="text text-2">malu.me</text>
-          <text text-anchor="middle" x="50%" y="50%" class="text text-3">malu.me</text>
-          <text text-anchor="middle" x="50%" y="50%" class="text text-4">malu.me</text>
+        <svg width="100%" height="140">
+          <text text-anchor="middle" x="50%" y="50%" class="text text-1">实验室</text>
+          <text text-anchor="middle" x="50%" y="50%" class="text text-2">实验室</text>
+          <text text-anchor="middle" x="50%" y="50%" class="text text-3">实验室</text>
+          <text text-anchor="middle" x="50%" y="50%" class="text text-4">实验室</text>
         </svg>
       </div>
     </div>
@@ -31,7 +31,7 @@ export default {
 
 
 .wrapper{
-    margin-top: 80px;
+    margin-top: 60px;
 }
 .text{
     font-size: 64px;

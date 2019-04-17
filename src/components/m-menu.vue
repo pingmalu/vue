@@ -11,7 +11,7 @@
   >
     <el-menu-item index="/">
       <i class="el-icon-location-outline" v-if="!moo"></i>
-      <span slot="title">首页</span>
+      <span slot="title">实验室</span>
     </el-menu-item>
     <el-menu-item index="/show">
       <i class="el-icon-menu" v-if="!moo"></i>

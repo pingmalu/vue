@@ -1,9 +1,9 @@
 <template>
   <div class="root">
-    <d1d0 class="d6" :style="{width: '820px'}"></d1d0>
+    <d4d0 class="d2" :style="{width: '820px'}"></d4d0>
+    <d1d0 class="d6"></d1d0>
     <d2d0 class="d5"></d2d0>
     <d3d0 class="d1"></d3d0>
-    <d4d0 class="d2"></d4d0>
     <d2d1 class="d3"></d2d1>
     <!-- <d3d1 class="d4"></d3d1> -->
     <d2d2 class="d4"></d2d2>

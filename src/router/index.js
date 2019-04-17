@@ -19,7 +19,7 @@ var routes = [
     component: Root,
     // component: () => import('@/components/Root'),
     meta: {
-      title: '首页'
+      title: '实验室'
     }
   },
   {
