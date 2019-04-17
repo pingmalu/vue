@@ -103,6 +103,16 @@ var routes = [
   }
 ];
 
+routes[routes.length] = {
+  path: '/d6',
+  name: 'd6',
+  component: d6,
+  // component: () => import('@/components/2-1'),
+  meta: {
+    title: 'DEMO'
+  }
+};
+
 console.log(routes);
 
 const router = new VueRouter({
