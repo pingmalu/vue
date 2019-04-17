@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="d1d1"></div>
+    <div id="d3d1"></div>
   </div>
 </template>
  
@@ -21,7 +21,7 @@ import {
 import OrbitControls from "three/examples/js/controls/OrbitControls";
 
 export default {
-  name: "d1d1",
+  name: "d3d1",
   data() {
     return {
       camera: null,
@@ -39,7 +39,7 @@ export default {
 
     window.onresize = () => {
       // 通过捕获系统的onresize事件触发我们需要执行的事件
-      let container = document.getElementById("d1d1");
+      let container = document.getElementById("d3d1");
       this.camera.aspect = container.clientWidth / container.clientHeight;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(container.clientWidth, container.clientHeight);
@@ -52,7 +52,7 @@ export default {
   // },
   methods: {
     init: function() {
-      let container = document.getElementById("d1d1");
+      let container = document.getElementById("d3d1");
 
       //创建颜色对象
       let blue = new Color(0x7658ef);
@@ -150,7 +150,7 @@ export default {
 };
 </script>
 <style scoped>
-#d1d1 {
+#d3d1 {
   height: 600px;
   width: 600px;
   margin: 0 auto;

@@ -22,12 +22,19 @@
         <i class="el-icon-tickets" v-if="!moo"></i>
         <span slot="title">演示</span>
       </template>
-      <el-menu-item index="/d1">演示1</el-menu-item>
-      <el-menu-item index="/d2">演示2</el-menu-item>
-      <el-menu-item index="/d3">演示3</el-menu-item>
-      <el-menu-item index="/d4">演示4</el-menu-item>
-      <el-menu-item index="/d5">演示5</el-menu-item>
-      <el-menu-item index="/d6">演示6</el-menu-item>
+      <el-menu-item index="/d1d0">演示1</el-menu-item>
+      <el-menu-item index="/d2d0">演示2</el-menu-item>
+      <el-menu-item index="/d2d1">演示3</el-menu-item>
+      <el-menu-item index="/d2d2">演示4</el-menu-item>
+    </el-submenu>
+    <el-submenu index="3" :show-timeout="100">
+      <template slot="title">
+        <i class="el-icon-tickets" v-if="!moo"></i>
+        <span slot="title">3D</span>
+      </template>
+      <el-menu-item index="/d3d0">演示1</el-menu-item>
+      <el-menu-item index="/d3d1">演示2</el-menu-item>
+      <el-menu-item index="/d4d0">演示3</el-menu-item>
     </el-submenu>
     <el-menu-item index="/test">
       <i class="el-icon-message" v-if="!moo"></i>

@@ -2,17 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import NotFoundComponent from '@/components/NotFoundComponent'
 import Root from '@/components/Root'
-// import Show from '@/components/Show'
-// import Test from '@/components/Test'
-import d1 from '@/components/d1'
-import d2 from '@/components/d2'
-import d3 from '@/components/d3'
-import d4 from '@/components/d4'
-import d5 from '@/components/d5'
-import d6 from '@/components/d6'
-
-import d1d1 from '@/components/d1.1'
-
+import Show from '@/components/Show'
+import Test from '@/components/Test'
+// import d4d0 from '@/components/d4d0'
 
 const config = require('../../config');
 // console.log(config);
@@ -33,7 +25,7 @@ var routes = [
   {
     path: '/show',
     name: 'Show',
-    component: d6,
+    component: Show,
     // component: () => import('@/components/Show'),
     meta: {
       title: '项目'
@@ -42,55 +34,10 @@ var routes = [
   {
     path: '/test',
     name: 'Test',
-    component: d1d1,
+    component: Test,
     // component: () => import('@/components/Test'),
     meta: {
       title: '测试页面'
-    }
-  },
-  {
-    path: '/d1',
-    name: 'd1',
-    component: d1,
-    // component: () => import('@/components/2-1'),
-    meta: {
-      title: 'DEMO'
-    }
-  },
-  {
-    path: '/d2',
-    name: 'd2',
-    component: d2,
-    // component: () => import('@/components/2-1'),
-    meta: {
-      title: 'DEMO'
-    }
-  },
-  {
-    path: '/d3',
-    name: 'd3',
-    component: d3,
-    // component: () => import('@/components/2-1'),
-    meta: {
-      title: 'DEMO'
-    }
-  },
-  {
-    path: '/d4',
-    name: 'd4',
-    component: d4,
-    // component: () => import('@/components/2-1'),
-    meta: {
-      title: 'DEMO'
-    }
-  },
-  {
-    path: '/d5',
-    name: 'd5',
-    component: d5,
-    // component: () => import('@/components/2-1'),
-    meta: {
-      title: 'DEMO'
     }
   },
   {
@@ -103,7 +50,31 @@ var routes = [
   }
 ];
 
-routes[routes.length] = {
+let routes_arr = new Set();
+routes_arr.add('d1d0');
+routes_arr.add('d2d0');
+routes_arr.add('d3d0');
+routes_arr.add('d4d0');
+routes_arr.add('d2d1');
+routes_arr.add('d2d2');
+routes_arr.add('d3d1');
+
+console.log(routes_arr);
+
+routes_arr.forEach(v => {
+  console.log(v);
+  routes[routes.length] = {
+    path: '/' + v,
+    name: v,
+    // component: v,
+    component: () => import('@/components/' + v),
+    meta: {
+      title: 'DEMO'
+    }
+  };
+});
+
+/* routes[routes.length] = {
   path: '/d6',
   name: 'd6',
   component: d6,
@@ -111,7 +82,7 @@ routes[routes.length] = {
   meta: {
     title: 'DEMO'
   }
-};
+}; */
 
 console.log(routes);
 
