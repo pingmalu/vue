@@ -32,9 +32,10 @@
         <i class="el-icon-tickets" v-if="!moo"></i>
         <span slot="title">3D</span>
       </template>
-      <el-menu-item index="/d3d0">演示1</el-menu-item>
-      <el-menu-item index="/d3d1">演示2</el-menu-item>
-      <el-menu-item index="/d4d0">演示3</el-menu-item>
+      <el-menu-item index="/d3d0">多边形</el-menu-item>
+      <el-menu-item index="/d3d1">圆柱体</el-menu-item>
+      <el-menu-item index="/d3d2">正方体</el-menu-item>
+      <el-menu-item index="/d4d0">图片切换</el-menu-item>
     </el-submenu>
     <el-menu-item index="/test">
       <i class="el-icon-message" v-if="!moo"></i>

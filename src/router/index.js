@@ -58,6 +58,7 @@ routes_arr.add('d4d0');
 routes_arr.add('d2d1');
 routes_arr.add('d2d2');
 routes_arr.add('d3d1');
+routes_arr.add('d3d2');
 
 console.log(routes_arr);
 
