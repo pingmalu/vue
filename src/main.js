@@ -10,7 +10,7 @@ import router from './router'
 import './plugins/element.js'
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 
-import importJs from './common/importJs';
+// import importJs from './common/importJs';
 
 // 使用vuex插件
 Vue.use(Vuex)
