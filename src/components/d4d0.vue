@@ -1,5 +1,5 @@
 <template>
-  <div class="show">
+  <div>
     <!-- <h1>{{ msg }}</h1> -->
 
     <div id="d1d2"></div>
@@ -512,6 +512,7 @@ export default {
 <style scoped>
 #d1d2 {
   /* width: 1920px; */
+  /* width: 1200px; */
   height: 400px;
   margin: 0 auto;
 }

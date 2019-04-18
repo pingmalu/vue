@@ -213,5 +213,7 @@ export default {
 <style scoped>
 #d4 {
   margin: 0 auto;
+  position: absolute;
+  margin-bottom: 60px;
 }
 </style>

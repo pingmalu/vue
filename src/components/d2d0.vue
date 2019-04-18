@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="radar" :style="{width: '600px', height: '600px'}"></div>
+    <div id="radar" :style="{width: '320px', height: '320px'}"></div>
   </div>
 </template>
 
@@ -66,13 +66,13 @@ export default {
         // backgroundColor: "#161627",
         tooltip: {},
 
-        title: {
+/*         title: {
           text: "苏州",
           left: "center",
           textStyle: {
             color: "#eee"
           }
-        },
+        }, */
         radar: {
           indicator: [
             { name: "AQI", max: 300 },
@@ -139,7 +139,8 @@ export default {
 </script>
 
 <style scoped>
-div#radar {
+#radar {
   margin: 0 auto;
+  /* position: absolute; */
 }
 </style>
