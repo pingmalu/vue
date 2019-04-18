@@ -60,9 +60,29 @@ routes_arr.add('d2d2');
 routes_arr.add('d3d1');
 routes_arr.add('d3d2');
 
-console.log(routes_arr);
+// console.log(routes_arr);
+
+// var obj_a = {};
 
 routes_arr.forEach(v => {
+  // console.log(v);
+  // obj_a[`${v}`] = require('@/components/' + v).default;
+  // console.log(obj_a[`${v}`] );
+  routes[routes.length] = {
+    path: '/' + v,
+    name: v,
+    // component: obj_a[`${v}`],
+    component: require('@/components/' + v).default,
+    // component: () => import('@/components/' + v),
+    meta: {
+      title: 'DEMO'
+    }
+  };
+});
+
+// console.log('aa',routes);
+
+/* routes_arr.forEach(v => {
   console.log(v);
   routes[routes.length] = {
     path: '/' + v,
@@ -73,7 +93,7 @@ routes_arr.forEach(v => {
       title: 'DEMO'
     }
   };
-});
+}); */
 
 /* routes[routes.length] = {
   path: '/d6',
@@ -85,7 +105,7 @@ routes_arr.forEach(v => {
   }
 }; */
 
-console.log(routes);
+// console.log(routes);
 
 const router = new VueRouter({
   mode: 'history',

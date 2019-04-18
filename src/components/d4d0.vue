@@ -15,13 +15,19 @@ import BAS from "../../static/js/bas.js";
 import 'gsap';
 import OrbitControls from "three/examples/js/controls/OrbitControls";
 
-                  var container;
+const config = require('../../config');
+var site_root = (process.env.NODE_ENV === 'development') ? config.dev.assetsPublicPath : config.build.assetsPublicPath;
+
+// console.log(process.env.NODE_ENV);
+// console.log(this.$route);
+
+var container;
 
         // window.onload = init;
         console.ward = function () { }; // what warnings?
 
         function init() {
-                  container = document.getElementById("d1d2");
+            container = document.getElementById("d1d2");
 
             var root = new THREERoot({
                 createCameraControls: !true,
@@ -40,7 +46,7 @@ import OrbitControls from "three/examples/js/controls/OrbitControls";
             var slide = new Slide(width, height, 'out');
             var l1 = new THREE.ImageLoader();
             l1.setCrossOrigin('Anonymous');
-            l1.load('static/image/a.png', function (img) {
+            l1.load(site_root+'static/image/a.png', function (img) {
                 slide.setImage(img);
             });
             root.scene.add(slide);
@@ -48,7 +54,7 @@ import OrbitControls from "three/examples/js/controls/OrbitControls";
             var slide2 = new Slide(width, height, 'in');
             var l2 = new THREE.ImageLoader();
             l2.setCrossOrigin('Anonymous');
-            l2.load('static/image/b.png', function (img) {
+            l2.load(site_root+'static/image/b.png', function (img) {
                 slide2.setImage(img);
             });
 

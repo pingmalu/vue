@@ -10,6 +10,18 @@ import router from './router'
 import './plugins/element.js'
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 
+
+// import fs from 'fs' 
+// var fs = require('fs');
+// var path = require('path');//解析需要遍历的文件夹
+// var filePath = path.resolve('./components');
+
+
+// console.log(fs)
+
+// fs.readdir(filePath,function(err,files){
+//   console.log(files)
+// })
 // import importJs from './common/importJs';
 
 // 使用vuex插件
