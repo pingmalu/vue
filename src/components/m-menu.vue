@@ -20,12 +20,12 @@
     <el-submenu index="2" :show-timeout="100">
       <template slot="title">
         <i class="el-icon-tickets" v-if="!moo"></i>
-        <span slot="title">演示</span>
+        <span slot="title">数据</span>
       </template>
-      <el-menu-item index="/d1d0">演示1</el-menu-item>
-      <el-menu-item index="/d2d0">演示2</el-menu-item>
-      <el-menu-item index="/d2d1">演示3</el-menu-item>
-      <el-menu-item index="/d2d2">演示4</el-menu-item>
+      <el-menu-item index="/d1d0">文字</el-menu-item>
+      <el-menu-item index="/d2d0">雷达图</el-menu-item>
+      <el-menu-item index="/d2d1">网站状态</el-menu-item>
+      <el-menu-item index="/d2d2">步数</el-menu-item>
     </el-submenu>
     <el-submenu index="3" :show-timeout="100">
       <template slot="title">
