@@ -2,7 +2,7 @@
   <div id="malukepfoot">
     Copyright © 2010-2019
     <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备15011663</a> |
-    <a href="http://cdn.malu.me/map/">分布</a> |
+    <a href="http://cdn.malu.me/map/">访问分布</a> |
     <a href="http://cdn.malu.me/mon/">监控</a> |
     <a href="http://cdn.malu.me/searchmap/">爬虫</a> |
     <a href="https://s.malu.me/">搜索</a> |
