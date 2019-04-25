@@ -14,7 +14,9 @@ import {
   Aside,
   Main,
   Footer,
-  Tooltip
+  Tooltip,
+  Table,
+  TableColumn
 } from 'element-ui'
 
 Vue.use(Button);
@@ -30,3 +32,5 @@ Vue.use(Aside);
 Vue.use(Main);
 Vue.use(Footer);
 Vue.use(Tooltip);
+Vue.use(Table);
+Vue.use(TableColumn);
