@@ -146,6 +146,19 @@ export default {
 #test123 >>> .success-row {
   background-color: #f0f9eb !important;
 }
+#test123 >>> ::-webkit-scrollbar {
+    width: .45em;
+    height: .25em;
+    position: absolute;
+}
+
+#test123 >>> ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#test123 >>> ::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.4);
+}
 /* .el-table th, .el-table tr {
   background-color: rgba(255, 255, 255, 0) !important;
 }

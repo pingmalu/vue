@@ -6,29 +6,37 @@
     <d2d1 class="d3"></d2d1>
     <!-- <d3d1 class="d4"></d3d1> -->
     <d2d0 class="d5"></d2d0>
+    <d2d3 class="d2d3"></d2d3>
     <d2d2 class="d4" :style="{width: '720px'}"></d2d2>
   </div>
 </template>
  
 <script>
-import d1d0 from "@/components/d1d0";
-import d2d0 from "@/components/d2d0";
-import d3d0 from "@/components/d3d0";
-import d4d0 from "@/components/d4d0";
-import d2d1 from "@/components/d2d1";
-import d3d1 from "@/components/d3d1";
-import d2d2 from "@/components/d2d2";
-
+// import d1d0 from "@/components/d1d0";
+// import d2d0 from "@/components/d2d0";
+// import d3d0 from "@/components/d3d0";
+// import d4d0 from "@/components/d4d0";
+// import d2d1 from "@/components/d2d1";
+// import d3d1 from "@/components/d3d1";
+// import d2d2 from "@/components/d2d2";
+// import d2d3 from "@/components/d2d3";
+var routes = {};
+let routes_arr = new Set();
+routes_arr.add('d1d0');
+routes_arr.add('d2d0');
+routes_arr.add('d3d0');
+routes_arr.add('d4d0');
+routes_arr.add('d2d1');
+routes_arr.add('d2d2');
+routes_arr.add('d2d3');
+routes_arr.add('d3d1');
+// routes_arr.add('d3d2');
+routes_arr.forEach(v => {
+  routes[v] = require('@/components/' + v).default;
+});
+console.log(routes);
 export default {
-  components: {
-    d1d0,
-    d2d0,
-    d3d0,
-    d4d0,
-    d2d1,
-    d3d1,
-    d2d2
-  }
+  components: routes
 };
 </script>
 <style scoped>
