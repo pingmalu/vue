@@ -1,46 +1,161 @@
-  <template>
+<template>
+  <div id="test123">
     <el-table
       :data="tableData"
-      style="width: 100%">
-      <el-table-column
-        prop="date"
-        label="日期"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="姓名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址">
-      </el-table-column>
+      stripe
+      height="440"
+      :row-class-name="tableRowClassName"
+      style="width: 100%"
+    >
+      <el-table-column sortable prop="time" label="日期" width="140"></el-table-column>
+      <el-table-column sortable prop="type" label="事件" width="180"></el-table-column>
+      <!-- <el-table-column prop="address" label="地址"></el-table-column> -->
     </el-table>
-  </template>
+  </div>
+</template>
+<script>
+import axios from "axios";
 
-  <script>
-    export default {
-      data() {
-        return {
-          tableData: [{
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1516 弄'
-          }]
-        }
+export default {
+  data() {
+    return {
+      tableData: [],
+      today: this.todaytime()
+    };
+  },
+  methods: {
+    tableRowClassName({ row, rowIndex }) {
+      // console.log(this.judgeTime(row.time));
+      // if (this.judgeTime(row.time)) {
+      // console.log(row.time.split(" ")[0]);
+      // console.log(this.today);
+      if (this.today == row.time.split(" ")[0]) {
+        return "warning-row";
+      }
+      //  else if (rowIndex === 3) {
+      //   return "success-row";
+      // }
+      return "";
+    },
+    add0(m) {
+      return m < 10 ? "0" + m : m;
+    },
+    todaytime() {
+      let today = new Date();
+      return (
+        today.getFullYear() +
+        "-" +
+        this.add0(today.getMonth() + 1) +
+        "-" +
+        this.add0(today.getDate())
+      );
+    },
+    judgeTime(date) {
+      // console.log(date);
+      // 2019-03-14 09:11:18
+      let _this = this;
+      let dateStr = new Date(date);
+      let today = new Date();
+      let hour = today.getHours();
+      let minute = today.getMinutes();
+      let second = today.getSeconds();
+      today.setHours(0);
+      today.setMinutes(0);
+      today.setSeconds(0);
+      today.setMilliseconds(0);
+      let otime = today.getTime();
+      // 给出时间 - 今天0点
+      let offset = dateStr.getTime() - otime;
+      let isToday = offset / 1000 / 60 / 60;
+      if (isToday > 0 && isToday <= 24) {
+        return true;
+        // return (
+        //   "今天 " +
+        //   _this.add0(hour) +
+        //   ":" +
+        //   _this.add0(minute) +
+        //   ":" +
+        //   _this.add0(second)
+        // );
+        // } else if (isToday < 0 && isToday >= -24) {
+        //   return (
+        //     "昨天 " +
+        //     _this.add0(hour) +
+        //     ":" +
+        //     _this.add0(minute) +
+        //     ":" +
+        //     _this.add0(second)
+        //   );
+      } else {
+        return;
       }
     }
-  </script>
+  },
+  mounted() {
+    axios
+      .get("http://c1.malu.me/api/loglist")
+      .then(response => {
+        // console.log(response.data.data);
+        this.tableData = response.data.data;
+      })
+      .catch(error => {
+        // console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  }
+};
+</script>
+<style>
+/* #test123 {
+  width: 400px;
+} */
+.el-table,
+.el-table__expanded-cell {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#test123 tr,
+#test123 th {
+  background-color: rgba(255, 255, 255, 0);
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0) !important; */
+}
+.el-table td,
+.el-table th.is-leaf {
+  padding: 2px 0;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: #f5f7fa1f;
+}
+.el-table--striped .el-table__body tr.el-table__row--striped td {
+  background-color: #2d2d30;
+}
+.el-table--striped .el-table__body tr.el-table__row--striped:hover td {
+  background-color: #f5f7fa1f;
+}
+.el-table::before {
+  display: none;
+}
+
+#test123 .warning-row {
+  background-color: #ff5722 !important;
+}
+
+#test123 .success-row {
+  background-color: #f0f9eb !important;
+}
+/* .el-table th, .el-table tr {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+.el-table,
+.el-table__expanded-cell {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+.el-table td,
+.el-table th.is-leaf {
+  border-bottom: 1px solid rgba(255, 255, 255, 0) !important;
+} */
+</style>
