@@ -20,9 +20,11 @@ export default {
   data() {
     return {
       tableData: [],
-      today: this.todaytime()
+      today: this.todaytime(),
+      logurl:"http://c1.malu.me/api/loglist/d"
     };
   },
+  props:['url'],
   methods: {
     tableRowClassName({ row, rowIndex }) {
       // console.log(this.judgeTime(row.time));
@@ -92,8 +94,11 @@ export default {
     }
   },
   mounted() {
+    if(this.url){
+      this.logurl = this.url;
+    }
     axios
-      .get("http://c1.malu.me/api/loglist")
+      .get(this.logurl)
       .then(response => {
         // console.log(response.data.data);
         this.tableData = response.data.data;
@@ -142,7 +147,12 @@ export default {
 #test123 >>> .warning-row {
   background-color: #ff5722 !important;
 }
-
+#test123 >>> .el-table--striped .el-table__body tr.warning-row td {
+  background-color: #ff7950ca !important;
+}
+#test123 >>> .el-table--striped .el-table__body tr.warning-row:hover td {
+  background-color: #ff5722 !important;
+}
 #test123 >>> .success-row {
   background-color: #f0f9eb !important;
 }

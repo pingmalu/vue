@@ -6,7 +6,9 @@
     <d2d1 class="d3"></d2d1>
     <!-- <d3d1 class="d4"></d3d1> -->
     <d2d0 class="d5"></d2d0>
-    <d2d3 class="d2d3"></d2d3>
+    <d2d3 class="d2d3" :url="url1"></d2d3>
+    <d2d3 class="d2d3" :url="url2"></d2d3>
+    <d2d3 class="d2d3" :url="url3"></d2d3>
     <d2d2 class="d4" :style="{width: '720px'}"></d2d2>
   </div>
 </template>
@@ -36,6 +38,13 @@ routes_arr.forEach(v => {
 });
 console.log(routes);
 export default {
+    data() {
+    return {
+      url1: "http://c1.malu.me/api/loglist",
+      url2: "http://c1.malu.me/api/loglist/ssh",
+      url3: "http://c1.malu.me/api/loglist/d",
+    };
+  },
   components: routes
 };
 </script>
