@@ -106,45 +106,44 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 /* #test123 {
   width: 400px;
 } */
-.el-table,
-.el-table__expanded-cell {
+#test123 >>> .el-table,
+#test123 >>> .el-table__expanded-cell {
   color: #fff;
   background-color: rgba(255, 255, 255, 0);
 }
 
-#test123 tr,
-#test123 th {
+#test123 >>> tr,
+#test123 >>> th {
   background-color: rgba(255, 255, 255, 0);
   /* border-bottom: 1px solid rgba(255, 255, 255, 0) !important; */
 }
-.el-table td,
-.el-table th.is-leaf {
+#test123 >>> .el-table td,
+#test123 >>> .el-table th.is-leaf {
   padding: 2px 0;
   font-size: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
-.el-table--enable-row-hover .el-table__body tr:hover > td {
+#test123 >>> .el-table--enable-row-hover .el-table__body tr:hover > td {
   background-color: #f5f7fa1f;
 }
-.el-table--striped .el-table__body tr.el-table__row--striped td {
+#test123 >>> .el-table--striped .el-table__body tr.el-table__row--striped td {
   background-color: #2d2d30;
 }
-.el-table--striped .el-table__body tr.el-table__row--striped:hover td {
+#test123 >>> .el-table--striped .el-table__body tr.el-table__row--striped:hover td {
   background-color: #f5f7fa1f;
 }
-.el-table::before {
+#test123 >>> .el-table::before {
   display: none;
 }
-
-#test123 .warning-row {
+#test123 >>> .warning-row {
   background-color: #ff5722 !important;
 }
 
-#test123 .success-row {
+#test123 >>> .success-row {
   background-color: #f0f9eb !important;
 }
 /* .el-table th, .el-table tr {
