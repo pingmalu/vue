@@ -16,7 +16,8 @@ import {
   Footer,
   Tooltip,
   Table,
-  TableColumn
+  TableColumn,
+  Loading
 } from 'element-ui'
 
 Vue.use(Button);
@@ -34,3 +35,4 @@ Vue.use(Footer);
 Vue.use(Tooltip);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Loading);

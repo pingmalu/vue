@@ -1,14 +1,15 @@
 <template>
   <div id="test123">
+    <div><span class="title-span"><slot></slot></span></div>
     <el-table
       :data="tableData"
       stripe
       height="440"
       style="width: 100%"
     >
-      <el-table-column sortable prop="ip" label="IP" width="140"></el-table-column>
       <el-table-column sortable prop="add" label="地区" width="180"></el-table-column>
-      <el-table-column sortable prop="count" label="数值" width="180"></el-table-column>
+      <el-table-column sortable prop="count" label="数值" width="100"></el-table-column>
+      <el-table-column sortable prop="ip" label="IP" width="100"></el-table-column>
     </el-table>
   </div>
 </template>
@@ -62,6 +63,18 @@ export default {
 /* #test123 {
   width: 400px;
 } */
+.title-span {
+    float: left;
+    /* text-align: left; */
+    background-color: #d9d9d9;
+    color: #2d2d30;
+    /* width: 180px; */
+    display: inline;
+    padding: 2px 10px;
+    font-weight: 900;
+    font-size: 14px;
+    border-radius: 2px;
+}
 #test123 >>> .el-table,
 #test123 >>> .el-table__expanded-cell {
   color: #fff;

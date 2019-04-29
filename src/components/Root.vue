@@ -6,10 +6,11 @@
     <d2d1 class="d3"></d2d1>
     <!-- <d3d1 class="d4"></d3d1> -->
     <d2d0 class="d5"></d2d0>
-    <d2d3 class="d2d3" :url="url1"></d2d3>
-    <d2d3 class="d2d3" :url="url2"></d2d3>
-    <d2d3 class="d2d3" :url="url3"></d2d3>
-    <d2d2 class="d4" :style="{width: '720px'}"></d2d2>
+    <d2d3 class="d2d3" :url="url1">预警 RedisLabs</d2d3>
+    <d2d3 class="d2d3" :url="url2">预警 SSH</d2d3>
+    <d2d3 class="d2d3" :url="url3">预警 HOME</d2d3>
+    <d2d4 class="d2d4">访问量TOP</d2d4>
+    <!-- <d2d2 class="d4" :style="{width: '720px'}"></d2d2> -->
   </div>
 </template>
  
@@ -29,9 +30,10 @@ routes_arr.add('d2d0');
 routes_arr.add('d3d0');
 routes_arr.add('d4d0');
 routes_arr.add('d2d1');
-routes_arr.add('d2d2');
+// routes_arr.add('d2d2');
 routes_arr.add('d2d3');
-routes_arr.add('d3d1');
+routes_arr.add('d2d4');
+// routes_arr.add('d3d1');
 // routes_arr.add('d3d2');
 routes_arr.forEach(v => {
   routes[v] = require('@/components/demo/' + v).default;
