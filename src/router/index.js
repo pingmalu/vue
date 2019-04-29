@@ -58,6 +58,7 @@ routes_arr.add('d4d0');
 routes_arr.add('d2d1');
 routes_arr.add('d2d2');
 routes_arr.add('d2d3');
+routes_arr.add('d2d4');
 routes_arr.add('d3d1');
 routes_arr.add('d3d2');
 
@@ -73,7 +74,7 @@ routes_arr.forEach(v => {
     path: '/' + v,
     name: v,
     // component: obj_a[`${v}`],
-    component: require('@/components/' + v).default,
+    component: require('@/components/demo/' + v).default,
     // component: () => import('@/components/' + v),
     meta: {
       title: 'DEMO'

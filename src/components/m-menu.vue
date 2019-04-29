@@ -27,6 +27,7 @@
       <el-menu-item index="/d2d1">网站状态</el-menu-item>
       <el-menu-item index="/d2d2">步数</el-menu-item>
       <el-menu-item index="/d2d3">日志</el-menu-item>
+      <el-menu-item index="/d2d4">访问量TOP</el-menu-item>
     </el-submenu>
     <el-submenu index="3" :show-timeout="100">
       <template slot="title">

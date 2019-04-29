@@ -34,15 +34,15 @@ routes_arr.add('d2d3');
 routes_arr.add('d3d1');
 // routes_arr.add('d3d2');
 routes_arr.forEach(v => {
-  routes[v] = require('@/components/' + v).default;
+  routes[v] = require('@/components/demo/' + v).default;
 });
 console.log(routes);
 export default {
     data() {
     return {
-      url1: "http://c1.malu.me/api/loglist",
-      url2: "http://c1.malu.me/api/loglist/ssh",
-      url3: "http://c1.malu.me/api/loglist/d",
+      url1: "//c1.malu.me/api/loglist",
+      url2: "//c1.malu.me/api/loglist/ssh",
+      url3: "//c1.malu.me/api/loglist/d",
     };
   },
   components: routes

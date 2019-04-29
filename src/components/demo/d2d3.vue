@@ -21,7 +21,7 @@ export default {
     return {
       tableData: [],
       today: this.todaytime(),
-      logurl:"http://c1.malu.me/api/loglist/d"
+      logurl:"//c1.malu.me/api/loglist/d"
     };
   },
   props:['url'],
@@ -106,6 +106,7 @@ export default {
            this.tableData.push(element);
          }
         });
+        console.log(this.tableData);
         // this.tableData = response.data.data;
       })
       .catch(error => {

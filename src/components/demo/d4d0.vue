@@ -11,11 +11,11 @@
 
 <script>
 import * as THREE from "three";
-import BAS from "../../static/js/bas.js";
+import BAS from "../../../static/js/bas.js";
 import 'gsap';
 import OrbitControls from "three/examples/js/controls/OrbitControls";
 
-const config = require('../../config');
+const config = require('../../../config');
 var site_root = (process.env.NODE_ENV === 'development') ? config.dev.assetsPublicPath : config.build.assetsPublicPath;
 
 // console.log(process.env.NODE_ENV);
