@@ -101,7 +101,12 @@ export default {
       .get(this.logurl)
       .then(response => {
         // console.log(response.data.data);
-        this.tableData = response.data.data;
+        response.data.data.forEach(element => {
+         if(element.time && element.type){
+           this.tableData.push(element);
+         }
+        });
+        // this.tableData = response.data.data;
       })
       .catch(error => {
         // console.log(error);
