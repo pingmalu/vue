@@ -27,6 +27,16 @@ import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 // 使用vuex插件
 Vue.use(Vuex)
 
+// 全局过滤器
+Vue.filter('bytesToSize', function (bytes) {
+  if (bytes === 0) return '0 B';
+  let k = 1024;
+  let sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  let i = Math.floor(Math.log(bytes) / Math.log(k));
+  let num = bytes / Math.pow(k, i);
+  return num.toPrecision(3) + ' ' + sizes[i];
+})
+
 Vue.config.productionTip = false
 Vue.component(CollapseTransition.name, CollapseTransition);
 

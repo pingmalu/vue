@@ -11,11 +11,11 @@
   </div>
 </template>
 <style scoped>
-.middle{
-    display: inline-block;
-    margin: 0 5px 0 0;
-    top: 1px;
-    position: relative;
+.middle {
+  display: inline-block;
+  margin: 0 5px 0 0;
+  top: 1px;
+  position: relative;
 }
 .bar {
   width: 1px;
@@ -52,18 +52,18 @@
   animation-delay: 0.8s;
 }
 @keyframes loading {
-0% {
+  0% {
     transform: scaleY(0.1);
     background: #afafaf;
-}
+  }
 
-50% {
+  50% {
     transform: scaleY(12);
     background: #111111;
-}
-100% {
+  }
+  100% {
     transform: scaleY(0.1);
     background: #afafaf00;
-}
+  }
 }
 </style>

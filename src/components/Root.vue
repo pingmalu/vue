@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <!-- <d4d0 class="d2" :style="{width: '820px'}"></d4d0> -->
-    <!-- <d1d0 class="d6"></d1d0> -->
+    <d1d0 class="d1d0"></d1d0>
     <!-- <d3d0 class="d1"></d3d0> -->
     <!-- <d2d1 class="d3"></d2d1> -->
     <!-- <d3d1 class="d4"></d3d1> -->
@@ -50,7 +50,7 @@ routes_arr.add("s1");
 routes_arr.forEach(v => {
   routes[v] = require("@/components/demo/" + v).default;
 });
-console.log(routes);
+// console.log(routes);
 export default {
   data() {
     return {
@@ -71,6 +71,9 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+.d1d0 {
+  width: 100%;
 }
 /* @media only screen and (min-width: 767px) {
   .root {
@@ -99,7 +102,7 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #262629;
-  margin: 44px;
+  margin: 64px 44px;
   padding: 10px;
 }
 /* 用box的伪元素添加一个面积比box略大的矩形,并通过改变层叠次序,置于box的下层,达到给box设置边框的效果 */

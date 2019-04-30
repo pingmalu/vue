@@ -7,8 +7,12 @@
     </div>
     <el-table :data="tableData" stripe height="430" style="width: 100%">
       <el-table-column sortable prop="add" label="地区" width="180"></el-table-column>
-      <el-table-column sortable prop="count" label="数值" width="100"></el-table-column>
-      <el-table-column sortable prop="ip" label="IP" width="100"></el-table-column>
+      <el-table-column sortable label="SIZE" width="75">
+        <template slot-scope="scope">
+          {{ scope.row.count | bytesToSize}}
+        </template>
+      </el-table-column>
+      <el-table-column sortable prop="ip" label="IP" width="100" align="right"></el-table-column>
     </el-table>
   </div>
 </template>
@@ -46,7 +50,7 @@ export default {
           //  this.tableData.push(element);
           //  }
         });
-        console.log(this.tableData);
+        // console.log(this.tableData);
         // this.tableData = response.data.data;
       })
       .catch(error => {
@@ -64,7 +68,7 @@ export default {
 .title-span {
   float: left;
   /* text-align: left; */
-  background-color: #d9d9d9;
+  background-color: #939393;
   color: #2d2d30;
   /* width: 180px; */
   display: inline;
@@ -97,11 +101,7 @@ export default {
 #box >>> .el-table--striped .el-table__body tr.el-table__row--striped td {
   background-color: #2d2d30;
 }
-#box
-  >>> .el-table--striped
-  .el-table__body
-  tr.el-table__row--striped:hover
-  td {
+#box >>> .el-table--striped .el-table__body tr.el-table__row--striped:hover td {
   background-color: #f5f7fa1f;
 }
 #box >>> .el-table::before {
@@ -143,7 +143,4 @@ export default {
 .el-table th.is-leaf {
   border-bottom: 1px solid rgba(255, 255, 255, 0) !important;
 } */
-
-
-
 </style>
