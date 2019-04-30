@@ -1,12 +1,11 @@
 <template>
-  <div id="test123">
+  <div id="box">
     <div v-if="$slots.default">
       <span class="title-span">
-      <i class="el-icon-location"></i>
         <slot></slot>
       </span>
     </div>
-    <el-table :data="tableData" stripe height="440" style="width: 100%">
+    <el-table :data="tableData" stripe height="430" style="width: 100%">
       <el-table-column sortable prop="add" label="地区" width="180"></el-table-column>
       <el-table-column sortable prop="count" label="数值" width="100"></el-table-column>
       <el-table-column sortable prop="ip" label="IP" width="100"></el-table-column>
@@ -59,7 +58,7 @@ export default {
 };
 </script>
 <style scoped>
-/* #test123 {
+/* #box {
   width: 400px;
 } */
 .title-span {
@@ -73,63 +72,64 @@ export default {
   font-weight: 900;
   font-size: 14px;
   border-radius: 2px;
+  margin: 0 0 0 10px;
 }
-#test123 >>> .el-table,
-#test123 >>> .el-table__expanded-cell {
+#box >>> .el-table,
+#box >>> .el-table__expanded-cell {
   color: #fff;
   background-color: rgba(255, 255, 255, 0);
 }
 
-#test123 >>> tr,
-#test123 >>> th {
+#box >>> tr,
+#box >>> th {
   background-color: rgba(255, 255, 255, 0);
   /* border-bottom: 1px solid rgba(255, 255, 255, 0) !important; */
 }
-#test123 >>> .el-table td,
-#test123 >>> .el-table th.is-leaf {
+#box >>> .el-table td,
+#box >>> .el-table th.is-leaf {
   padding: 2px 0;
   font-size: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
-#test123 >>> .el-table--enable-row-hover .el-table__body tr:hover > td {
+#box >>> .el-table--enable-row-hover .el-table__body tr:hover > td {
   background-color: #f5f7fa1f;
 }
-#test123 >>> .el-table--striped .el-table__body tr.el-table__row--striped td {
+#box >>> .el-table--striped .el-table__body tr.el-table__row--striped td {
   background-color: #2d2d30;
 }
-#test123
+#box
   >>> .el-table--striped
   .el-table__body
   tr.el-table__row--striped:hover
   td {
   background-color: #f5f7fa1f;
 }
-#test123 >>> .el-table::before {
+#box >>> .el-table::before {
   display: none;
 }
-#test123 >>> .warning-row {
+#box >>> .warning-row {
   background-color: #ff5722 !important;
 }
-#test123 >>> .el-table--striped .el-table__body tr.warning-row td {
+#box >>> .el-table--striped .el-table__body tr.warning-row td {
   background-color: #ff7950ca !important;
 }
-#test123 >>> .el-table--striped .el-table__body tr.warning-row:hover td {
+#box >>> .el-table--striped .el-table__body tr.warning-row:hover td {
   background-color: #ff5722 !important;
 }
-#test123 >>> .success-row {
+#box >>> .success-row {
   background-color: #f0f9eb !important;
 }
-#test123 >>> ::-webkit-scrollbar {
+#box >>> ::-webkit-scrollbar {
   width: 0.45em;
   height: 0.25em;
   position: absolute;
 }
 
-#test123 >>> ::-webkit-scrollbar-thumb {
+#box >>> ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-#test123 >>> ::-webkit-scrollbar-track {
+#box >>> ::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0.4);
 }
 /* .el-table th, .el-table tr {
@@ -143,4 +143,7 @@ export default {
 .el-table th.is-leaf {
   border-bottom: 1px solid rgba(255, 255, 255, 0) !important;
 } */
+
+
+
 </style>

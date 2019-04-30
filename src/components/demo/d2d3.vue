@@ -12,12 +12,12 @@
       empty-text=" "
       :data="tableData"
       stripe
-      height="440"
+      height="430"
       :row-class-name="tableRowClassName"
       style="width: 100%"
     >
       <el-table-column sortable prop="time" label="日期" width="140"></el-table-column>
-      <el-table-column sortable prop="type" label="事件" width="180"></el-table-column>
+      <el-table-column sortable prop="type" label="事件" width="180" align="center"></el-table-column>
       <!-- <el-table-column prop="address" label="地址"></el-table-column> -->
     </el-table>
   </div>
@@ -143,6 +143,7 @@ export default {
     font-weight: 900;
     font-size: 14px;
     border-radius: 2px;
+    margin: 0 0 0 10px;
 }
 #test123 >>> .el-table,
 #test123 >>> .el-table__expanded-cell {

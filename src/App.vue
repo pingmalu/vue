@@ -90,6 +90,9 @@ export default {
 </script>
 
 <style>
+body{
+    background-color: #262629;
+}
 body,
 html {
   margin: 0;
@@ -99,7 +102,6 @@ html {
     Microsoft YaHei, SimSun, sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  background-color: #262629;
 }
 
 a {
@@ -164,8 +166,8 @@ a {
   -webkit-transition: border-color 0.1s, background-color 0.1s, color 0.1s;
   transition: border-color 0.1s, background-color 0.1s, color 0.1s;
 }
-.collapse-transition {
-}
+/* .collapse-transition {
+} */
 
 @media only screen and (min-width: 767px) {
   .display-xs-only {
