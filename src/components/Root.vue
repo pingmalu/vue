@@ -132,6 +132,59 @@ export default {
 .box::before,
 .box::after {
   /* linear-gradient() 函数用于创建一个线性渐变的 "图像"。 参数1:用角度值指定渐变的方向（或角度）  12点钟方向为0deg*/
-  background: linear-gradient(235deg, #89ff00, #060c21, #00bcd4);
+  background: linear-gradient(215deg, #89ff00, #060c21, #00bcd4);
 }
+
+.box::after {
+  animation: blinds 3s ease-in-out infinite alternate;
+}
+
+@keyframes blinds {
+  to {
+    transform: rotate(20deg);
+    /* background: linear-gradient(125deg, #89ff00, #060c21, #00bcd4); */
+  }
+  /* 10% {
+    background: linear-gradient(226deg, #89ff00, #060c21, #00bcd4);
+  }
+  20% {
+    background: linear-gradient(227deg, #89ff00, #060c21, #00bcd4);
+  }
+  30% {
+    background: linear-gradient(228deg, #89ff00, #060c21, #00bcd4);
+  }
+  40% {
+    background: linear-gradient(229deg, #89ff00, #060c21, #00bcd4);
+  }
+  50% {
+    background: linear-gradient(230deg, #89ff00, #060c21, #00bcd4);
+  }
+  60% {
+    background: linear-gradient(231deg, #89ff00, #060c21, #00bcd4);
+  }
+  70% {
+    background: linear-gradient(232deg, #89ff00, #060c21, #00bcd4);
+  }
+  80% {
+    background: linear-gradient(233deg, #89ff00, #060c21, #00bcd4);
+  }
+  90% {
+    background: linear-gradient(234deg, #89ff00, #060c21, #00bcd4);
+  }
+  100% {
+    background: linear-gradient(235deg, #89ff00, #060c21, #00bcd4);
+  } */
+}
+
+/* @keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
 </style>
