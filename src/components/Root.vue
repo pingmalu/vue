@@ -1,14 +1,14 @@
 <template>
   <div class="root">
-    <d4d0 class="d2" :style="{width: '820px'}"></d4d0>
-    <d1d0 class="d6"></d1d0>
-    <d3d0 class="d1"></d3d0>
-    <d2d1 class="d3"></d2d1>
+    <!-- <d4d0 class="d2" :style="{width: '820px'}"></d4d0> -->
+    <!-- <d1d0 class="d6"></d1d0> -->
+    <!-- <d3d0 class="d1"></d3d0> -->
+    <!-- <d2d1 class="d3"></d2d1> -->
     <!-- <d3d1 class="d4"></d3d1> -->
-    <d2d0 class="d5"></d2d0>
-    <d2d3 class="d2d3" :url="url1">预警 RedisLabs</d2d3>
-    <d2d3 class="d2d3" :url="url2">预警 SSH</d2d3>
-    <d2d3 class="d2d3" :url="url3">预警 HOME</d2d3>
+    <!-- <d2d0 class="d5"></d2d0> -->
+    <d2d3 class="d2d3" :url="url1">RedisLabs</d2d3>
+    <d2d3 class="d2d3" :url="url2">SSH</d2d3>
+    <d2d3 class="d2d3" :url="url3">HOME</d2d3>
     <d2d4 class="d2d4">访问量TOP</d2d4>
     <!-- <d2d2 class="d4" :style="{width: '720px'}"></d2d2> -->
   </div>

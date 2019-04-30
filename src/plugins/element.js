@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import 'element-ui/lib/theme-chalk/display.css';
+// import 'element-ui/lib/theme-chalk/display.css';
 
 import {
   Button,
@@ -17,7 +17,8 @@ import {
   Tooltip,
   Table,
   TableColumn,
-  Loading
+  Loading,
+  icon
 } from 'element-ui'
 
 Vue.use(Button);
@@ -36,3 +37,4 @@ Vue.use(Tooltip);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Loading);
+Vue.use(icon);

@@ -1,7 +1,8 @@
 <template>
   <div id="test123">
-    <div>
+    <div v-if="$slots.default">
       <span class="title-span">
+      <i class="el-icon-warning"></i>
         <slot></slot>
       </span>
     </div>
