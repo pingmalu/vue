@@ -6,18 +6,18 @@
     <!-- <d2d1 class="d3"></d2d1> -->
     <!-- <d3d1 class="d4"></d3d1> -->
     <!-- <d2d0 class="d5"></d2d0> -->
-    <div class="box">
+    <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
       <d2d4 class="d2d4">
         <s1></s1>访问量TOP
       </d2d4>
     </div>
-    <div class="box">
+    <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
       <d2d3 class="d2d3" :url="url1">RedisLabs</d2d3>
     </div>
-    <div class="box">
+    <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
       <d2d3 class="d2d3" :url="url2">SSH</d2d3>
     </div>
-    <div class="box">
+    <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
       <d2d3 class="d2d3" :url="url3">HOME</d2d3>
     </div>
 
@@ -26,6 +26,30 @@
 </template>
  
 <script>
+var i = 0;
+var styleEl = document.createElement("style");
+document.head.appendChild(styleEl);
+styleEl.sheet.insertRule(
+  ".box1:before,.box1:after{background:linear-gradient(" +
+    i +
+    "deg, #89ff00, #060c21, #00bcd4)}",
+  0
+);
+
+function draw() {
+  requestAnimationFrame(draw);
+  // console.log(i);
+  i += 2;
+  styleEl.sheet.deleteRule(0);
+  styleEl.sheet.insertRule(
+    ".box1:before,.box1:after{background:linear-gradient(" +
+      i +
+      "deg, #89ff00, #060c21, #00bcd4)}",
+    0
+  );
+}
+draw();
+
 // import d1d0 from "@/components/d1d0";
 // import d2d0 from "@/components/d2d0";
 // import d3d0 from "@/components/d3d0";
@@ -58,6 +82,14 @@ export default {
       url2: "//c1.malu.me/api/loglist/ssh",
       url3: "//c1.malu.me/api/loglist/d"
     };
+  },
+  methods: {
+    changeActive($event) {
+      $event.currentTarget.className = "box box1";
+    },
+    removeActive($event) {
+      $event.currentTarget.className = "box";
+    }
   },
   components: routes
 };
@@ -113,10 +145,10 @@ export default {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: #fff;
+  /* background: #fff; */
   z-index: -1;
 }
-/* 于上面类似,做一个面积比box略大的矩形,并通过改变层叠次序,置于box的下层,达到给box设置边框的效果 */
+/* 与上面类似,做一个面积比box略大的矩形,并通过改变层叠次序,置于box的下层,达到给box设置边框的效果 */
 .box::after {
   content: "";
   position: absolute;
@@ -124,25 +156,48 @@ export default {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: #fff;
+  /* background: #fff; */
   z-index: -2;
   /* 滤镜属性  给图像设置高斯模糊。"radius"一值设定高斯函数的标准差，或者是屏幕上以多少像素融在一起，所以值越大越模糊；如果没有设定值，则默认是0；这个参数可设置css长度值，但不接受百分比值。 */
   filter: blur(40px);
 }
-.box::before,
+
+/*动画1：hover动画*/
+/* .box::before,
 .box::after {
-  /* linear-gradient() 函数用于创建一个线性渐变的 "图像"。 参数1:用角度值指定渐变的方向（或角度）  12点钟方向为0deg*/
+  transition: background 2s;
   background: linear-gradient(215deg, #89ff00, #060c21, #00bcd4);
 }
 
-.box::after {
+.box:hover::before,
+.box:hover::after {
+  background: linear-gradient(265deg, #89ff00, #060c21, #00bcd4);
+} */
+
+/*动画2：hover动画*/
+/* .box::before, */
+/* .box::after { */
+/* background: linear-gradient(215deg, #89ff00, #060c21, #00bcd4); */
+/* animation: blinds 3s ease-in-out infinite alternate; */
+/* } */
+
+/* .box:hover::before,
+.box:hover::after {
+  background: linear-gradient(265deg, #89ff00, #060c21, #00bcd4);
+} */
+
+/* .box::after {
   animation: blinds 3s ease-in-out infinite alternate;
-}
+} */
 
 @keyframes blinds {
+  from {
+    /* transform: rotate(-20deg); */
+    background: linear-gradient(265deg, #89ff00, #060c21, #00bcd4);
+  }
   to {
-    transform: rotate(20deg);
-    /* background: linear-gradient(125deg, #89ff00, #060c21, #00bcd4); */
+    /* transform: rotate(20deg); */
+    background: linear-gradient(125deg, #89ff00, #060c21, #00bcd4);
   }
   /* 10% {
     background: linear-gradient(226deg, #89ff00, #060c21, #00bcd4);
