@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import 'element-ui/lib/theme-chalk/display.css';
+// fade/zoom 等
+// import 'element-ui/lib/theme-chalk/base.css';
+// import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
+// Vue.component(CollapseTransition.name, CollapseTransition)
 
 import {
   Button,

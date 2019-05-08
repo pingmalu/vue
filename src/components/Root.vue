@@ -1,25 +1,42 @@
 <template>
   <div class="root">
     <!-- <d4d0 class="d2" :style="{width: '820px'}"></d4d0> -->
-    <d1d0 class="d1d0"></d1d0>
+    <transition name="el-fade-in" appear="true">
+      <d1d0 class="d1d0"></d1d0>
+    </transition>
     <!-- <d3d0 class="d1"></d3d0> -->
     <!-- <d2d1 class="d3"></d2d1> -->
     <!-- <d3d1 class="d4"></d3d1> -->
     <!-- <d2d0 class="d5"></d2d0> -->
-    <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
+    <!-- <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
       <d2d4 class="d2d4">
         <s1></s1>访问量TOP
       </d2d4>
+    </div>-->
+    <!-- <el-button @click="show = !show">Click Me</el-button> -->
+
+    <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
+      <transition name="el-zoom-in-center" appear="true">
+        <d2d3 class="d2d3" :url="url1" v-show="show">RedisLabs</d2d3>
+      </transition>
     </div>
     <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
-      <d2d3 class="d2d3" :url="url1">RedisLabs</d2d3>
+      <transition name="el-zoom-in-center" appear="true">
+        <d2d3 class="d2d3" :url="url2" v-show="show">SSH</d2d3>
+      </transition>
     </div>
     <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
+      <transition name="el-zoom-in-center" appear="true">
+        <d2d3 class="d2d3" :url="url3" v-show="show">HOME</d2d3>
+      </transition>
+    </div>
+
+    <!-- <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
       <d2d3 class="d2d3" :url="url2">SSH</d2d3>
     </div>
     <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
       <d2d3 class="d2d3" :url="url3">HOME</d2d3>
-    </div>
+    </div>-->
 
     <!-- <d2d2 class="d4" :style="{width: '720px'}"></d2d2> -->
   </div>
@@ -80,7 +97,8 @@ export default {
     return {
       url1: "//c1.malu.me/api/loglist",
       url2: "//c1.malu.me/api/loglist/ssh",
-      url3: "//c1.malu.me/api/loglist/d"
+      url3: "//c1.malu.me/api/loglist/d",
+      show: true
     };
   },
   methods: {
@@ -90,6 +108,19 @@ export default {
     removeActive($event) {
       $event.currentTarget.className = "box";
     }
+  },
+  mounted() {
+    // setTimeout(() => {
+    //   console.log("执行了");
+    // }, 1);
+    //     setTimeout(() => {
+    //   console.log("执行了");
+    //   this.show = true;
+    // }, 1000);
+    //     setTimeout(() => {
+    //   console.log("执行了");
+    //   this.show = true;
+    // }, 5000);
   },
   components: routes
 };
@@ -130,12 +161,15 @@ export default {
 
 .box {
   position: relative;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   background-color: #262629;
   margin: 64px 44px;
   padding: 10px;
+  /* width: 320px; */
+  /* height: 442px; */
+  backface-visibility: hidden;
 }
 /* 用box的伪元素添加一个面积比box略大的矩形,并通过改变层叠次序,置于box的下层,达到给box设置边框的效果 */
 .box::before {

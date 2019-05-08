@@ -104,9 +104,10 @@ export default {
     }
   },
   mounted() {
-    if (this.url) {
-      this.logurl = this.url;
-    }
+    // if (this.url) {
+      // this.logurl = this.url;
+    // }
+    this.logurl = this.url || this.logurl;
     axios
       .get(this.logurl)
       .then(response => {
