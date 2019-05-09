@@ -30,7 +30,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://c1.malu.me/api/stopcar")
+      .get("//c1.malu.me/api/stopcar")
       .then(response => {
         this.info = response.data.data;
       })
