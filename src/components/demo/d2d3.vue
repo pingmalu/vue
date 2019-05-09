@@ -105,7 +105,7 @@ export default {
   },
   mounted() {
     // if (this.url) {
-      // this.logurl = this.url;
+    // this.logurl = this.url;
     // }
     this.logurl = this.url || this.logurl;
     axios
@@ -132,7 +132,9 @@ export default {
 /* #test123 {
   width: 400px;
 } */
-
+.flip-list-move {
+  transition: transform 1s;
+}
 .title-span {
   float: left;
   /* text-align: left; */
@@ -215,24 +217,24 @@ export default {
 .el-table th.is-leaf {
   border-bottom: 1px solid rgba(255, 255, 255, 0) !important;
 } */
-.m-loading{
+.m-loading {
   animation: loading-spinner 2s infinite ease;
 }
-@keyframes loading-spinner{
-0% {
+@keyframes loading-spinner {
+  0% {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
-}
+  }
 
-100% {
+  100% {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
-}
+  }
 }
 </style>

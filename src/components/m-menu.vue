@@ -25,6 +25,7 @@
       <el-menu-item index="/d1d0">文字</el-menu-item>
       <el-menu-item index="/d2d0">雷达图</el-menu-item>
       <el-menu-item index="/d2d1">网站状态</el-menu-item>
+      <el-menu-item index="/sitetable">网站状态2</el-menu-item>
       <el-menu-item index="/d2d2">步数</el-menu-item>
       <el-menu-item index="/d2d3">预警</el-menu-item>
       <el-menu-item index="/d2d4">访问量TOP</el-menu-item>
