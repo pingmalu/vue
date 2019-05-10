@@ -2,12 +2,27 @@
   <div>
     <div id="d3" :style="{width: '300px', height: '600px'}">
       <button v-on:click="shuffle">Shuffle</button>
-
-      <ul id="e1">
-        <transition-group tag="ul" name="flip-list">
-          <li v-for="item in info.children" :key="item.name">{{ item.name }} | {{ item.value }}</li>
+      <!-- <el-table
+        v-loading="loading"
+        element-loading-background="rgba(0, 0, 0, 0.1)"
+        empty-text=" "
+        :data="info.children"
+        stripe
+        height="430"
+        style="width: 100%"
+      >
+        <transition-group name="flip-list">
+          <el-table-column key="name" sortable prop="name" label="日期" width="140"></el-table-column>
+          <el-table-column key="value" sortable prop="value" label="事件" width="180" align="center"></el-table-column>
         </transition-group>
-      </ul>
+      </el-table> -->
+
+      <transition-group tag="tbody" name="flip-list" id="el">
+          <tr v-for="(item,index) in info.children" :key="item.name">
+            <td>{{ item.name }}</td>
+            <td>{{ item.value }}</td>
+          </tr>
+      </transition-group>
     </div>
   </div>
 </template>
@@ -20,7 +35,14 @@ export default {
   name: "d3",
   data() {
     return {
+      loading: true,
+
       shape: [],
+      ids: 1,
+      getRowKeys(row) {
+        console.log(row);
+        return row;
+      },
       info: {
         name: "网站状态",
         value: 100,

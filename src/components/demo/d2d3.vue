@@ -16,9 +16,18 @@
       :row-class-name="tableRowClassName"
       style="width: 100%"
     >
-      <el-table-column sortable prop="time" label="日期" width="140"></el-table-column>
-      <el-table-column sortable prop="type" label="事件" width="180" align="center"></el-table-column>
-      <!-- <el-table-column prop="address" label="地址"></el-table-column> -->
+      <!-- <transition-group tag="ul" name="flip-list"> -->
+        <!-- <template> -->
+          <el-table-column key="1" sortable prop="time" label="日期" width="140"></el-table-column>
+          <el-table-column key="2" sortable prop="type" label="事件" width="180" align="center"></el-table-column>
+        <!-- </template> -->
+      <!-- </transition-group> -->
+      <!-- <transition-group tag="ul" name="flip-list"> -->
+      <!-- <div :key="time"> -->
+      <!-- <el-table-column key="1" sortable prop="time" label="日期" width="140"></el-table-column> -->
+      <!-- <el-table-column key="2" sortable prop="type" label="事件" width="180" align="center"></el-table-column> -->
+      <!-- </div> -->
+      <!-- </transition-group> -->
     </el-table>
   </div>
 </template>
@@ -31,7 +40,10 @@ export default {
       tableData: [],
       loading: true,
       today: this.todaytime(),
-      logurl: "//c1.malu.me/api/loglist/d"
+      logurl: "//c1.malu.me/api/loglist/d",
+      getRowKeys(row) {
+        return row.id;
+      }
     };
   },
   props: ["url"],
