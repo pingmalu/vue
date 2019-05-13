@@ -16,7 +16,7 @@
           <el-table-column sortable prop="name" label="日期" width="140"></el-table-column>
           <el-table-column sortable prop="value" label="事件" width="180" align="center"></el-table-column>
         </transition-group>
-      </el-table> -->
+      </el-table>-->
 
       <transition-group tag="tbody" name="flip-list" id="el">
         <tr v-for="(item) in info.children" :key="item.name">
@@ -127,9 +127,19 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #d3 {
   margin: 0 auto;
+}
+tr {
+  height: 30px;
+  td:nth-child(1) {
+    text-align: left;
+  }
+}
+
+tr td:nth-child(2) {
+  text-align: right;
 }
 .flip-list-move {
   transition: transform 1s;
