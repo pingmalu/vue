@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div id="d3" :style="{width: '300px', height: '600px'}">
-      <button v-on:click="shuffle">Shuffle</button>
+    <div id="d3" :style="{width: '300px'}">
+      <!-- <button v-on:click="shuffle">Shuffle</button> -->
       <!-- <el-table
         v-loading="loading"
         element-loading-background="rgba(0, 0, 0, 0.1)"
@@ -21,7 +21,10 @@
       <transition-group tag="tbody" name="flip-list" id="el">
         <tr v-for="(item) in info.children" :key="item.name">
           <td>{{ item.name }}</td>
-          <td>{{ item.value }}</td>
+          <td>
+            <VCPB :p="Math.floor(item.value)" svgwidth="40px"></VCPB>
+          </td>
+          <td>{{ item.status }}</td>
         </tr>
       </transition-group>
     </div>
@@ -31,6 +34,8 @@
 <script>
 import axios from "axios";
 let _ = require("lodash");
+
+import VCPB from "@/components/demo/VueCircleProgressBars";
 
 export default {
   name: "d3",
@@ -83,6 +88,9 @@ export default {
       return Math.random();
     }
   },
+  components: {
+    VCPB
+  },
   methods: {
     format_status_data: function() {
       // console.log(this.shape);
@@ -97,6 +105,7 @@ export default {
         } else {
           this.info.children[i].label = { color: "#92be82" };
         }
+        this.info.children[i].status = e[1];
         // this.info.children[i]=["value":e[2]];
         i++;
       });
@@ -132,15 +141,19 @@ export default {
   margin: 0 auto;
 }
 tr {
-  height: 30px;
+  height: 60px;
   td:nth-child(1) {
     text-align: left;
+    width: 200px;
+  }
+  td:nth-child(2) {
+    text-align: right;
+  }
+  td:nth-child(3) {
+    width: 200px;
   }
 }
 
-tr td:nth-child(2) {
-  text-align: right;
-}
 .flip-list-move {
   transition: transform 1s;
 }

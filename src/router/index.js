@@ -62,6 +62,7 @@ routes_arr.add('d2d4');
 routes_arr.add('d3d1');
 routes_arr.add('d3d2');
 routes_arr.add('SiteTable');
+routes_arr.add('VueCircleProgressBars');
 
 // console.log(routes_arr);
 
