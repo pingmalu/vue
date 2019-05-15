@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="d3" :style="{width: '300px'}">
+    <table id="d3" :style="{width: '300px'}">
       <!-- <button v-on:click="shuffle">Shuffle</button> -->
       <!-- <el-table
         v-loading="loading"
@@ -17,17 +17,43 @@
           <el-table-column sortable prop="value" label="事件" width="180" align="center"></el-table-column>
         </transition-group>
       </el-table>-->
-
+      <thead>
+        <tr>
+          <th @click="sort('value')">
+            可用率
+            <span class="caret-wrapper" :class="tablesort['value']">
+              <!-- <i class="el-icon-top" v-show="tablesort['value']"></i> -->
+              <!-- <i class="el-icon-bottom" v-show="!tablesort['value']"></i> -->
+              <i class="sort-caret ascending"></i>
+              <i class="sort-caret descending"></i>
+            </span>
+          </th>
+          <th @click="sort('name')">
+            Name
+            <span class="caret-wrapper" :class="tablesort['name']">
+              <i class="sort-caret ascending"></i>
+              <i class="sort-caret descending"></i>
+            </span>
+          </th>
+          <th @click="sort('status')">
+            状态
+            <span class="caret-wrapper" :class="tablesort['status']">
+              <i class="sort-caret ascending"></i>
+              <i class="sort-caret descending"></i>
+            </span>
+          </th>
+        </tr>
+      </thead>
       <transition-group tag="tbody" name="flip-list" id="el">
         <tr v-for="(item) in info.children" :key="item.name">
-          <td>{{ item.name }}</td>
           <td>
             <VCPB :p="Math.floor(item.value)" svgwidth="40px"></VCPB>
           </td>
+          <td>{{ item.name }}</td>
           <td>{{ item.status }}</td>
         </tr>
       </transition-group>
-    </div>
+    </table>
   </div>
 </template>
 
@@ -53,33 +79,9 @@ export default {
         name: "网站状态",
         value: 100,
         label: { color: "rgb(238, 197, 102)" },
-        children: [
-          {
-            name: "blog.malu.me",
-            value: "100",
-            label: { color: "rgb(255, 208, 75)" },
-            key: 1
-          },
-          {
-            name: "photo.malu.me",
-            value: "100",
-            label: { color: "rgb(255, 208, 75)" },
-            key: 2
-          },
-          {
-            name: "github.malu.me",
-            value: "100",
-            label: { color: "rgb(255, 208, 75)" },
-            key: 3
-          },
-          {
-            name: "im.malu.me",
-            value: "85.98",
-            label: { color: "rgb(255, 208, 75)" },
-            key: 4
-          }
-        ]
-      }
+        children: []
+      },
+      tablesort: []
     };
   },
   computed: {
@@ -110,6 +112,59 @@ export default {
         i++;
       });
     },
+    sort: function(key) {
+      // console.log(e.currentTarget.firstElementChild)
+      // this.tablesort = {};
+      // console.log(this.tablesort);
+      for (var i in this.tablesort) {
+        if (i != key) {
+          delete this.tablesort[i];
+        }
+        // console.log(this.tablesort[i])
+      }
+
+      if (
+        typeof this.tablesort[key] == "undefined" ||
+        this.tablesort[key] == "bbq"
+      ) {
+        this.tablesort[key] = "ascending";
+        this.info.children.sort(function(a, b) {
+          if (isNaN(parseFloat(a[key]))) {
+            // 字符串看长度
+            return a[key].length - b[key].length;
+          }
+          return parseFloat(a[key]) - parseFloat(b[key]);
+        });
+      } else if (this.tablesort[key] == "descending") {
+        // delete(this.tablesort[key]);
+        this.tablesort[key] = "bbq";
+        this.info.children
+          .sort(function(a, b) {
+            if (isNaN(parseFloat(a[key]))) {
+              // 字符串看长度
+              return a[key].length - b[key].length;
+            }
+            return parseFloat(a[key]) - parseFloat(b[key]);
+          })
+          .reverse();
+        // console.log(this.tablesort[key]);
+      } else {
+        this.tablesort[key] = "descending";
+        this.info.children
+          .sort(function(a, b) {
+            if (isNaN(parseFloat(a[key]))) {
+              // 字符串看长度
+              return a[key].length - b[key].length;
+            }
+            return parseFloat(a[key]) - parseFloat(b[key]);
+          })
+          .reverse();
+      }
+      // console.log(this.tablesort[key]);
+      // if (this.tablesort[key]) {
+      // } else {
+      // }
+    },
     shuffle: function() {
       this.info.children = _.shuffle(this.info.children);
     }
@@ -123,8 +178,8 @@ export default {
         // this.info.children = this.shape
         // console.log(this.info);
         this.format_status_data();
-        console.log(this.info);
-        console.log(response.data.data);
+        // console.log(this.info);
+        // console.log(response.data.data);
         // console.log(JSON.stringify(this.info));
       })
       .catch(error => {
@@ -142,16 +197,60 @@ export default {
 }
 tr {
   height: 60px;
-  td:nth-child(1) {
+  th {
+    cursor: pointer;
+  }
+  td:nth-child(1),
+  th:nth-child(1) {
     text-align: left;
     width: 200px;
   }
-  td:nth-child(2) {
-    text-align: right;
-  }
+  // td:nth-child(2) {
+  //   text-align: right;
+  // }
   td:nth-child(3) {
     width: 200px;
   }
+}
+
+.caret-wrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 34px;
+  width: 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: initial;
+  position: relative;
+}
+.sort-caret.ascending {
+  border-bottom-color: #c0c4cc;
+  top: 5px;
+}
+.ascending .sort-caret.ascending {
+  border-bottom-color: #409eff;
+}
+.sort-caret.descending {
+  border-top-color: #c0c4cc;
+  bottom: 7px;
+}
+.descending .sort-caret.descending {
+  border-top-color: #409eff;
+}
+.sort-caret {
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  position: absolute;
+  left: 7px;
 }
 
 .flip-list-move {
