@@ -79,9 +79,16 @@ export default {
         name: "网站状态",
         value: 100,
         label: { color: "rgb(238, 197, 102)" },
-        children: []
+        children: [
+          {
+            name: "malu.me",
+            value: "100",
+            status: "2",
+            label: { color: "rgb(255, 208, 75)" }
+          }
+        ]
       },
-      tablesort: []
+      tablesort: { value: "", name: "", status: "" }
     };
   },
   computed: {
@@ -113,20 +120,22 @@ export default {
       });
     },
     sort: function(key) {
+      // this.tablesort[key] = "ascending";
+      // this.testtag = key;
+      // console.log(this.tablesort)
+      // return;
       // console.log(e.currentTarget.firstElementChild)
       // this.tablesort = {};
-      // console.log(this.tablesort);
+      console.log(this.tablesort);
       for (var i in this.tablesort) {
+        console.log(i)
         if (i != key) {
-          delete this.tablesort[i];
+          this.tablesort[i] = "";
         }
-        // console.log(this.tablesort[i])
       }
+      console.log(this.tablesort[key]);
 
-      if (
-        typeof this.tablesort[key] == "undefined" ||
-        this.tablesort[key] == "bbq"
-      ) {
+      if (typeof this.tablesort[key] == "undefined" || this.tablesort[key] == "" || this.tablesort[key] == "bbq") {
         this.tablesort[key] = "ascending";
         this.info.children.sort(function(a, b) {
           if (isNaN(parseFloat(a[key]))) {
@@ -135,9 +144,10 @@ export default {
           }
           return parseFloat(a[key]) - parseFloat(b[key]);
         });
-      } else if (this.tablesort[key] == "descending") {
+      } else if (this.tablesort[key] == "ascending") {
         // delete(this.tablesort[key]);
-        this.tablesort[key] = "bbq";
+        this.tablesort[key] = "descending";
+        // console.log("2", this.tablesort[key]);
         this.info.children
           .sort(function(a, b) {
             if (isNaN(parseFloat(a[key]))) {
@@ -148,26 +158,36 @@ export default {
           })
           .reverse();
         // console.log(this.tablesort[key]);
-      } else {
-        this.tablesort[key] = "descending";
-        this.info.children
-          .sort(function(a, b) {
-            if (isNaN(parseFloat(a[key]))) {
-              // 字符串看长度
-              return a[key].length - b[key].length;
-            }
-            return parseFloat(a[key]) - parseFloat(b[key]);
-          })
-          .reverse();
+      } else if (this.tablesort[key] == "descending") {
+        this.tablesort[key] = "bbq";
+        // this.info.children
+        //   .sort(function(a, b) {
+        //     if (isNaN(parseFloat(a[key]))) {
+        //       // 字符串看长度
+        //       return a[key].length - b[key].length;
+        //     }
+        //     return parseFloat(a[key]) - parseFloat(b[key]);
+        //   })
+        //   .reverse();
       }
+      //  else {
+      //   this.tablesort[key] = "bbq";
+      //   this.info.children.sort(function(a, b) {
+      //     if (isNaN(parseFloat(a[key]))) {
+      //       // 字符串看长度
+      //       return a[key].length - b[key].length;
+      //     }
+      //     return parseFloat(a[key]) - parseFloat(b[key]);
+      //   });
+      // }
       // console.log(this.tablesort[key]);
       // if (this.tablesort[key]) {
       // } else {
       // }
-    },
-    shuffle: function() {
-      this.info.children = _.shuffle(this.info.children);
     }
+    // shuffle: function() {
+    //   this.info.children = _.shuffle(this.info.children);
+    // }
   },
   mounted() {
     axios
