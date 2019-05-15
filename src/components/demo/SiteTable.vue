@@ -80,12 +80,12 @@ export default {
         value: 100,
         label: { color: "rgb(238, 197, 102)" },
         children: [
-          {
-            name: "malu.me",
-            value: "100",
-            status: "2",
-            label: { color: "rgb(255, 208, 75)" }
-          }
+          // {
+          //   name: "malu.me",
+          //   value: "100",
+          //   status: "2",
+          //   label: { color: "rgb(255, 208, 75)" }
+          // }
         ]
       },
       tablesort: { value: "", name: "", status: "" }
