@@ -15,7 +15,11 @@
     </el-menu-item>
     <el-menu-item index="/show">
       <i class="el-icon-menu" v-if="!moo"></i>
-      <span slot="title">项目</span>
+      <span slot="title">状态</span>
+    </el-menu-item>
+    <el-menu-item index="/test">
+      <i class="el-icon-message" v-if="!moo"></i>
+      <span slot="title">测试</span>
     </el-menu-item>
     <el-submenu index="2" :show-timeout="100">
       <template slot="title">
@@ -24,8 +28,9 @@
       </template>
       <el-menu-item index="/d1d0">文字</el-menu-item>
       <el-menu-item index="/d2d0">雷达图</el-menu-item>
-      <el-menu-item index="/d2d1">网站状态</el-menu-item>
+      <el-menu-item index="/sitetree">网站状态</el-menu-item>
       <el-menu-item index="/sitetable">网站状态2</el-menu-item>
+      <el-menu-item index="/car">车辆</el-menu-item>
       <el-menu-item index="/d2d2">步数</el-menu-item>
       <el-menu-item index="/d2d3">预警</el-menu-item>
       <el-menu-item index="/d2d4">访问量TOP</el-menu-item>
@@ -40,10 +45,6 @@
       <el-menu-item index="/d3d2">正方体</el-menu-item>
       <el-menu-item index="/d4d0">图片切换</el-menu-item>
     </el-submenu>
-    <el-menu-item index="/test">
-      <i class="el-icon-message" v-if="!moo"></i>
-      <span slot="title">测试</span>
-    </el-menu-item>
   </el-menu>
 </template>
 
@@ -61,7 +62,7 @@ export default {
     handleSelect(key, keyPath) {
       // this.activeIndex = this.$store.state.route.path;
       this.$emit("show_off");
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     }
   }
 };

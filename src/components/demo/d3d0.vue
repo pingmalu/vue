@@ -5,6 +5,10 @@
 </template>
  
 <script>
+// import * as Three from "three";
+//创建颜色对象
+// let blue = new Three.Color(0x7658ef);
+// let pink = new Three.Color(0xfca4c5);
 import {
   Scene,
   Color,

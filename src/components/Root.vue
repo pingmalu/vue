@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <!-- <d4d0 class="d2" :style="{width: '820px'}"></d4d0> -->
-    <transition name="el-fade-in" appear="true">
+    <transition name="el-fade-in" appear>
       <d1d0 class="d1d0"></d1d0>
     </transition>
     <!-- <d3d0 class="d1"></d3d0> -->
@@ -16,17 +16,17 @@
     <!-- <el-button @click="show = !show">Click Me</el-button> -->
 
     <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
-      <transition name="el-zoom-in-center" appear="true">
+      <transition name="el-zoom-in-center" appear>
         <d2d3 class="d2d3" :url="url1" v-show="show">RedisLabs</d2d3>
       </transition>
     </div>
     <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
-      <transition name="el-zoom-in-center" appear="true">
+      <transition name="el-zoom-in-center" appear>
         <d2d3 class="d2d3" :url="url2" v-show="show">SSH</d2d3>
       </transition>
     </div>
     <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
-      <transition name="el-zoom-in-center" appear="true">
+      <transition name="el-zoom-in-center" appear>
         <d2d3 class="d2d3" :url="url3" v-show="show">HOME</d2d3>
       </transition>
     </div>
@@ -81,7 +81,7 @@ routes_arr.add("d1d0");
 routes_arr.add("d2d0");
 routes_arr.add("d3d0");
 routes_arr.add("d4d0");
-routes_arr.add("d2d1");
+// routes_arr.add("d2d1");
 // routes_arr.add('d2d2');
 routes_arr.add("d2d3");
 routes_arr.add("d2d4");

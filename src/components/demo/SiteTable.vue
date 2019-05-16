@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <table id="d3" :style="{width: '300px'}">
+    <table id="sitetable" :style="{width: '300px'}">
       <!-- <button v-on:click="shuffle">Shuffle</button> -->
       <!-- <el-table
         v-loading="loading"
@@ -29,7 +28,7 @@
             </span>
           </th>
           <th @click="sort('name')">
-            Name
+            网站
             <span class="caret-wrapper" :class="tablesort['name']">
               <i class="sort-caret ascending"></i>
               <i class="sort-caret descending"></i>
@@ -54,7 +53,6 @@
         </tr>
       </transition-group>
     </table>
-  </div>
 </template>
 
 <script>
@@ -64,7 +62,6 @@ let _ = require("lodash");
 import VCPB from "@/components/demo/VueCircleProgressBars";
 
 export default {
-  name: "d3",
   data() {
     return {
       loading: true,
@@ -79,14 +76,7 @@ export default {
         name: "网站状态",
         value: 100,
         label: { color: "rgb(238, 197, 102)" },
-        children: [
-          // {
-          //   name: "malu.me",
-          //   value: "100",
-          //   status: "2",
-          //   label: { color: "rgb(255, 208, 75)" }
-          // }
-        ]
+        children: [{"name":"malu.me","value":"100","label":{"color":"#92be82"},"status":"2"},{"name":"s.malu.me","value":"100","label":{"color":"#92be82"},"status":"2"},{"name":"ip.malu.me","value":"99.68","label":{"color":"#92be82"},"status":"2"},{"name":"ai.malu.me","value":"84.92","label":{"color":"#92be82"},"status":"2"},{"name":"im.malu.me","value":"81.26","label":{"color":"rgb(238, 197, 102)"},"status":"9"},{"name":"www.malu.me","value":"100","label":{"color":"#92be82"},"status":"2"},{"name":"cdn.malu.me","value":"99.97","label":{"color":"#92be82"},"status":"2"},{"name":"git.malu.me","value":"99.95","label":{"color":"#92be82"},"status":"2"},{"name":"web.malu.me","value":"0","label":{"color":"rgb(238, 197, 102)"},"status":"9"},{"name":"ssh.malu.me","value":"0","label":{"color":"rgb(238, 197, 102)"},"status":"9"},{"name":"blog.malu.me","value":"100","label":{"color":"#92be82"},"status":"2"},{"name":"mcms.malu.me","value":"99.79","label":{"color":"#92be82"},"status":"2"},{"name":"lost.malu.me","value":"99.79","label":{"color":"#92be82"},"status":"2"},{"name":"photo.malu.me","value":"100","label":{"color":"#92be82"},"status":"2"},{"name":"github.malu.me","value":"100","label":{"color":"#92be82"},"status":"2"}]
       },
       tablesort: { value: "", name: "", status: "" }
     };
@@ -212,9 +202,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#d3 {
-  margin: 0 auto;
-}
+// #sitetable {
+//   margin: 0 auto;
+// }
 tr {
   height: 60px;
   th {

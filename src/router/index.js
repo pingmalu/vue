@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import NotFoundComponent from '@/components/NotFoundComponent'
+import NotFoundComponent from '@/components/404'
 import Root from '@/components/Root'
 import Show from '@/components/Show'
 import Test from '@/components/Test'
@@ -55,7 +55,7 @@ routes_arr.add('d1d0');
 routes_arr.add('d2d0');
 routes_arr.add('d3d0');
 routes_arr.add('d4d0');
-routes_arr.add('d2d1');
+routes_arr.add('SiteTree');
 routes_arr.add('d2d2');
 routes_arr.add('d2d3');
 routes_arr.add('d2d4');
@@ -63,6 +63,7 @@ routes_arr.add('d3d1');
 routes_arr.add('d3d2');
 routes_arr.add('SiteTable');
 routes_arr.add('VueCircleProgressBars');
+routes_arr.add('Car');
 
 // console.log(routes_arr);
 

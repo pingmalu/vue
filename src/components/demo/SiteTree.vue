@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <div id="d3" :style="{width: '300px', height: '300px'}"></div>
-  </div>
+    <div id="sitetree" :style="{width: '300px', height: '300px'}"></div>
 </template>
 
 <script>
@@ -15,7 +13,6 @@ import axios from "axios";
 // import "../plugins/echarts_theme.js";
 
 export default {
-  name: "d3",
   data() {
     return {
       camera: null,
@@ -130,7 +127,7 @@ export default {
       // echarts.registerTheme("halloween", this.config);
       // 基于准备好的dom，初始化echarts实例
       // var myChart = echarts.init(document.getElementById("root2"), "halloween");
-      var myChart = echarts.init(document.getElementById("d3"));
+      var myChart = echarts.init(document.getElementById("sitetree"));
       // console.log("test");
 
       myChart.showLoading();
@@ -249,7 +246,7 @@ export default {
 </script>
 
 <style scoped>
-#d3 {
+/* #sitetree {
   margin: 0 auto;
-}
+} */
 </style>
