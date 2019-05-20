@@ -130,9 +130,9 @@ a {
   /* height: 24px; */
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  /* display: inline-block; */
-  margin: 4px 4px 0 4px;
-  padding: 12px;
+  display: inline-table;
+  margin: 4px;
+  padding: 12px 12px 8px 12px;
   overflow: hidden;
   vertical-align: middle;
   cursor: pointer;
@@ -140,6 +140,7 @@ a {
   width: 24px;
   -webkit-user-select: none;
   -webkit-flex: 0 0 auto;
+  -webkit-box-flex: 0;
   flex: 0 0 auto;
 }
 
