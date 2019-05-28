@@ -13,7 +13,8 @@
 import * as THREE from "three";
 import BAS from "../../../static/js/bas.js";
 import 'gsap';
-import OrbitControls from "three/examples/js/controls/OrbitControls";
+// import OrbitControls from "three/examples/js/controls/OrbitControls";
+import { OrbitControls } from "three-orbitcontrols-ts";
 
 const config = require('../../../config');
 var site_root = (process.env.NODE_ENV === 'development') ? config.dev.assetsPublicPath : config.build.assetsPublicPath;

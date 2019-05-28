@@ -18,7 +18,8 @@ import {
   CameraHelper
 } from "three";
 
-import OrbitControls from "three/examples/js/controls/OrbitControls";
+// import OrbitControls from "three/examples/js/controls/OrbitControls";
+import { OrbitControls } from "three-orbitcontrols-ts";
 
 export default {
   name: "d3d1",

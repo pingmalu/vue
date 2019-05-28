@@ -40,22 +40,22 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: require.resolve("three/examples/js/controls/OrbitControls"),
-        use: "imports-loader?THREE=three"
-      },
-      {
-        test: require.resolve("three/examples/js/controls/OrbitControls"),
-        use: "exports-loader?THREE.OrbitControls"
-      },
-      {
-        test: require.resolve("../static/js/bas.js"),
-        use: "imports-loader?THREE=three"
-      },
-      {
-        test: require.resolve("../static/js/bas.js"),
-        use: "exports-loader?THREE.BAS"
-      },
+      // {
+      //   test: require.resolve("three/examples/js/controls/OrbitControls"),
+      //   use: "imports-loader?THREE=three"
+      // },
+      // {
+      //   test: require.resolve("three/examples/js/controls/OrbitControls"),
+      //   use: "exports-loader?THREE.OrbitControls"
+      // },
+      // {
+      //   test: require.resolve("../static/js/bas.js"),
+      //   use: "imports-loader?THREE=three"
+      // },
+      // {
+      //   test: require.resolve("../static/js/bas.js"),
+      //   use: "exports-loader?THREE.BAS"
+      // },
       // ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
