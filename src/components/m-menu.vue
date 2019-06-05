@@ -10,20 +10,20 @@
     active-text-color="#ffd04b"
   >
     <el-menu-item index="/">
-      <i class="el-icon-location-outline" v-if="!moo"></i>
+      <i class="el-icon-s-home" v-if="!moo"></i>
       <span slot="title">实验室</span>
     </el-menu-item>
     <el-menu-item index="/show">
-      <i class="el-icon-menu" v-if="!moo"></i>
+      <i class="el-icon-s-opportunity" v-if="!moo"></i>
       <span slot="title">状态</span>
     </el-menu-item>
     <el-menu-item index="/test">
-      <i class="el-icon-message" v-if="!moo"></i>
+      <i class="el-icon-thumb" v-if="!moo"></i>
       <span slot="title">测试</span>
     </el-menu-item>
     <el-submenu index="2" :show-timeout="100">
       <template slot="title">
-        <i class="el-icon-tickets" v-if="!moo"></i>
+        <i class="el-icon-s-data" v-if="!moo"></i>
         <span slot="title">数据</span>
       </template>
       <el-menu-item index="/d1d0">文字</el-menu-item>
@@ -37,7 +37,7 @@
     </el-submenu>
     <el-submenu index="3" :show-timeout="100">
       <template slot="title">
-        <i class="el-icon-tickets" v-if="!moo"></i>
+        <i class="el-icon-crop" v-if="!moo"></i>
         <span slot="title">3D</span>
       </template>
       <el-menu-item index="/d3d0">多边形</el-menu-item>
