@@ -11,19 +11,49 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/vue/precache-manifest.024f25b27a3c70a8e2fc8fe2db21404d.js"
+  "/vue/precache-manifest.e07e6a001111a6e688eae52fe7278f2b.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "bbq"});
+
+workbox.core.skipWaiting();
+
+workbox.core.clientsClaim();
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
+self.__precacheManifest = [
+  {
+    "url": "css/app.0edf2f69.css",
+    "revision": "4004ac2cf76a4b401e0fe0b12f0542af"
+  },
+  {
+    "url": "css/chunk-vendors.aae34bb5.css",
+    "revision": "e2a12c2163c078beca3f47adfb5d597c"
+  },
+  {
+    "url": "index.html",
+    "revision": "049e19c44b535e06cf9eb865c59cf540"
+  },
+  {
+    "url": "js/app.fad65ae9.js",
+    "revision": "e1bdf994c101bf673708e94dd9054799"
+  },
+  {
+    "url": "precache-manifest.024f25b27a3c70a8e2fc8fe2db21404d.js",
+    "revision": "ed4cdfc0ddded64d28d3de9d7c4d49f7"
+  },
+  {
+    "url": "precache-manifest.e07e6a001111a6e688eae52fe7278f2b.js",
+    "revision": "e07e6a001111a6e688eae52fe7278f2b"
+  }
+].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
+workbox.routing.registerRoute(/.*\.js/, new workbox.strategies.NetworkFirst(), 'GET');
