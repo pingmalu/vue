@@ -14,7 +14,7 @@ import * as THREE from "three";
 import BAS from "../../../static/js/bas.js";
 import 'gsap';
 // import OrbitControls from "three/examples/js/controls/OrbitControls";
-import { OrbitControls } from "three-orbitcontrols-ts";
+// import { OrbitControls } from "three-orbitcontrols-ts";
 
 const config = require('../../../config');
 var site_root = (process.env.NODE_ENV === 'development') ? config.dev.assetsPublicPath : config.build.assetsPublicPath;
@@ -321,7 +321,7 @@ var container;
             this.scene = new THREE.Scene();
 
             if (params.createCameraControls) {
-                this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+                // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
             }
 
             this.resize = this.resize.bind(this);

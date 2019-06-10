@@ -19,7 +19,7 @@ import {
 } from "three";
 
 // import OrbitControls from "three/examples/js/controls/OrbitControls";
-import { OrbitControls } from "three-orbitcontrols-ts";
+// import { OrbitControls } from "three-orbitcontrols-ts";
 
 export default {
   name: "d3d1",
@@ -93,7 +93,7 @@ export default {
       //将创建的canvas元素（此处的canvas元素为THREE.js创建）添加到文档当中
       container.appendChild(this.renderer.domElement);
 
-      var orbit = new OrbitControls(this.camera, this.renderer.domElement);
+      // var orbit = new OrbitControls(this.camera, this.renderer.domElement);
 
       // var shape = [];
 
