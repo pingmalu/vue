@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/vue/precache-manifest.27b35367b8c6b78c4d951b60244d9008.js"
+  "/vue/precache-manifest.79b104ec3e5151d62826882acc023ba0.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "bbq"});
@@ -39,7 +39,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "049e19c44b535e06cf9eb865c59cf540"
+    "revision": "86e098fb2a24cf243d14317767627181"
   },
   {
     "url": "js/app.fad65ae9.js",
@@ -48,6 +48,10 @@ self.__precacheManifest = [
   {
     "url": "precache-manifest.024f25b27a3c70a8e2fc8fe2db21404d.js",
     "revision": "ed4cdfc0ddded64d28d3de9d7c4d49f7"
+  },
+  {
+    "url": "precache-manifest.27b35367b8c6b78c4d951b60244d9008.js",
+    "revision": "27b35367b8c6b78c4d951b60244d9008"
   },
   {
     "url": "precache-manifest.e07e6a001111a6e688eae52fe7278f2b.js",
