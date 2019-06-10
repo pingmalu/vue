@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -32,13 +33,13 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   optimization: {
     splitChunks: {
-        cacheGroups: {
-            commons: {
-                name: "commons",
-                chunks: "initial",
-                minChunks: 2
-            }
+      cacheGroups: {
+        commons: {
+          name: "commons",
+          chunks: "initial",
+          minChunks: 2
         }
+      }
     },
     minimizer: [
       // js mini
@@ -49,9 +50,25 @@ const webpackConfig = merge(baseWebpackConfig, {
       }),
       // css mini
       new OptimizeCSSPlugin({})
-  ]
-},
+    ]
+  },
   plugins: [
+    new WorkboxPlugin.GenerateSW({
+      cacheId: 'bbq', // 设置前缀
+      skipWaiting: true, // 强制等待中的 Service Worker 被激活
+      clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
+      swDest: 'service-worker.js', // 输出 Service worker 文件
+      globDirectory: 'dist',
+      globPatterns: ['**/*.{html,js,css,png.jpg}'], // 匹配的文件
+      globIgnores: ['service-worker.js'], // 忽略的文件
+      runtimeCaching: [
+        // 配置路由请求缓存
+        {
+          urlPattern: /.*\.js/, // 匹配文件
+          handler: 'networkFirst' // 网络优先
+        }
+      ]
+    }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env

@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "d5",
+  name: "d1d0",
   data() {
     return {};
   },

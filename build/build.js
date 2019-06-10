@@ -11,6 +11,18 @@ const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
 
+// // Inside of build.js:
+// const {generateSW} = require('workbox-build');
+
+// const swDest = path.join('dist', 'sw.js');
+
+// generateSW({
+//   swDest,
+//   // Other configuration options...
+// }).then(({count, size}) => {
+//   console.log(`Generated ${swDest}, which will precache ${count} files, totaling ${size} bytes.`);
+// });
+
 const spinner = ora('building for production...')
 spinner.start()
 

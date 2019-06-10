@@ -9,6 +9,7 @@ import Vuex from 'vuex'
 import router from './router'
 import './plugins/element.js'
 import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
+import './registerServiceWorker'
 
 
 // import fs from 'fs' 
