@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/vue/precache-manifest.77642d3c634d6e7d3799a6390240af22.js"
+  "/vue/precache-manifest.f5e2c2cfd6d84cf429b3fd12c0bb91cf.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "bbq"});
