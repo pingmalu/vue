@@ -15,7 +15,7 @@ importScripts("/vue/workbox-v4.3.1/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "/vue/workbox-v4.3.1"});
 
 importScripts(
-  "/vue/precache-manifest.3d57f94d04a8f0d92777b8a182cffa73.js"
+  "/vue/precache-manifest.2fbbf439d6af5908a53290e3c275b6e4.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "bbq"});
@@ -33,4 +33,4 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(/.*\.js/, new workbox.strategies.NetworkFirst(), 'GET');
-workbox.routing.registerRoute(/.*\.png/, new workbox.strategies.NetworkFirst(), 'GET');
+workbox.routing.registerRoute(/.*\.png/, new workbox.strategies.NetworkFirst({ "networkTimeoutSeconds":2, plugins: [] }), 'GET');
