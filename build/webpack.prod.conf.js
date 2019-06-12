@@ -76,32 +76,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     // ]
   },
   plugins: [
-    new WorkboxPlugin.GenerateSW({
-      cacheId: 'bbq', // 设置前缀
-      importWorkboxFrom: 'local', // importWorkboxFrom 我们指定从本地引入，这样插件就会将 workbox 所有源文件下载到本地，墙内开发者的福音
-      skipWaiting: true, // 强制等待中的 Service Worker 被激活
-      clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
-      swDest: 'service-worker.js', // 输出 Service worker 文件
-      // globDirectory: 'dist',
-      // globPatterns: ['**/*.{html,js,css,png.jpg}'], // 匹配的文件
-      // globIgnores: ['service-worker.js'], // 忽略的文件
-      runtimeCaching: [
-        // 配置路由请求缓存
-        {
-          urlPattern: /.*\.js/, // 匹配文件
-          handler: 'NetworkFirst' // 网络优先
-
-        },
-        {
-          urlPattern: /.*\.png/, // 匹配文件
-          handler: 'NetworkFirst', // 网络优先
-          options: {
-            // Fall back to the cache after 10 seconds.
-            networkTimeoutSeconds: 2
-          }
-        },
-      ]
-    }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
@@ -192,7 +166,35 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new WorkboxPlugin.GenerateSW({
+      cacheId: 'bbq', // 设置前缀
+      importWorkboxFrom: 'local', // importWorkboxFrom 我们指定从本地引入，这样插件就会将 workbox 所有源文件下载到本地，墙内开发者的福音
+      skipWaiting: true, // 强制等待中的 Service Worker 被激活
+      clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
+      swDest: 'service-worker.js', // 输出 Service worker 文件
+      // include: [/\.html$/, /\.js$/, /\.png$/, /index\.html/],
+      // globDirectory: 'dist',
+      // globPatterns: ['**/*.{html,js,css,png.jpg}'], // 匹配的文件
+      // globPatterns: ['dist/*.{js,png,html,css}'],
+      // globIgnores: ['service-worker.js'], // 忽略的文件
+      runtimeCaching: [
+        // 配置路由请求缓存
+        {
+          urlPattern: /.*\.js/, // 匹配文件
+          handler: 'NetworkFirst' // 网络优先
+
+        },
+        {
+          urlPattern: /.*\.png/, // 匹配文件
+          handler: 'NetworkFirst', // 网络优先
+          options: {
+            // Fall back to the cache after 10 seconds.
+            networkTimeoutSeconds: 2
+          }
+        },
+      ]
+    })
   ]
 })
 
