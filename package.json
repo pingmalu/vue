@@ -6,6 +6,7 @@
   "author": "malu <malu@malu.me>",
   "scripts": {
     "build": "node build/build.js",
+    "br":"npm run build --report",
     "test": "npm run unit && npm run e2e",
     "e2e": "node test/e2e/runner.js",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",

@@ -17,10 +17,10 @@
       style="width: 100%"
     >
       <!-- <transition-group tag="ul" name="flip-list"> -->
-        <!-- <template> -->
-          <el-table-column key="1" sortable prop="time" label="日期" width="140"></el-table-column>
-          <el-table-column key="2" sortable prop="type" label="事件" width="180" align="center"></el-table-column>
-        <!-- </template> -->
+      <!-- <template> -->
+      <el-table-column key="1" sortable prop="time" label="日期" width="140"></el-table-column>
+      <el-table-column key="2" sortable prop="type" label="事件" width="180" align="center"></el-table-column>
+      <!-- </template> -->
       <!-- </transition-group> -->
       <!-- <transition-group tag="ul" name="flip-list"> -->
       <!-- <div :key="time"> -->
@@ -37,8 +37,61 @@ import axios from "axios";
 export default {
   data() {
     return {
-      tableData: [],
-      loading: true,
+      tableData: [
+        {
+          time: "2019-06-10 15:25:40",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-29 11:04:06",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-21 16:39:12",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-13 18:02:26",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-08 14:25:23",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-07 10:06:53",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-07 10:06:53",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-07 10:06:49",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-07 10:06:43",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-07 10:06:35",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-06 10:11:18",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-05 17:50:53",
+          type: "DEMO"
+        },
+        {
+          time: "2019-05-06 10:11:18",
+          type: "DEMO"
+        }
+      ],
+      loading: false, // true 开启，false关闭
       today: this.todaytime(),
       logurl: "//c1.malu.me/api/loglist/d",
       getRowKeys(row) {
@@ -124,6 +177,7 @@ export default {
       .get(this.logurl)
       .then(response => {
         // console.log(response.data.data);
+        this.tableData = [];
         response.data.data.forEach(element => {
           if (element.time && element.type) {
             this.tableData.push(element);

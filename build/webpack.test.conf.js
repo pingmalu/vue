@@ -9,30 +9,16 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
-const createLintingRule = () => ({
-  test: /\.(js|vue)$/,
-  loader: 'eslint-loader',
-  enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
-  options: {
-    formatter: require('eslint-friendly-formatter'),
-    emitWarning: !config.dev.showEslintErrorsInOverlay
-  }
-})
-
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
-    // vendor: ["vue",'vue-router'],
-    // three: 'three'
+    app: './src/main.js',
+    vendor: ["three","vue",'vue-router']
   },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: '/'
   },
   plugins: [
     // make sure to include the plugin for the magic
@@ -47,23 +33,6 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: require.resolve("three/examples/js/controls/OrbitControls"),
-      //   use: "imports-loader?THREE=three"
-      // },
-      // {
-      //   test: require.resolve("three/examples/js/controls/OrbitControls"),
-      //   use: "exports-loader?THREE.OrbitControls"
-      // },
-      // {
-      //   test: require.resolve("../static/js/bas.js"),
-      //   use: "imports-loader?THREE=three"
-      // },
-      // {
-      //   test: require.resolve("../static/js/bas.js"),
-      //   use: "exports-loader?THREE.BAS"
-      // },
-      // ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',

@@ -32,41 +32,74 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          name: "commons",
-          chunks: "initial",
-          minChunks: 2
-        }
-      }
-    },
-    minimizer: [
-      // js mini
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: false // set to true if you want JS source maps
-      }),
-      // css mini
-      new OptimizeCSSPlugin({})
-    ]
+    // namedChunks: true,
+    // moduleIds: 'hashed',
+    // splitChunks: {
+    //   maxInitialRequests: 6,
+    //   cacheGroups: {
+    //     dll: {
+    //       chunks: 'all',
+    //       test: /[\\/]node_modules[\\/](three|core-js|vue|vue-router)[\\/]/,
+    //       name: 'dll',
+    //       priority: 2,
+    //       enforce: true,
+    //       reuseExistingChunk: true
+    //     },
+    //     superSlide: {
+    //       chunks: 'all',
+    //       test: /[\\/]src[\\/]assets[\\/]js[\\/]/,
+    //       name: 'superSlide',
+    //       priority: 1,
+    //       enforce: true,
+    //       reuseExistingChunk: true
+    //     },
+    //     commons: {
+    //       name: 'commons',
+    //       minChunks: 2,//Math.ceil(pages.length / 3), 当你有多个页面时，获取pages.length，至少被1/3页面的引入才打入common包
+    //       chunks: 'all',
+    //       reuseExistingChunk: true
+    //     }
+    //   }
+    // },
+    // runtimeChunk: {
+    //   name: 'manifest'
+    // },
+    // minimizer: [
+    //   // js mini
+    //   new UglifyJsPlugin({
+    //     cache: true,
+    //     parallel: true,
+    //     sourceMap: false // set to true if you want JS source maps
+    //   }),
+    //   // css mini
+    //   new OptimizeCSSPlugin({})
+    // ]
   },
   plugins: [
     new WorkboxPlugin.GenerateSW({
       cacheId: 'bbq', // 设置前缀
+      importWorkboxFrom: 'local', // importWorkboxFrom 我们指定从本地引入，这样插件就会将 workbox 所有源文件下载到本地，墙内开发者的福音
       skipWaiting: true, // 强制等待中的 Service Worker 被激活
       clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
       swDest: 'service-worker.js', // 输出 Service worker 文件
-      globDirectory: 'dist',
-      globPatterns: ['**/*.{html,js,css,png.jpg}'], // 匹配的文件
-      globIgnores: ['service-worker.js'], // 忽略的文件
+      // globDirectory: 'dist',
+      // globPatterns: ['**/*.{html,js,css,png.jpg}'], // 匹配的文件
+      // globIgnores: ['service-worker.js'], // 忽略的文件
       runtimeCaching: [
         // 配置路由请求缓存
         {
           urlPattern: /.*\.js/, // 匹配文件
-          handler: 'networkFirst' // 网络优先
-        }
+          handler: 'NetworkFirst' // 网络优先
+
+        },
+        {
+          urlPattern: /.*\.png/, // 匹配文件
+          handler: 'NetworkFirst', // 网络优先
+          options: {
+            // Fall back to the cache after 10 seconds.
+            networkTimeoutSeconds: 2
+          }
+        },
       ]
     }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
