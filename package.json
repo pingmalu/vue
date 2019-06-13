@@ -6,7 +6,7 @@
   "author": "malu <malu@malu.me>",
   "scripts": {
     "build": "node build/build.js",
-    "br":"npm run build --report",
+    "br": "npm run build --report",
     "test": "npm run unit && npm run e2e",
     "e2e": "node test/e2e/runner.js",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
@@ -51,6 +51,7 @@
     "babel-register": "^6.22.0",
     "chalk": "^2.0.1",
     "chromedriver": "^2.27.2",
+    "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^4.0.1",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",

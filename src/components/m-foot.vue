@@ -6,7 +6,7 @@
     <a href="http://cdn.malu.me/mon/">监控</a> |
     <a href="http://cdn.malu.me/searchmap/">爬虫</a> |
     <a href="https://s.malu.me/">搜索</a> |
-    <a href="//malu.me/vue">实验室</a> |
+    <a href="https://malu.me/vue/">实验室</a> |
     <a href="mailto:malu@malu.me">malu@malu.me</a>
   </div>
 </template>

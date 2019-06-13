@@ -10,7 +10,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const { GenerateSW, InjectManifest } = require('workbox-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -76,6 +78,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // ]
   },
   plugins: [
+    new CleanWebpackPlugin(),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
@@ -165,36 +168,89 @@ const webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../static'),
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
+      },
+      {
+        from: path.resolve(__dirname, '../public'),
+        to: path.resolve(__dirname, '../dist'),
+        ignore: ['.*']
       }
     ]),
-    new WorkboxPlugin.GenerateSW({
-      cacheId: 'bbq', // 设置前缀
+    new GenerateSW({
+      cacheId: 'maluvue', // 设置前缀
       importWorkboxFrom: 'local', // importWorkboxFrom 我们指定从本地引入，这样插件就会将 workbox 所有源文件下载到本地，墙内开发者的福音
       skipWaiting: true, // 强制等待中的 Service Worker 被激活
       clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
       swDest: 'service-worker.js', // 输出 Service worker 文件
+      importsDirectory: 'wb',  // workbox输出目录
       // include: [/\.html$/, /\.js$/, /\.png$/, /index\.html/],
+      // include: [],
+      templatedURLs: {
+        '/vue/d1d0': '11',
+        '/vue/test': '11',
+        '/vue/d4d0': '11',
+        '/vue/show': '11',
+      },
       // globDirectory: 'dist',
       // globPatterns: ['**/*.{html,js,css,png.jpg}'], // 匹配的文件
       // globPatterns: ['dist/*.{js,png,html,css}'],
       // globIgnores: ['service-worker.js'], // 忽略的文件
       runtimeCaching: [
         // 配置路由请求缓存
+        // {
+        //   urlPattern: /vue/, // 匹配文件
+        //   handler: 'NetworkFirst' // 网络优先
+        // },
+        // {
+        //   urlPattern: /vue\/show/, // 匹配文件
+        //   handler: 'NetworkFirst' // 网络优先
+        // },
         {
           urlPattern: /.*\.js/, // 匹配文件
-          handler: 'NetworkFirst' // 网络优先
-
-        },
-        {
-          urlPattern: /.*\.png/, // 匹配文件
           handler: 'NetworkFirst', // 网络优先
           options: {
             // Fall back to the cache after 10 seconds.
             networkTimeoutSeconds: 2
           }
         },
+        {
+          urlPattern: new RegExp('^https://c1\.malu\.me/'),
+          handler: 'NetworkFirst',
+          options: {
+            networkTimeoutSeconds: 2
+          }
+        },
+        {
+          urlPattern: new RegExp('^https://malu\.me/vue'),
+          handler: 'NetworkFirst',
+          options: {
+            networkTimeoutSeconds: 2
+          }
+        }
+        // {
+        //   urlPattern: /.*\.png/, // 匹配文件
+        //   handler: 'NetworkFirst', // 网络优先
+        //   options: {
+        //     // Fall back to the cache after 10 seconds.
+        //     networkTimeoutSeconds: 2
+        //   }
+        // },
       ]
-    })
+    }),
+    // new InjectManifest({
+    //   // cacheId: 'bbq', // 设置前缀
+    //   importWorkboxFrom: 'disabled', // importWorkboxFrom 我们指定从本地引入，这样插件就会将 workbox 所有源文件下载到本地，墙内开发者的福音
+    //   // skipWaiting: true, // 强制等待中的 Service Worker 被激活
+    //   // clientsClaim: true, // Service Worker 被激活后使其立即获得页面控制权
+    //   // swDest: 'service-worker.js', // Service worker 文件
+    //   swSrc: path.join('dist', 'service-worker.js'),
+    //   importsDirectory: 'wb',  // workbox输出目录
+    //   precacheManifestFilename: 'i-manifest.[manifestHash].js',
+    //   exclude: [/.*precache-manifest.*\.js$/, /^service-worker.*\.js$/],
+    //   templatedURLs: {
+    //     '/vue': 'my-version-info',
+    //     '/vue/show': 'my-version-info',
+    //   }
+    // })
   ]
 })
 
