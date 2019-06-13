@@ -1,3 +1,5 @@
+importScripts("/vue/wb/i-manifest.1f4962000bb9639decc6585f679b57ef.js");
+
 /**
  * Welcome to your Workbox-powered service worker!
  *
@@ -11,11 +13,11 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("/vue/workbox-v4.3.1/workbox-sw.js");
-workbox.setConfig({modulePathPrefix: "/vue/workbox-v4.3.1"});
+importScripts("/vue/wb/workbox-v4.3.1/workbox-sw.js");
+workbox.setConfig({modulePathPrefix: "/vue/wb/workbox-v4.3.1"});
 
 importScripts(
-  "/vue/precache-manifest.32b3a9b4a2bae7dc24208db36e1be931.js"
+  "/vue/wb/precache-manifest.870d42406272213b6d5be017dabe759a.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "bbq"});
@@ -32,5 +34,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/.*\.js/, new workbox.strategies.NetworkFirst(), 'GET');
+workbox.routing.registerRoute(/vue\/show/, new workbox.strategies.NetworkFirst(), 'GET');
+workbox.routing.registerRoute(/.*\.js/, new workbox.strategies.NetworkFirst({ "networkTimeoutSeconds":2, plugins: [] }), 'GET');
 workbox.routing.registerRoute(/.*\.png/, new workbox.strategies.NetworkFirst({ "networkTimeoutSeconds":2, plugins: [] }), 'GET');
+
