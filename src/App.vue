@@ -32,7 +32,9 @@
       </el-header>
 
       <el-main>
-        <router-view></router-view>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </el-main>
       <el-footer>
         <Mfoot></Mfoot>
@@ -90,8 +92,8 @@ export default {
 </script>
 
 <style>
-body{
-    background-color: #262629;
+body {
+  background-color: #262629;
 }
 body,
 html {
