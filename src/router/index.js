@@ -64,6 +64,7 @@ routes_arr.add('d3d2');
 routes_arr.add('SiteTable');
 routes_arr.add('VueCircleProgressBars');
 routes_arr.add('Car');
+routes_arr.add('upload');
 
 // console.log(routes_arr);
 

@@ -22,7 +22,9 @@ import {
   Table,
   TableColumn,
   Loading,
-  icon
+  icon,
+  Upload,
+  Input
 } from 'element-ui'
 
 Vue.use(Button);
@@ -42,3 +44,5 @@ Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Loading);
 Vue.use(icon);
+Vue.use(Upload);
+Vue.use(Input);
