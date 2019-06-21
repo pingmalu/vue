@@ -19,7 +19,8 @@ var routes = [
     component: Root,
     // component: () => import('@/components/Root'),
     meta: {
-      title: '实验室'
+      title: '实验室',
+      keepAlive: true // 需要被缓存
     }
   },
   {
@@ -28,7 +29,8 @@ var routes = [
     component: Show,
     // component: () => import('@/components/Show'),
     meta: {
-      title: '项目'
+      title: '项目',
+      keepAlive: true // 需要被缓存
     }
   },
   {
@@ -37,7 +39,8 @@ var routes = [
     component: Test,
     // component: () => import('@/components/Test'),
     meta: {
-      title: '测试页面'
+      title: '测试页面',
+      keepAlive: true // 需要被缓存
     }
   },
   {

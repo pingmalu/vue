@@ -1,6 +1,8 @@
 <template>
   <div>
-    <el-input v-model="upurl" placeholder="请输入内容"></el-input>
+    <el-input v-model="upurl" placeholder="上传地址">
+      <template slot="prepend">http://</template>
+    </el-input>
     <br>
     <br>
     <el-upload
@@ -34,6 +36,7 @@ export default {
   data() {
     return {
       upurl: localStorage.lastname,
+      urllist: localStorage.urllist,
       title: {
         a: "vue"
       },
@@ -57,7 +60,8 @@ export default {
   mounted() {
     window.onbeforeunload = e => {
       //刷新时弹出提示
-      localStorage.lastname = this.upurl;
+      localStorage.lastname = this.upurl ? this.upurl : "";
+      localStorage.urllist = this.urllist ? this.urllist : [];
       //   return "aa";
     };
   }

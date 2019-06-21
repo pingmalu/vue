@@ -24,7 +24,9 @@ import {
   Loading,
   icon,
   Upload,
-  Input
+  Input,
+  Select,
+  Option
 } from 'element-ui'
 
 Vue.use(Button);
@@ -46,3 +48,5 @@ Vue.use(Loading);
 Vue.use(icon);
 Vue.use(Upload);
 Vue.use(Input);
+Vue.use(Select);
+Vue.use(Option);
