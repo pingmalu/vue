@@ -1,8 +1,21 @@
 <template>
   <div>
-    <el-input v-model="upurl" placeholder="上传地址">
+    <!-- <el-input v-model="upurl" placeholder="上传地址">
       <template slot="prepend">http://</template>
-    </el-input>
+    </el-input>-->
+    <el-select
+      v-model="upurl"
+      placeholder="请选择"
+      style="width:500px"
+      @change="save_selected_onchage"
+    >
+      <el-option
+        v-for="item in tableData"
+        :key="item.url.value"
+        :label="item.url.value"
+        :value="item.url.value"
+      ></el-option>
+    </el-select>
     <br>
     <br>
     <el-upload
@@ -36,16 +49,18 @@ export default {
   data() {
     return {
       upurl: localStorage.lastname,
-      urllist: localStorage.urllist,
       title: {
         a: "vue"
       },
-      fileList: []
+      fileList: [],
+      tableData: []
     };
   },
   methods: {
     submitUpload() {
       this.$refs.upload.submit();
+      // console.log(typeof this.urllist);
+      // this.urllist.add(this.upurl);
     },
     handleRemove(file, fileList) {
       console.log(file, fileList);
@@ -55,15 +70,20 @@ export default {
     },
     beforeAvatarUpload(file) {
       this.title.a = "[vue][" + time(file.raw.lastModified) + "]";
+    },
+    save_selected_onchage() {
+      localStorage.lastname = this.upurl ? this.upurl : "";
     }
   },
   mounted() {
-    window.onbeforeunload = e => {
-      //刷新时弹出提示
-      localStorage.lastname = this.upurl ? this.upurl : "";
-      localStorage.urllist = this.urllist ? this.urllist : [];
-      //   return "aa";
-    };
+    this.tableData = JSON.parse(localStorage.urllist);
+
+    // window.onbeforeunload = e => {
+    //   //刷新时弹出提示
+    //   localStorage.lastname = this.upurl ? this.upurl : "";
+    //   // localStorage.urllist = this.urllist ? new Set() : new Set();
+    //   //   return "aa";
+    // };
   }
 };
 </script>

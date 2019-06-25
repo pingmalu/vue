@@ -40,7 +40,7 @@ var routes = [
     // component: () => import('@/components/Test'),
     meta: {
       title: '测试页面',
-      keepAlive: true // 需要被缓存
+      keepAlive: false // 需要被缓存
     }
   },
   {
@@ -68,6 +68,7 @@ routes_arr.add('SiteTable');
 routes_arr.add('VueCircleProgressBars');
 routes_arr.add('Car');
 routes_arr.add('upload');
+routes_arr.add('setting');
 
 // console.log(routes_arr);
 

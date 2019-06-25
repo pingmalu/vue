@@ -46,6 +46,10 @@
       <el-menu-item index="/d3d2">正方体</el-menu-item>
       <el-menu-item index="/d4d0">图片切换</el-menu-item>
     </el-submenu>
+    <el-menu-item index="/setting">
+      <i class="el-icon-thumb" v-if="!moo"></i>
+      <span slot="title">配置</span>
+    </el-menu-item>
   </el-menu>
 </template>
 
