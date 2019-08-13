@@ -26,6 +26,7 @@
         <i class="el-icon-s-data" v-if="!moo"></i>
         <span slot="title">数据</span>
       </template>
+      <el-menu-item index="/f2d0">实时折线图</el-menu-item>
       <el-menu-item index="/d1d0">文字</el-menu-item>
       <el-menu-item index="/d2d0">雷达图</el-menu-item>
       <el-menu-item index="/sitetree">网站状态</el-menu-item>
@@ -84,7 +85,7 @@ export default {
 .el-submenu .el-menu-item {
   min-width: 100px !important;
 }
-ul > li:hover {
+ul.el-menu > li:hover {
   background-color: #303030 !important;
 }
 </style>

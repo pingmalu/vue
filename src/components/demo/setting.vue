@@ -1,5 +1,5 @@
   <template>
-  <div>
+  <div id="setting">
     <el-table
       :data="tableData.filter(data => !search || data.url.value.toLowerCase().includes(search.toLowerCase()))"
       @cell-dblclick="celledit"
@@ -18,7 +18,7 @@
       </el-table-column>
       <el-table-column align="right">
         <template slot="header" slot-scope="scope">
-          <el-input v-model="search" size="mini" placeholder="输入关键字搜索"/>
+          <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
         </template>
         <template slot-scope="scope">
           <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
@@ -79,7 +79,7 @@ export default {
         // }, 20);
       }
     },
-    handleBlur(){
+    handleBlur() {
       localStorage.urllist = JSON.stringify(this.tableData);
     },
     handleDelete(index, row) {
@@ -110,3 +110,25 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#setting >>> .el-table--border::after,
+#setting >>> .el-table--group::after,
+#setting >>> .el-table::before {
+  display: none;
+}
+#setting >>> .el-table td,
+#setting >>> .el-table th.is-leaf {
+  border-bottom: 1px solid #494949;
+}
+#setting >>> .el-table th,
+#setting >>> .el-table tr {
+  background-color: #262629;
+}
+#setting >>> .el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: #3c3c41;
+}
+#setting >>> .el-table {
+  color: #b5b6b8;
+}
+</style>

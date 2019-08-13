@@ -69,6 +69,7 @@ routes_arr.add('VueCircleProgressBars');
 routes_arr.add('Car');
 routes_arr.add('upload');
 routes_arr.add('setting');
+routes_arr.add('f2d0');
 
 // console.log(routes_arr);
 

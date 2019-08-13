@@ -17,6 +17,7 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage"
   },
   "dependencies": {
+    "@antv/f2": "^3.4.0",
     "axios": "^0.18.0",
     "echarts": "^4.2.1",
     "element-ui": "2.9.1",

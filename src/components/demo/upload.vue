@@ -6,7 +6,8 @@
     <el-select
       v-model="upurl"
       placeholder="请选择"
-      style="width:500px"
+      size="mini"
+      style="width:300px"
       @change="save_selected_onchage"
     >
       <el-option
@@ -87,3 +88,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+.upload-demo >>> .el-upload-list__item-name {
+    color: #d7d7d9;
+}
+.upload-demo >>> .el-upload-list__item-name [class^=el-icon] {
+    color: #d7d7d9;
+}
+</style>
