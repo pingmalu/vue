@@ -144,7 +144,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.color);
+    // console.log(this.color);
     this.datachart();
   }
 };
