@@ -1,12 +1,15 @@
 <template>
   <div>
-    <canvas v-bind:id="f2id"></canvas>
+    <canvas :id="f2id"></canvas>
   </div>
 </template>
 <script>
 const F2 = require("@antv/f2");
 export default {
-  props: { color: { default: "l(0) 0:#262629 0.15:#7ec2f3 1:#1890ff" }, f2id:{default:"f4"} },
+  props: {
+    color: { default: "l(0) 0:#262629 0.15:#7ec2f3 1:#1890ff" },
+    f2id: { default: "f4" }
+  },
   methods: {
     datachart() {
       // 自定义线图变更动画

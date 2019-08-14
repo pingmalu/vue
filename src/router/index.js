@@ -70,6 +70,7 @@ routes_arr.add('Car');
 routes_arr.add('upload');
 routes_arr.add('setting');
 routes_arr.add('f2d0');
+routes_arr.add('mqtt');
 
 // console.log(routes_arr);
 
