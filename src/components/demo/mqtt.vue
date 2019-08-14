@@ -130,7 +130,16 @@ export default {
         //   "/ws",
         //   "myclientid_" + parseInt(Math.random() * 100, 10)
         // );
-        client.connect(options);
+        client.connect({
+          timeout: 3,
+          onSuccess: function() {
+            debug("CONNECTION SUCCESS");
+            client.subscribe("/topic/bunny", { qos: 1 });
+          },
+          onFailure: function(message) {
+            debug("CONNECTION FAILURE - " + message.errorMessage);
+          }
+        });
       };
 
       client.onMessageArrived = function(message) {
