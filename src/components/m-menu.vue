@@ -36,6 +36,7 @@
       <el-menu-item index="/d2d3">预警</el-menu-item>
       <el-menu-item index="/d2d4">访问量TOP</el-menu-item>
       <el-menu-item index="/upload">批量上传</el-menu-item>
+      <el-menu-item index="/mqtt">协作画图</el-menu-item>
     </el-submenu>
     <el-submenu index="3" :show-timeout="100">
       <template slot="title">
