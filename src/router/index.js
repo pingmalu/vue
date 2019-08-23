@@ -71,6 +71,7 @@ routes_arr.add('upload');
 routes_arr.add('setting');
 routes_arr.add('f2d0');
 routes_arr.add('mqtt');
+routes_arr.add('mqtt_public_uptime');
 
 // console.log(routes_arr);
 
