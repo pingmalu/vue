@@ -112,8 +112,8 @@ export default {
         }
       };
 
-      var wsbroker = "192.168.1.45"; //mqtt websocket enabled broker
-      var wsport = 11133; // port for above
+      var wsbroker = "test.mosquitto.org"; //mqtt websocket enabled broker
+      var wsport = 8081; // port for above
 
       var client = new Paho.MQTT.Client(
         wsbroker,
@@ -134,7 +134,7 @@ export default {
           timeout: 3,
           onSuccess: function() {
             debug("CONNECTION SUCCESS");
-            client.subscribe("/topic/bunny", { qos: 1 });
+            client.subscribe("/topicbunnymalu/draw", { qos: 1 });
           },
           onFailure: function(message) {
             debug("CONNECTION FAILURE - " + message.errorMessage);
@@ -159,16 +159,16 @@ export default {
         timeout: 3,
         onSuccess: function() {
           debug("CONNECTION SUCCESS");
-          client.subscribe("/topic/bunny", { qos: 1 });
+          client.subscribe("/topicbunnymalu/draw", { qos: 1 });
         },
         onFailure: function(message) {
           debug("CONNECTION FAILURE - " + message.errorMessage);
         }
       };
 
-      if (location.protocol == "https:") {
+      // if (location.protocol == "https:") {
         options.useSSL = true;
-      }
+      // }
 
       debug("CONNECT TO " + wsbroker + ":" + wsport);
       client.connect(options);
@@ -182,7 +182,7 @@ export default {
 
       send = function(data) {
         var message = new Paho.MQTT.Message(data);
-        message.destinationName = "/topic/bunny";
+        message.destinationName = "/topicbunnymalu/draw";
         debug("SEND ON " + message.destinationName + " PAYLOAD " + data);
         client.send(message);
       };
