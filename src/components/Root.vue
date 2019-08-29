@@ -5,7 +5,7 @@
       <transition name="el-fade-in" appear>
         <d1d0 class="d1d0"></d1d0>
       </transition>
-      <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
+      <div id="box_no_margin" class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
         <mqtt_public_uptime class="mqtt_public_uptime"></mqtt_public_uptime>
       </div>
     </div>
@@ -153,6 +153,10 @@ export default {
 }
 .mqtt_public_uptime {
   min-width: 50%;
+}
+#box_no_margin {
+  margin: 64px 0px !important;
+  padding: 0px !important;
 }
 
 /* @media only screen and (min-width: 767px) {
