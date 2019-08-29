@@ -1,10 +1,15 @@
 <template>
   <div class="root">
     <!-- <d4d0 class="d2" :style="{width: '820px'}"></d4d0> -->
-    <transition name="el-fade-in" appear>
-      <d1d0 class="d1d0"></d1d0>
-    </transition>
-    <!-- <d3d0 class="d1"></d3d0> -->
+    <div class="root_1">
+      <transition name="el-fade-in" appear>
+        <d1d0 class="d1d0"></d1d0>
+      </transition>
+      <div class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
+        <mqtt_public_uptime class="mqtt_public_uptime"></mqtt_public_uptime>
+      </div>
+    </div>
+
     <!-- <d2d1 class="d3"></d2d1> -->
     <!-- <d3d1 class="d4"></d3d1> -->
     <!-- <d2d0 class="d5"></d2d0> -->
@@ -87,7 +92,7 @@ routes_arr.add("d2d3");
 // routes_arr.add("d2d4");
 // routes_arr.add("s1");
 // routes_arr.add('d3d1');
-// routes_arr.add('d3d2');
+routes_arr.add("mqtt_public_uptime");
 routes_arr.forEach(v => {
   routes[v] = require("@/components/demo/" + v).default;
 });
@@ -135,9 +140,21 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.d1d0 {
+.root_1 {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
+.d1d0 {
+  min-width: 27%;
+}
+.mqtt_public_uptime {
+  min-width: 50%;
+}
+
 /* @media only screen and (min-width: 767px) {
   .root {
     display: flex;

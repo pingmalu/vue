@@ -4,13 +4,13 @@
     <table>
       <thead>
         <tr>
-          <th style="text-align: left">Name</th>
+          <th>Name</th>
           <th>Time</th>
-          <th>Msg</th>
+          <th>Up</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="uptime in uptimelist" v-bind:key="uptime.name">
+        <tr v-for="uptime in uptimelist" :key="uptime.name" :class="uptime.tag">
           <td>{{ uptime.name }}</td>
           <td v-html="uptime.time"></td>
           <td>{{ uptime.msg }}</td>
@@ -28,7 +28,7 @@ export default {
     };
   },
   methods: {
-    time_to_color(time) {
+    time_to_tag(time) {
       let tmptime = time;
       time = time.replace("-", "/"); //替换字符，变成标准格式
       time = new Date(Date.parse(time));
@@ -37,9 +37,9 @@ export default {
       if (time < now) {
         // 指定的日期比现在的日期要小
         // console.log("超时");
-        return '<span style="color:#ff4940;">' + tmptime + "</span>";
+        return "offline";
       } else {
-        return tmptime;
+        return "online";
       }
     },
     // 去重加入数组
@@ -47,16 +47,19 @@ export default {
       let tag = true;
       this.uptimelist.forEach((value, i) => {
         if (value.name == topic) {
+          // 如果旧数组中存在一样的
           this.uptimelist[i].time = payload.toString().split(" | ")[0];
           this.uptimelist[i].msg = payload.toString().split(" | ")[1];
           tag = false;
         }
+        this.uptimelist[i].tag = this.time_to_tag(value.time);
       });
       console.log(payload.toString());
       if (tag)
         this.uptimelist.push({
           name: topic,
-          time: this.time_to_color(payload.toString().split(" | ")[0]),
+          time: payload.toString().split(" | ")[0],
+          tag: this.time_to_tag(payload.toString().split(" | ")[0]),
           msg: payload.toString().split(" | ")[1]
         });
     },
@@ -113,5 +116,8 @@ td {
   padding: 5px;
   vertical-align: top;
   text-align: left;
+}
+tr.offline {
+  color: #737778;
 }
 </style>
