@@ -72,6 +72,7 @@ routes_arr.add('setting');
 routes_arr.add('f2d0');
 routes_arr.add('mqtt');
 routes_arr.add('mqtt_public_uptime');
+routes_arr.add('mqtt2');
 
 // console.log(routes_arr);
 
