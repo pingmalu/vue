@@ -26,6 +26,7 @@
         <i class="el-icon-s-data" v-if="!moo"></i>
         <span slot="title">数据</span>
       </template>
+      <el-menu-item index="/mqtt3">实时折线图3</el-menu-item>
       <el-menu-item index="/mqtt2">实时折线图2</el-menu-item>
       <el-menu-item index="/f2d0">实时折线图</el-menu-item>
       <el-menu-item index="/d1d0">文字</el-menu-item>
