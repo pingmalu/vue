@@ -18,12 +18,29 @@ export default {
 
       // 监听鼠标移动事件
       c.addEventListener("mousemove", event => {
-        //1
         var rect = c.getBoundingClientRect();
-        //2
-        var x = event.clientX - rect.left * (c.width / rect.width);
-        var y = event.clientY - rect.top * (c.height / rect.height) - 50;
+        var y = event.clientY;
+        var x = event.clientX;
+
+        x = x - rect.left * (c.width / rect.width);
+        y = y - rect.top * (c.height / rect.height) - 50;
         // console.log("x:" + x + ",y:" + y);
+        this.FLOW[0] = y;
+        this.FLOW[1] = x;
+      });
+
+      // 监听触摸移动
+      c.addEventListener("touchmove", event => {
+        event.preventDefault();
+        var rect = c.getBoundingClientRect();
+        var touch = event.touches[0]; //获取第一个触点
+        var x = Number(touch.pageX); //页面触点X坐标
+        var y = Number(touch.pageY); //页面触点Y坐标
+
+        x = x - rect.left * (c.width / rect.width);
+        y = y - rect.top * (c.height / rect.height) - 50;
+        // var text = "TouchMove事件触发：（" + x + ", " + y + "）";
+        // console.log(text);
         this.FLOW[0] = y;
         this.FLOW[1] = x;
       });
