@@ -33,7 +33,7 @@ export default {
       loading: true,
       errored: false,
       id: this.$route.params.id,
-      md_url: "http://c1.malu.me/api/markdown_share/"
+      md_url: "//c1.malu.me/api/markdown_share/"
     };
   },
   methods: {
