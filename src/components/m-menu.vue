@@ -13,6 +13,10 @@
       <i class="el-icon-s-home" v-if="!moo"></i>
       <span slot="title">实验室</span>
     </el-menu-item>
+    <el-menu-item index="/markdown">
+      <i class="el-icon-s-opportunity" v-if="!moo"></i>
+      <span slot="title">文档</span>
+    </el-menu-item>
     <el-menu-item index="/show">
       <i class="el-icon-s-opportunity" v-if="!moo"></i>
       <span slot="title">状态</span>

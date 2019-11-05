@@ -75,6 +75,18 @@ routes_arr.add('mqtt_public_uptime');
 routes_arr.add('mqtt2');
 routes_arr.add('mqtt3');
 
+// markdown 路由
+routes_arr.add('markdown');
+routes[routes.length] = {
+  path: '/markdown/:id',
+  name: 'markdown',
+  component: require('@/components/demo/markdown').default,
+  meta: {
+    title: 'markdown'
+  }
+};
+// markdown 路由 end
+
 // console.log(routes_arr);
 
 // var obj_a = {};
