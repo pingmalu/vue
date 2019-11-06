@@ -12,9 +12,10 @@
       <div v-else-if="id" v-html="info" id="markdown"></div>
 
       <div v-else id="markdown-list">
-        <el-table :data="list" @row-click="handlePreview" stripe style="width: 100%;">
-          <el-table-column prop="id" label="ID" width="180"></el-table-column>
+        <el-table :data="list" @row-click="handlePreview" stripe style="width: 100%;" :show-header=false>
+          <!-- <el-table-column prop="id" label="ID" width="180"></el-table-column> -->
           <el-table-column prop="title" label="title"></el-table-column>
+          <el-table-column prop="modified" label="修改时间" width="180" class-name="modified-class"></el-table-column>
         </el-table>
       </div>
     </section>
@@ -121,6 +122,9 @@ a {
 a:hover {
   color: #98b8c9;
 }
+.modified-class {
+  color: #656262;
+}
 
 #markdown-list {
   width: 95%;
@@ -150,5 +154,6 @@ a:hover {
 }
 #markdown-list .el-table {
   color: #b5b6b8;
+  background: none;
 }
 </style>

@@ -10,7 +10,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="uptime in uptimelist" :key="uptime.name" :class="uptime.tag">
+        <tr v-if="loading"><td colspan=3 style="text-align:center;">Loading...</td></tr>
+        <tr v-else v-for="uptime in uptimelist" :key="uptime.name" :class="uptime.tag">
           <td>{{ uptime.name }}</td>
           <td v-html="uptime.time"></td>
           <td>{{ uptime.msg }}</td>
@@ -24,6 +25,7 @@
 export default {
   data() {
     return {
+      loading: true,
       uptimelist: []
     };
   },
@@ -74,6 +76,7 @@ export default {
         // console.log(uptimelist)
         // uptimelist.aa = payload;
         console.log([topic, payload].join(": "));
+        fatherdata.loading = false;
         // console.log(this.uptimelist)
       });
     }
@@ -107,6 +110,7 @@ th {
   font-size: 12px;
   padding: 3px;
   vertical-align: top;
+  min-width: 65px;
 }
 td {
   min-width: 24px;

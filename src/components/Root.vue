@@ -6,7 +6,9 @@
         <d1d0 class="d1d0"></d1d0>
       </transition>
       <div id="box_no_margin" class="box" v-on:mouseover="changeActive($event)" v-on:mouseout="removeActive($event)">
-        <mqtt_public_uptime class="mqtt_public_uptime"></mqtt_public_uptime>
+        <transition name="el-zoom-in-center" appear>
+          <mqtt_public_uptime class="mqtt_public_uptime"></mqtt_public_uptime>
+        </transition>
       </div>
     </div>
 
