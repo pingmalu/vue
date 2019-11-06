@@ -130,5 +130,6 @@ export default {
 }
 #setting >>> .el-table {
   color: #b5b6b8;
+  background: none;
 }
 </style>
