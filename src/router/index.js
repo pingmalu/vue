@@ -74,6 +74,7 @@ routes_arr.add('mqtt');
 routes_arr.add('mqtt_public_uptime');
 routes_arr.add('mqtt2');
 routes_arr.add('mqtt3');
+routes_arr.add('heroku');
 
 // markdown 路由
 routes_arr.add('markdown');

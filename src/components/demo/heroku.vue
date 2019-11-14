@@ -1,0 +1,138 @@
+<template>
+  <div id="box">
+    <div v-if="$slots.default">
+      <span class="title-span">
+        <slot></slot>
+      </span>
+    </div>
+    <el-table :data="tableData" stripe style="width: 100%">
+      <el-table-column sortable prop="name" label="name" width="180"></el-table-column>
+      <el-table-column sortable prop="buildpack_provided_description" label="类型" width="75"></el-table-column>
+      <el-table-column sortable prop="region" label="地区" width="75"></el-table-column>
+      <el-table-column sortable prop="web_url" label="web_url" width="350"></el-table-column>
+      <el-table-column sortable prop="slug_size" label="代码量" align="right"></el-table-column>
+      <el-table-column sortable prop="stack" label="stack" align="right"></el-table-column>
+      <el-table-column sortable prop="email" label="email" align="right"></el-table-column>
+      <el-table-column sortable prop="created_at" label="创建时间" align="right"></el-table-column>
+      <el-table-column sortable prop="released_at" label="释放时间" align="right"></el-table-column>
+      <el-table-column sortable prop="updated_at" label="更新时间" align="right"></el-table-column>
+    </el-table>
+  </div>
+</template>
+<script>
+import axios from "axios";
+
+// 从URL传参或值
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+
+export default {
+  data() {
+    return {
+      tableData: [],
+      burl:decodeURIComponent(getQueryVariable('url')),  // 请求地址
+    };
+  },
+  props: ["url"],
+  methods: {},
+  mounted() {
+    console.log(this.burl);
+    console.log(this.logurl);
+    if (this.url) {
+      this.logurl = this.url;
+    }
+    axios
+      .get(this.burl+'heroku',{withCredentials:true})
+      .then(response => {
+        // console.log(response.data.data);
+        this.tableData = response.data.data;
+      })
+      .catch(error => {
+        console.log(error);
+        console.log('ddd');
+        window.location.href = this.logurl+'login?URL='+window.btoa(window.location.href);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
+  }
+};
+</script>
+<style scoped>
+/* #box {
+  width: 400px;
+} */
+.title-span {
+  float: left;
+  /* text-align: left; */
+  background-color: #939393;
+  color: #2d2d30;
+  /* width: 180px; */
+  display: inline;
+  padding: 2px 10px;
+  font-weight: 900;
+  font-size: 14px;
+  border-radius: 2px;
+  margin: 0 0 0 10px;
+}
+#box >>> .el-table,
+#box >>> .el-table__expanded-cell {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#box >>> tr,
+#box >>> th {
+  background-color: rgba(255, 255, 255, 0);
+}
+#box >>> .el-table td,
+#box >>> .el-table th.is-leaf {
+  padding: 2px 0;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+#box >>> .el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: #f5f7fa1f;
+}
+#box >>> .el-table--striped .el-table__body tr.el-table__row--striped td {
+  background-color: #2d2d30;
+}
+#box >>> .el-table--striped .el-table__body tr.el-table__row--striped:hover td {
+  background-color: #f5f7fa1f;
+}
+#box >>> .el-table::before {
+  display: none;
+}
+#box >>> .warning-row {
+  background-color: #ff5722 !important;
+}
+#box >>> .el-table--striped .el-table__body tr.warning-row td {
+  background-color: #ff7950ca !important;
+}
+#box >>> .el-table--striped .el-table__body tr.warning-row:hover td {
+  background-color: #ff5722 !important;
+}
+#box >>> .success-row {
+  background-color: #f0f9eb !important;
+}
+#box >>> ::-webkit-scrollbar {
+  width: 0.45em;
+  height: 0.25em;
+  position: absolute;
+}
+
+#box >>> ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#box >>> ::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+</style>
