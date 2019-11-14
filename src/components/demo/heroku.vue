@@ -1,10 +1,8 @@
 <template>
   <div id="box">
-    <div v-if="$slots.default">
-      <span class="title-span">
-        <slot></slot>
-      </span>
-    </div>
+    <a :href="clear_url">
+      <span class="title-span">刷新</span>
+    </a>
     <el-table :data="tableData" stripe style="width: 100%">
       <el-table-column sortable prop="name" label="name" width="180"></el-table-column>
       <el-table-column sortable prop="buildpack_provided_description" label="类型" width="75"></el-table-column>
@@ -23,42 +21,45 @@
 import axios from "axios";
 
 // 从URL传参或值
-function getQueryVariable(variable)
-{
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    if (pair[0] == variable) {
+      return pair[1];
+    }
+  }
+  return false;
 }
 
 export default {
   data() {
     return {
       tableData: [],
-      burl:decodeURIComponent(getQueryVariable('url')),  // 请求地址
+      burl: decodeURIComponent(getQueryVariable("url")), // 请求地址
+      clear_url:
+        decodeURIComponent(getQueryVariable("url")) + "heroku/clear_cache"
     };
   },
   props: ["url"],
   methods: {},
   mounted() {
-    console.log(this.burl);
-    console.log(this.logurl);
+    console.log('Api',this.burl);
     if (this.url) {
-      this.logurl = this.url;
+      this.burl = this.url;
     }
     axios
-      .get(this.burl+'heroku',{withCredentials:true})
+      .get(this.burl + "heroku", { withCredentials: true })
       .then(response => {
         // console.log(response.data.data);
         this.tableData = response.data.data;
       })
       .catch(error => {
         console.log(error);
-        console.log('ddd');
-        window.location.href = this.logurl+'login?URL='+window.btoa(window.location.href);
+        console.log("ddd");
+        window.location.href =
+          this.burl + "login?URL=" + window.btoa(window.location.href);
         this.errored = true;
       })
       .finally(() => (this.loading = false));
@@ -66,15 +67,10 @@ export default {
 };
 </script>
 <style scoped>
-/* #box {
-  width: 400px;
-} */
 .title-span {
   float: left;
-  /* text-align: left; */
   background-color: #939393;
   color: #2d2d30;
-  /* width: 180px; */
   display: inline;
   padding: 2px 10px;
   font-weight: 900;
