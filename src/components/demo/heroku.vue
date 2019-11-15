@@ -6,14 +6,25 @@
     <el-table :data="tableData" stripe style="width: 100%">
       <el-table-column sortable prop="name" label="name" width="180"></el-table-column>
       <el-table-column sortable prop="buildpack_provided_description" label="类型" width="75"></el-table-column>
-      <el-table-column sortable prop="region" label="地区" width="75"></el-table-column>
-      <el-table-column sortable prop="web_url" label="web_url" width="350"></el-table-column>
-      <el-table-column sortable prop="slug_size" label="代码量" align="right"></el-table-column>
-      <el-table-column sortable prop="stack" label="stack" align="right"></el-table-column>
-      <el-table-column sortable prop="email" label="email" align="right"></el-table-column>
-      <el-table-column sortable prop="created_at" label="创建时间" align="right"></el-table-column>
-      <el-table-column sortable prop="released_at" label="释放时间" align="right"></el-table-column>
-      <el-table-column sortable prop="updated_at" label="更新时间" align="right"></el-table-column>
+      <el-table-column sortable prop="region" label="地区" align="center" width="70"></el-table-column>
+      <el-table-column sortable prop="web_url" label="web_url" :show-overflow-tooltip="true"></el-table-column>
+      <el-table-column sortable prop="slug_size" label="代码量" align="right" width="100">
+        <template scope="scope">{{scope.row.slug_size | btom}}</template>
+      </el-table-column>
+      <el-table-column sortable prop="stack" label="stack" align="right" :show-overflow-tooltip="true"></el-table-column>
+      <el-table-column sortable prop="email" label="email" align="right" :show-overflow-tooltip="true"></el-table-column>
+      <el-table-column sortable prop="app_used" label="当前" align="center" width="70">
+        <template scope="scope">{{scope.row.app_used | stoh}}</template>
+      </el-table-column>
+      <el-table-column sortable prop="quota_used" label="使用" align="center" width="70">
+        <template scope="scope">{{scope.row.quota_used | stoh}}</template>
+      </el-table-column>
+      <el-table-column sortable prop="account_quota" label="所有" align="center" width="70">
+        <template scope="scope">{{scope.row.account_quota | stoh}}</template>
+      </el-table-column>
+      <el-table-column sortable prop="created_at" label="创建时间" align="right" :show-overflow-tooltip="true"></el-table-column>
+      <el-table-column sortable prop="released_at" label="释放时间" align="right" :show-overflow-tooltip="true"></el-table-column>
+      <el-table-column sortable prop="updated_at" label="更新时间" align="right" :show-overflow-tooltip="true"></el-table-column>
     </el-table>
   </div>
 </template>
@@ -33,6 +44,16 @@ function getQueryVariable(variable) {
   return false;
 }
 
+//功能：将浮点数四舍五入，取小数点后2位
+function toDecimal(x) {
+  var f = parseFloat(x);
+  if (isNaN(f)) {
+    return;
+  }
+  f = Math.round(x * 100) / 100;
+  return f;
+}
+
 export default {
   data() {
     return {
@@ -43,9 +64,25 @@ export default {
     };
   },
   props: ["url"],
+  filters: {
+    stoh: function(s) {
+      if (s) {
+        return toDecimal(s / 3600) + "h";
+      } else {
+        return s;
+      }
+    },
+    btom: function(s) {
+            if (s) {
+      return toDecimal((s/1024)/1024)+"m";
+      } else {
+        return s;
+      }
+    }
+  },
   methods: {},
   mounted() {
-    console.log('Api',this.burl);
+    console.log("Api", this.burl);
     if (this.url) {
       this.burl = this.url;
     }
