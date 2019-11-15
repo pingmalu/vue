@@ -3,7 +3,16 @@
     <a :href="clear_url">
       <span class="title-span">刷新</span>
     </a>
-    <el-table :data="tableData" stripe style="width: 100%" :row-class-name="rowClassName">
+    <el-table
+      :data="tableData"
+      stripe
+      style="width: 100%"
+      :row-class-name="rowClassName"
+      v-loading="loading"
+      element-loading-text="Loading..."
+      element-loading-spinner="el-icon-loading"
+      element-loading-background="rgba(0, 0, 0, 0.8)"
+    >
       <el-table-column sortable prop="name" label="name" width="180">
         <!-- <template scope="scope"><span :class="scope.row.state">{{scope.row.name}}</span></template> -->
       </el-table-column>
@@ -90,6 +99,7 @@ export default {
   data() {
     return {
       tableData: [],
+      loading: true,
       burl: decodeURIComponent(getQueryVariable("url")), // 请求地址
       clear_url:
         decodeURIComponent(getQueryVariable("url")) + "heroku/clear_cache"
@@ -127,6 +137,7 @@ export default {
       .then(response => {
         // console.log(response.data.data);
         this.tableData = response.data.data;
+        // this.loading = false;
       })
       .catch(error => {
         console.log(error);
