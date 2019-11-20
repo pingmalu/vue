@@ -1,6 +1,6 @@
 <template>
   <div id="box">
-    <a :href="clear_url">
+    <a :href="clear_url" @click="needrenewf()">
       <span class="title-span">刷新</span>
     </a>
     <el-table
@@ -102,7 +102,8 @@ export default {
       loading: true,
       burl: decodeURIComponent(getQueryVariable("url")), // 请求地址
       clear_url:
-        decodeURIComponent(getQueryVariable("url")) + "heroku/clear_cache"
+        decodeURIComponent(getQueryVariable("url")) + "heroku/clear_cache",
+      needrenew: localStorage.heroku_needrenew
     };
   },
   props: ["url"],
@@ -125,15 +126,42 @@ export default {
   methods: {
     rowClassName: function(row) {
       return row.row.state;
+    },
+    needrenewf: function() {
+      console.log("needrenew");
+      localStorage.heroku_needrenew = true;
     }
   },
   mounted() {
     console.log("Api", this.burl);
+    // localStorage.heroku_needrenew = true;
+    console.log(typeof(this.needrenew));
     if (this.url) {
       this.burl = this.url;
     }
+
+    var getopt = { withCredentials: true };
+
+    if (this.needrenew!='false') {
+      var boj = {
+        "Cache-Control": "no-cache"
+      };
+      getopt.headers = { ...getopt.headers, ...boj };
+    }
+    // console.log(getopt);
+    // return;
+
+    // axios.defaults.withCredentials = true;
     axios
-      .get(this.burl + "heroku", { withCredentials: true })
+      // .create({
+      //   headers: {
+      //     // 'Cache-Control': 'no-cache',
+      //     // 'token' : 'erblbo2h87vh490uk94ul35du5',
+      //     'Content-Type': 'application/json; charset=utf-8',
+      //   },
+      //   withCredentials: true
+      // })
+      .get(this.burl + "heroku", getopt)
       .then(response => {
         // console.log(response.data.data);
         this.tableData = response.data.data;
@@ -146,7 +174,10 @@ export default {
           this.burl + "login?URL=" + window.btoa(window.location.href);
         this.errored = true;
       })
-      .finally(() => (this.loading = false));
+      .finally(() => {
+        this.loading = false;
+        localStorage.heroku_needrenew = false;
+      });
   }
 };
 </script>
