@@ -20,7 +20,7 @@
       <el-table-column sortable prop="region" label="地区" align="center" width="70"></el-table-column>
       <el-table-column sortable prop="web_url" label="web_url" :show-overflow-tooltip="true"></el-table-column>
       <el-table-column sortable prop="slug_size" label="代码量" align="right" width="100">
-        <template scope="scope">{{scope.row.slug_size | btom}}</template>
+        <template slot-scope="scope">{{scope.row.slug_size | btom}}</template>
       </el-table-column>
       <el-table-column
         sortable
@@ -37,13 +37,13 @@
         :show-overflow-tooltip="true"
       ></el-table-column>
       <el-table-column sortable prop="app_used" label="当前" align="center" width="70">
-        <template scope="scope">{{scope.row.app_used | stoh}}</template>
+        <template slot-scope="scope">{{scope.row.app_used | stoh}}</template>
       </el-table-column>
       <el-table-column sortable prop="quota_used" label="使用" align="center" width="70">
-        <template scope="scope">{{scope.row.quota_used | stoh}}</template>
+        <template slot-scope="scope">{{scope.row.quota_used | stoh}}</template>
       </el-table-column>
       <el-table-column sortable prop="account_quota" label="所有" align="center" width="70">
-        <template scope="scope">{{scope.row.account_quota | stoh}}</template>
+        <template slot-scope="scope">{{scope.row.account_quota | stoh}}</template>
       </el-table-column>
       <el-table-column
         sortable
@@ -135,7 +135,7 @@ export default {
   mounted() {
     console.log("Api", this.burl);
     // localStorage.heroku_needrenew = true;
-    console.log(typeof(this.needrenew));
+    // console.log(typeof(this.needrenew));
     if (this.url) {
       this.burl = this.url;
     }

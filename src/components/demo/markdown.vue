@@ -97,11 +97,11 @@ export default {
   mounted() {
     if (this.id) {
       // 进入详情页
-      console.log("进入详情页" + this.id);
+      // console.log("进入详情页" + this.id);
       this.drawit();
     } else {
       // 列表页
-      console.log("列表页");
+      // console.log("列表页");
       this.drawlist();
     }
   }

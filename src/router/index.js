@@ -80,7 +80,7 @@ routes_arr.add('heroku');
 routes_arr.add('markdown');
 routes[routes.length] = {
   path: '/markdown/:id',
-  name: 'markdown',
+  name: 'markdownid',
   component: require('@/components/demo/markdown').default,
   meta: {
     title: 'markdown'
