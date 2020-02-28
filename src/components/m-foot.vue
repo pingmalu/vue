@@ -1,7 +1,7 @@
 <template>
   <div id="malukepfoot">
-    Copyright © 2010-2019
-    <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备15011663</a> |
+    Copyright © 2010-2020
+    <a href="http://www.beian.miit.gov.cn/" target="_blank">苏ICP备15011663号</a> |
     <a href="http://cdn.malu.me/map/">访问分布</a> |
     <a href="http://cdn.malu.me/mon/">监控</a> |
     <a href="http://cdn.malu.me/searchmap/">爬虫</a> |
