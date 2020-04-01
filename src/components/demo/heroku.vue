@@ -3,6 +3,17 @@
     <a :href="clear_url" @click="needrenewf()">
       <span class="title-span">刷新</span>
     </a>
+    <textarea
+      id="text"
+      name="c"
+      rows="1"
+      cols="150"
+      @keypress="handleKeyCode($event)"
+      v-model="text"
+    ></textarea>
+    <button id="send" @click="get_text()">Send</button>
+    <input id="tag" v-model="tag" />
+    <pre id="pre"></pre>
     <el-table
       :data="tableData"
       stripe
@@ -12,6 +23,7 @@
       element-loading-text="Loading..."
       element-loading-spinner="el-icon-loading"
       element-loading-background="rgba(0, 0, 0, 0.8)"
+      @cell-click="showinfo"
     >
       <el-table-column sortable prop="name" label="name" width="180">
         <!-- <template scope="scope"><span :class="scope.row.state">{{scope.row.name}}</span></template> -->
@@ -72,6 +84,8 @@
 <script>
 import axios from "axios";
 
+// var text = document.getElementById("text");
+
 // 从URL传参或值
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
@@ -103,7 +117,9 @@ export default {
       burl: decodeURIComponent(getQueryVariable("url")), // 请求地址
       clear_url:
         decodeURIComponent(getQueryVariable("url")) + "heroku/clear_cache",
-      needrenew: localStorage.heroku_needrenew
+      needrenew: localStorage.heroku_needrenew,
+      text: "",
+      tag: ""
     };
   },
   props: ["url"],
@@ -130,6 +146,68 @@ export default {
     needrenewf: function() {
       console.log("needrenew");
       localStorage.heroku_needrenew = true;
+    },
+    showinfo(row, column, event, cell) {
+      console.log(row);
+      console.log(column);
+      console.log(event);
+      console.log(cell);
+      switch (column.property) {
+        case "name":
+          this.text =
+            "echo 'machine api.heroku.com password " +
+            row.token +
+            "'>.netrc && heroku logs -a " +
+            row.name;
+          break;
+        case "buildpack_provided_description":
+          this.text =
+            "echo 'machine api.heroku.com password " +
+            row.token +
+            "'>.netrc && heroku " +
+            this.tag +
+            " -a " +
+            row.name;
+          break;
+        case "email":
+          this.text =
+            "echo 'machine api.heroku.com password " +
+            row.token +
+            "'>.netrc && heroku apps";
+          break;
+        case "slug_size":
+          console.log("ssh://git@heroku.com/" + row.name + ".git");
+          break;
+        default:
+          break;
+      }
+      console.log(this.text);
+    },
+    handleKeyCode: function(event) {
+      console.log(event);
+      if (event.keyCode == 13 && !event.shiftKey) {
+        event.preventDefault();
+        this.get_text();
+      }
+    },
+    get_text() {
+      console.log(text.value);
+
+      var data = text.value;
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function() {
+        if (this.readyState === 4) {
+          console.log(this.responseText);
+          document.getElementById("pre").innerText = this.responseText;
+        }
+      });
+
+      xhr.open("POST", "https://heroku-m1.herokuapp.com/heroku/manage");
+
+      xhr.send(data);
     }
   },
   mounted() {
@@ -142,7 +220,7 @@ export default {
 
     var getopt = { withCredentials: true };
 
-    if (this.needrenew!='false') {
+    if (this.needrenew != "false") {
       var boj = {
         "Cache-Control": "no-cache"
       };
@@ -254,5 +332,49 @@ export default {
 }
 #box >>> tr.empty {
   color: #858585;
+}
+
+button#send {
+  padding: 3px;
+  margin: 0;
+  font-size: 15px;
+  color: #bdbdbd;
+  height: 23px;
+  width: 70px;
+  background-color: #262629;
+  cursor: pointer;
+  border: 1px solid #acacac;
+  float: left;
+}
+
+textarea#text {
+  height: 17px;
+  float: left;
+  background: #262629;
+  color: aliceblue;
+  margin: 0 5px;
+}
+
+input#tag {
+  background: #262629;
+  color: aliceblue;
+  border: 1px solid #acacac;
+  float: left;
+  height: 19px;
+  padding: 1px 5px;
+  margin: 0 5px;
+}
+
+#text:focus,
+#send:focus,
+#tag:focus {
+  outline: 0;
+  color: #17c57d;
+  border-color: #65c89f;
+}
+
+pre#pre {
+  display: flex;
+  padding: 0 4px;
 }
 </style>
