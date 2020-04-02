@@ -14,13 +14,19 @@
     ></textarea>
     <!-- <button id="send" @click="get_text()">Send</button> -->
     <a id="send" @click="get_text()">
-      <span class="title-span">Send</span>
+      <span class="title-span">{{btn_text}}</span>
+    </a>
+    <a @click="clear()">
+      <span class="title-span">Clear</span>
     </a>
     <input id="tag" v-model="tag" />
     <a href="https://heroku-m1.herokuapp.com/heroku/manage" target="_blank">
       <span class="title-span">登录</span>
     </a>
-    <textarea id="pre" cols="160"></textarea>
+    <a href="https://devcenter.heroku.com/articles/heroku-cli-commands" target="_blank">
+      <span class="title-span">Help</span>
+    </a>
+    <textarea id="pre" cols="160" v-show="pre_text" v-model="pre_text"></textarea>
     <el-table
       :data="tableData"
       stripe
@@ -127,7 +133,9 @@ export default {
       needrenew: localStorage.heroku_needrenew,
       text: "",
       tag: "",
-      pending: ""
+      pending: "",
+      pre_text: "",
+      btn_text: "Send"
     };
   },
   props: ["url"],
@@ -208,7 +216,9 @@ export default {
 
       // 把内容清空并把命令设置成黄色
       this.pending = "pending";
-      document.getElementById("pre").innerHTML = "";
+      // document.getElementById("pre").innerHTML = "";
+      this.pre_text = "";
+      this.btn_text = "........";
 
       // this对象传递给匿名函数
       var _this = this;
@@ -217,11 +227,16 @@ export default {
         if (this.readyState === 4) {
           _this.pending = "";
           console.log(this.responseText);
-          if (this.responseText) {
-            document.getElementById("pre").innerHTML = this.responseText;
+          if (this.status == 200) {
+            // document.getElementById("pre").innerHTML = this.responseText;
+            _this.pre_text = this.responseText ? this.responseText : "null";
+          } else if (this.status == 0) {
+            _this.pre_text = "Need login";
           } else {
-            document.getElementById("pre").innerHTML = "error";
+            _this.pre_text = "error: " + this.status;
+            // document.getElementById("pre").innerHTML = "error";
           }
+          _this.btn_text = "Send";
         }
         // console.log(this.readyState);
         // }else{
@@ -231,6 +246,10 @@ export default {
       xhr.open("POST", "https://heroku-m1.herokuapp.com/heroku/manage");
 
       xhr.send(data);
+    },
+    clear() {
+      this.text = "";
+      this.pre_text = "";
     }
   },
   mounted() {
@@ -391,11 +410,13 @@ input#tag {
 
 #text:focus,
 #send:focus,
-#tag:focus,
-#pre:focus {
+#tag:focus {
   outline: 0;
   color: #17c57d;
   border-color: #65c89f;
+}
+#pre:focus {
+  color: #6a9e89;
 }
 #pre {
   padding: 0;
@@ -412,7 +433,7 @@ input#tag {
   display: block;
   margin-top: 10px;
   background: #323232;
-  color: aliceblue;
+  color: #b6b7b7;
 }
 .pending {
   color: yellow !important;
