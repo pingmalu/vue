@@ -10,10 +10,17 @@
       cols="150"
       @keypress="handleKeyCode($event)"
       v-model="text"
+      :class="[pending]"
     ></textarea>
-    <button id="send" @click="get_text()">Send</button>
+    <!-- <button id="send" @click="get_text()">Send</button> -->
+    <a id="send" @click="get_text()">
+      <span class="title-span">Send</span>
+    </a>
     <input id="tag" v-model="tag" />
-    <pre id="pre"></pre>
+    <a href="https://heroku-m1.herokuapp.com/heroku/manage" target="_blank">
+      <span class="title-span">登录</span>
+    </a>
+    <textarea id="pre" cols="160"></textarea>
     <el-table
       :data="tableData"
       stripe
@@ -119,7 +126,8 @@ export default {
         decodeURIComponent(getQueryVariable("url")) + "heroku/clear_cache",
       needrenew: localStorage.heroku_needrenew,
       text: "",
-      tag: ""
+      tag: "",
+      pending: ""
     };
   },
   props: ["url"],
@@ -198,11 +206,26 @@ export default {
       var xhr = new XMLHttpRequest();
       xhr.withCredentials = true;
 
+      // 把内容清空并把命令设置成黄色
+      this.pending = "pending";
+      document.getElementById("pre").innerHTML = "";
+
+      // this对象传递给匿名函数
+      var _this = this;
+
       xhr.addEventListener("readystatechange", function() {
         if (this.readyState === 4) {
+          _this.pending = "";
           console.log(this.responseText);
-          document.getElementById("pre").innerText = this.responseText;
+          if (this.responseText) {
+            document.getElementById("pre").innerHTML = this.responseText;
+          } else {
+            document.getElementById("pre").innerHTML = "error";
+          }
         }
+        // console.log(this.readyState);
+        // }else{
+        // }
       });
 
       xhr.open("POST", "https://heroku-m1.herokuapp.com/heroku/manage");
@@ -353,6 +376,7 @@ textarea#text {
   background: #262629;
   color: aliceblue;
   margin: 0 5px;
+  min-height: 17px;
 }
 
 input#tag {
@@ -367,14 +391,33 @@ input#tag {
 
 #text:focus,
 #send:focus,
-#tag:focus {
+#tag:focus,
+#pre:focus {
   outline: 0;
   color: #17c57d;
   border-color: #65c89f;
 }
-
-pre#pre {
-  display: flex;
-  padding: 0 4px;
+#pre {
+  padding: 0;
+  text-align: left;
+  float: left;
+  /* width: 100%; */
+  /* left: 0px; */
+  /* right: 0px; */
+  /* margin: 10px; */
+  border: none;
+  min-width: 500px;
+  min-height: 100px;
+  /* top: 10px; */
+  display: block;
+  margin-top: 10px;
+  background: #323232;
+  color: aliceblue;
+}
+.pending {
+  color: yellow !important;
+}
+a:hover {
+  cursor: pointer;
 }
 </style>
