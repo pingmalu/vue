@@ -77,11 +77,11 @@
         align="right"
         :show-overflow-tooltip="true"
       >
-        <template slot-scope="scope">
+        <!-- <template slot-scope="scope">
           <el-popover trigger="hover" placement="top" close-delay="0" width="100" content="添加">
             <div slot="reference">{{scope.row.created_at}}</div>
           </el-popover>
-        </template>
+        </template>-->
       </el-table-column>
       <el-table-column
         sortable
@@ -182,6 +182,13 @@ export default {
             "'>.netrc && heroku logs -a " +
             row.name;
           break;
+        case "updated_at":
+          this.text =
+            "echo 'machine api.heroku.com password " +
+            row.token +
+            "'>.netrc && heroku logs -a " +
+            row.name;
+          break;
         case "name":
           this.text =
             "echo 'machine api.heroku.com password " +
@@ -191,7 +198,7 @@ export default {
             " -a " +
             row.name;
           break;
-        case "email":
+        case "region":
           this.text =
             "echo 'machine api.heroku.com password " +
             row.token +
@@ -201,6 +208,15 @@ export default {
           this.text = "ssh://git@heroku.com/" + row.name + ".git";
           break;
         case "created_at":
+          this.text =
+            "echo 'machine api.heroku.com password " +
+            row.token +
+            "'>.netrc && heroku apps:create " +
+            this.tag +
+            " && heroku access:add malu@malu.me -a " +
+            this.tag;
+          break;
+        case "email":
           this.text =
             "echo 'machine api.heroku.com password " +
             row.token +
