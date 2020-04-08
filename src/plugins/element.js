@@ -26,7 +26,8 @@ import {
   Upload,
   Input,
   Select,
-  Option
+  Option,
+  Popover
 } from 'element-ui'
 
 Vue.use(Button);
@@ -50,3 +51,4 @@ Vue.use(Upload);
 Vue.use(Input);
 Vue.use(Select);
 Vue.use(Option);
+Vue.use(Popover);

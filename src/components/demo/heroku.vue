@@ -76,7 +76,13 @@
         label="创建时间"
         align="right"
         :show-overflow-tooltip="true"
-      ></el-table-column>
+      >
+        <template slot-scope="scope">
+          <el-popover trigger="hover" placement="top" close-delay="0" width="100" content="添加">
+            <div slot="reference">{{scope.row.created_at}}</div>
+          </el-popover>
+        </template>
+      </el-table-column>
       <el-table-column
         sortable
         prop="released_at"
@@ -169,14 +175,14 @@ export default {
       console.log(event);
       console.log(cell);
       switch (column.property) {
-        case "name":
+        case "buildpack_provided_description":
           this.text =
             "echo 'machine api.heroku.com password " +
             row.token +
             "'>.netrc && heroku logs -a " +
             row.name;
           break;
-        case "buildpack_provided_description":
+        case "name":
           this.text =
             "echo 'machine api.heroku.com password " +
             row.token +
@@ -191,13 +197,36 @@ export default {
             row.token +
             "'>.netrc && heroku apps";
           break;
-        case "slug_size":
-          console.log("ssh://git@heroku.com/" + row.name + ".git");
+        case "web_url":
+          this.text = "ssh://git@heroku.com/" + row.name + ".git";
+          break;
+        case "created_at":
+          this.text =
+            "echo 'machine api.heroku.com password " +
+            row.token +
+            "'>.netrc && heroku apps:create " +
+            this.tag +
+            " && heroku access:add malu@malu.me -a " +
+            this.tag;
+          break;
+        case "released_at":
+          this.text =
+            "echo 'machine api.heroku.com password " +
+            row.token +
+            "'>.netrc && heroku apps:destroy -a " +
+            row.name;
+          break;
+        case "stack":
+          this.text =
+            "echo 'machine api.heroku.com password " +
+            row.token +
+            "'>.netrc && heroku apps:stacks -a " +
+            row.name;
           break;
         default:
           break;
       }
-      console.log(this.text);
+      // console.log(this.text);
     },
     handleKeyCode: function(event) {
       console.log(event);
