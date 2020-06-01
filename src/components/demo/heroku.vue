@@ -1,3 +1,4 @@
+// 本地测试地址： http://localhost:8080/heroku?url=http%3A%2F%2Fcloud.localhost%2FSAE%2Fxlmusic%2F3%2F
 <template>
   <div id="box">
     <a :href="clear_url" @click="needrenewf()">
