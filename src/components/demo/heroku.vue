@@ -239,6 +239,16 @@ export default {
             "'>.netrc && heroku apps:stacks -a " +
             row.name;
           break;
+        case "slug_size":
+          this.text =
+            "https://" +
+            row.email.replace(/@/,"%40") +
+            ":" +
+            row.token +
+            "@git.heroku.com/" +
+            row.name +
+            ".git";
+          break;
         default:
           break;
       }
